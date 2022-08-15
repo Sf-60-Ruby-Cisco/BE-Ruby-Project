@@ -1,18 +1,45 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :login
-    br
-    = f.text_field :login, autofocus: true
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-6.text-black
+        .px-5.ms-xl-4
+        div[style="position:relative; left:150px; top:2px;"]
+          h1[style="font-family: 'Times New Roman', serif,"]
+            | Login to Car Diary
+          p
+            | You have to be login to use the full functionality
+        .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+          form[style="width: 23rem;"]
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            
+          div[style="position:relative; left:150px; top:2px;"]
+            br            
+            = f.text_field :login, autofocus: true, :size=>"50", placeholder: "Email address or Username", :maxlength=>"254"
+            br
+            br
+            = f.password_field :password, autocomplete: "current-password", :size=>"50", placeholder: "Password", :maxlength=>"254"
+          - if devise_mapping.rememberable?
+            .field
+            div[style="position:relative; left:150px; top:2px;"]
+              = f.check_box :remember_me
+              = f.label :remember_me          
+              br
+              br
+              button.btn.btn-primary.btn-lg[type="submit"]
+                | Login
+              br 
+              br
+              br
+      
+              p.small.mb-7.pb-lg-
+                  a.text-muted[href= new_user_password_path]
+                    | Forgot password?
+              p
+                | Don't have an account? 
+                a.link-info[href= new_user_registration_path]
+                  | Register here
+      .col-sm-6.px-0.d-none.d-sm-block
+        / img.w-100.vh-100[img src="login.jpg" alt="Login image" style="object-fit: inline; object-position: right;"]
+        
+        = image_tag("login.jpg", height: '830', width: '950')

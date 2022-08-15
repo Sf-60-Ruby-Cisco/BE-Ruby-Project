@@ -1,0 +1,21 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+
+  button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    span.navbar-toggler-icon
+
+  .collapse.navbar-collapse#navbarSupportedContent
+    ul.navbar-nav.mr-auto
+      li.nav-item.dropdown
+        li= link_to "Car Diary", root_path, class:"nav-link"
+      
+        li= link_to 'About',root_path, class:"nav-link"
+      
+        li= link_to 'Add Car',root_path, class:"nav-link"
+    
+        li= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link"
+      
+        li= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"nav-link"
+
+
+
+        
