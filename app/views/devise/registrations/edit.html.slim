@@ -1,48 +1,66 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :picture
-    = f.rich_text_area :content, value: " "
-  .field
-    = f.label :username
-    br
-    = f.text_field :username, autofocus: true
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-  i
-    | (leave blank if you don't want to change it)
-  br
-  = f.password_field :password, autocomplete: "new-password"
-  - if @minimum_password_length
-    br
-    em
-      = @minimum_password_length
-      |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-  i
-    | (we need your current password to confirm your changes)
-  br
-  = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-5.text-black
+        .px-5.ms-xl-4
+        div[style="position:relative; left:150px; top:2px;"]
+          h1[style="font-family: 'Times New Roman', serif,"]
+            | Edit profile
+        .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+          form[style="width: 23rem;"]
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+          div[style="position:relative; left:150px; top:2px; width: 560px"]
+           
+            = f.rich_text_area :content, value: " ", placeholder: "Attach profile picture"
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+           
+            br
+            = f.text_field :username, autofocus: true, autofocus: true, :size=>"50", placeholder: "Username", :maxlength=>"254"
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+           
+            br
+            = f.email_field :email, autofocus: true, autocomplete: "email", autofocus: true, :size=>"50", placeholder: "Email", :maxlength=>"254"
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+            div[style="position:relative; left:150px; top:2px;"]
+              
+              = resource.unconfirmed_email
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            
+          
+          div[style="position:relative; left:150px; top:2px;"]
+            
+            br
+            = f.password_field :password, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "New password", :maxlength=>"254"
+            - if @minimum_password_length
+              br
+              em
+                = @minimum_password_length
+                |  characters minimum
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            br
+            = f.password_field :password_confirmation, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "Confirm password", :maxlength=>"254"
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            br
+          div[style="position:relative; left:150px; top:2px;"]
+         
+            = f.password_field :current_password, autocomplete: "current-password", autofocus: true, :size=>"50", placeholder: "enter password to confirm changes", :maxlength=>"254"
+            .actions
+              br
+              button.btn.btn-primary.btn-lg[type="Submit", style="width:300px;height:40px;"]
+                | Update
+              br 
+        div[style="position:relative; left:150px; top:2px;"]
+          p
+            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, style: "color:#FF0000; width:300px;height:40px;"
+          
+
+      .col-sm-2.px-0.d-none.d-sm-block
+        
+        = image_tag("editprofile.jpg", height: '830', width: '1120')

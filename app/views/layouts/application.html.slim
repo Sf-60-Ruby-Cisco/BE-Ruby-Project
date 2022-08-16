@@ -14,7 +14,7 @@ html
 
   body    
     - if current_page?(root_path)  || current_page?(edit_user_registration_path)
-      = render 'home/header'
+      = render 'devise/shared/header'
     = notice 
     = alert          
     = yield

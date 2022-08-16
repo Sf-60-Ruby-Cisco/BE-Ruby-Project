@@ -1,12 +1,14 @@
-h2
-   | Welcome 
-   = current_user.username
+body.home
+  div[style="position:fixed; left:860px; top:100 px;"]
+    h2
+      | Welcome 
+      = current_user.username
 
 
-div[style="position:fixed; left:10px; top:250px;"]
-  == current_user.content
-div[style="position:fixed; left:500px; top:250px;"]
-  = image_tag("UnderConstruction.jpg", height: '400', width: '950')
+  / div[style="position:fixed; left:10px; top:250px;"]
+  /   == current_user.content
+  / div[style="position:fixed; left:500px; top:250px;"]
+  /   = image_tag("UnderConstruction.jpg", height: '400', width: '950')
 
 
 
