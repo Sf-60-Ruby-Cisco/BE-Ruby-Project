@@ -64,7 +64,7 @@ section.vh-100
               br 
         div[style="position:relative; left:150px; top:2px;"]
           p
-            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-outline-danger"
+            = button_to "Cancel my account", registration_path(resource), :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-outline-danger"
           
 
       .col-sm-2.px-0.d-none.d-sm-block

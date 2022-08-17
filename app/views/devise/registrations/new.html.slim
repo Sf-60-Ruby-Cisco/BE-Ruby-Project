@@ -1,28 +1,59 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :username
-    br
-    = f.text_field :username, autofocus: true
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-6.text-black
+        .px-5.ms-xl-4
+        div[style="position:relative; left:150px; top:2px;"]
+          h1[style="font-size: 2vw;"]
+            | Create new account
+        .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+          form[style="width: 23rem;"]
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            br
+          div[style="position:relative; left:150px; top:2px;"]
+            br
+            = f.text_field :username, autofocus: true, :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Username", :maxlength=>"254"
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            
+            br
+            = f.email_field :email, autocomplete: "email", autofocus: true, :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Email address", :maxlength=>"254"
+          .field
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            
+            - if @minimum_password_length
+              em[style="font-size: 1vw;"]
+                | (
+                = @minimum_password_length
+                |  characters minimum)
+            br
+          div[style="position:relative; left:150px; top:2px;"]
+            = f.password_field :password, autocomplete: "new-password", :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Password", :maxlength=>"254"
+          - if devise_mapping.rememberable?
+          .field
+          div[style="position:relative; left:150px; top:2px;"]
+            
+            br
+          
+            = f.password_field :password_confirmation, autocomplete: "new-password", :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Confirm password", :maxlength=>"254"
+          - if devise_mapping.rememberable?
+          .actions
+            br
+          div[style="position:relative; left:150px; top:2px;"]
+            button.btn.btn-outline-primary.btn-lg[type="Submit"]               
+              | Submit
+            br
+            br
+           
+            p[style="font-size: 1.5vw;"] 
+                  | Already have an account? 
+                  a.link-info[href= new_user_session_path]
+                    | Login
+
+      .col-sm-6.px-0.d-none.d-sm-block      
+      
+        = image_tag("signup.jpg", class: "img-fluid", style: 'height:150%; width:1200px;')
