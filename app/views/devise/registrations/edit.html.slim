@@ -4,11 +4,11 @@ section.vh-100
       .col-sm-12.col-lg-4
         .px-5.ms-xl-4
         div[style="position:relative; left:150px; top:2px;"]
-          h2
+          h2[style="font-size: 2vw;"]          
             | Hello 
             = current_user.username
 
-          h1[style="font-family: 'Times New Roman', serif,"]
+          h1[style= "font-size: 3vw;"]
             | Edit your profile
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form[style="width: 23rem;"]
@@ -17,17 +17,17 @@ section.vh-100
           .field
           div[style="position:relative; left:150px; top:2px; width: 465px"]
             
-            = f.rich_text_area :content, value: " ", placeholder: "Attach profile picture",class: 'form-control-sm'
+            = f.rich_text_area :content, value: " ", placeholder: "Attach profile picture",class: "col-sm-5 col-form-label"
           .field
           div[style="position:relative; left:150px; top:2px;"]
            
             br
-            = f.text_field :username, autofocus: true, autofocus: true, :size=>"50", placeholder: "Username", :maxlength=>"254", class: 'form-control-sm'
+            = f.text_field :username, autofocus: true, autofocus: true, :size=>"50", placeholder: "Username", :maxlength=>"254", class: "col-sm-4 col-form-label"
           .field
           div[style="position:relative; left:150px; top:2px;"]
            
             br
-            = f.email_field :email, autofocus: true, autocomplete: "email", autofocus: true, :size=>"50", placeholder: "Email", :maxlength=>"254", class: 'form-control-sm'
+            = f.email_field :email, autofocus: true, autocomplete: "email", autofocus: true, :size=>"50", placeholder: "Email", :maxlength=>"254", class: "col-sm-4 col-form-label"
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             div[style="position:relative; left:150px; top:2px;"]
               
@@ -40,31 +40,31 @@ section.vh-100
             
             br
             
-            = f.password_field :password, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "New password", :maxlength=>"254", class: 'form-control-sm'
+            = f.password_field :password, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "New password", :maxlength=>"254", class: "col-sm-4 col-form-label"
             - if @minimum_password_length
               br
-              em
+              em[style="font-size: 1vw;"]
+               
                 = @minimum_password_length
                 |  characters minimum
           .field
           div[style="position:relative; left:150px; top:2px;"]
             br
-            = f.password_field :password_confirmation, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "Confirm password", :maxlength=>"254",class: 'form-control-sm'
+            = f.password_field :password_confirmation, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "Confirm password", :maxlength=>"254",class: "col-sm-4 col-form-label"
           .field
           div[style="position:relative; left:150px; top:2px;"]
             br
           div[style="position:relative; left:150px; top:2px;"]
          
-            = f.password_field :current_password, autocomplete: "current-password", autofocus: true, :size=>"50", placeholder: "enter password to confirm changes", :maxlength=>"254", class: 'form-control-sm'
+            = f.password_field :current_password, autocomplete: "current-password", autofocus: true, :size=>"50", placeholder: "Enter password to confirm changes", :maxlength=>"254", class: "col-sm-4 col-form-label"
             .actions
               br
-              button.btn.btn-primary.btn-lg[type="Submit", style="width:300px;height:40px;"]
-                p[style="font-size:1vw;"]
+              button.btn.btn-outline-primary[type="Submit", style="width:160px;height:40px;"]
                   | Update
               br 
         div[style="position:relative; left:150px; top:2px;"]
           p
-            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, style: "width:300px;height:40px;font-size:1vw;", class: "btn btn-danger"
+            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-outline-danger"
           
 
       .col-sm-2.px-0.d-none.d-sm-block
