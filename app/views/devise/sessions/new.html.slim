@@ -15,10 +15,10 @@ section.vh-100
             
           div[style="position:relative; left:150px; top:2px;"]
             br            
-            = f.text_field :login, autofocus: true, :size=>"50", placeholder: "Email address or Username", :maxlength=>"254"
+            = f.text_field :login, autofocus: true, :size=>"50",class: 'form-control-sm', placeholder: "Email address or Username", :maxlength=>"254"
             br
             br
-            = f.password_field :password, autocomplete: "current-password", :size=>"50", placeholder: "Password", :maxlength=>"254"
+            = f.password_field :password, autocomplete: "current-password", :size=>"50",class: 'form-control-sm', placeholder: "Password", :maxlength=>"254"
           - if devise_mapping.rememberable?
             .field
             div[style="position:relative; left:150px; top:2px;"]
@@ -26,7 +26,7 @@ section.vh-100
               = f.label :remember_me          
               br
               br
-              button.btn.btn-primary.btn-lg[type="submit"]
+              button.btn.btn-primary.btn-lg[type="submit", style="width:300px;height:40px;"]
                 | Login
               br 
               br
@@ -39,7 +39,6 @@ section.vh-100
                 | Don't have an account? 
                 a.link-info[href= new_user_registration_path]
                   | Register here
-      .col-sm-6.px-0.d-none.d-sm-block
-        / img.w-100.vh-100[img src="login.jpg" alt="Login image" style="object-fit: inline; object-position: right;"]
+      .col-sm-6.px-0.d-none.d-sm-block      
         
-        = image_tag("login.jpg", height: '830', width: '950')
+        = image_tag("login.jpg", class: "img-fluid", style: 'height:100%; width:1200px;')

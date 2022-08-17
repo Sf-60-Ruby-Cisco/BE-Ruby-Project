@@ -1,29 +1,33 @@
 section.vh-100
   .container-flui3
     .row
-      .col-sm-5.text-black
+      .col-sm-12.col-lg-4
         .px-5.ms-xl-4
         div[style="position:relative; left:150px; top:2px;"]
+          h2
+            | Hello 
+            = current_user.username
+
           h1[style="font-family: 'Times New Roman', serif,"]
-            | Edit profile
+            | Edit your profile
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form[style="width: 23rem;"]
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
           = render "devise/shared/error_messages", resource: resource
           .field
-          div[style="position:relative; left:150px; top:2px; width: 560px"]
-           
-            = f.rich_text_area :content, value: " ", placeholder: "Attach profile picture"
+          div[style="position:relative; left:150px; top:2px; width: 465px"]
+            
+            = f.rich_text_area :content, value: " ", placeholder: "Attach profile picture",class: 'form-control-sm'
           .field
           div[style="position:relative; left:150px; top:2px;"]
            
             br
-            = f.text_field :username, autofocus: true, autofocus: true, :size=>"50", placeholder: "Username", :maxlength=>"254"
+            = f.text_field :username, autofocus: true, autofocus: true, :size=>"50", placeholder: "Username", :maxlength=>"254", class: 'form-control-sm'
           .field
           div[style="position:relative; left:150px; top:2px;"]
            
             br
-            = f.email_field :email, autofocus: true, autocomplete: "email", autofocus: true, :size=>"50", placeholder: "Email", :maxlength=>"254"
+            = f.email_field :email, autofocus: true, autocomplete: "email", autofocus: true, :size=>"50", placeholder: "Email", :maxlength=>"254", class: 'form-control-sm'
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             div[style="position:relative; left:150px; top:2px;"]
               
@@ -35,7 +39,8 @@ section.vh-100
           div[style="position:relative; left:150px; top:2px;"]
             
             br
-            = f.password_field :password, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "New password", :maxlength=>"254"
+            
+            = f.password_field :password, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "New password", :maxlength=>"254", class: 'form-control-sm'
             - if @minimum_password_length
               br
               em
@@ -44,13 +49,13 @@ section.vh-100
           .field
           div[style="position:relative; left:150px; top:2px;"]
             br
-            = f.password_field :password_confirmation, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "Confirm password", :maxlength=>"254"
+            = f.password_field :password_confirmation, autocomplete: "new-password", autofocus: true, :size=>"50", placeholder: "Confirm password", :maxlength=>"254",class: 'form-control-sm'
           .field
           div[style="position:relative; left:150px; top:2px;"]
             br
           div[style="position:relative; left:150px; top:2px;"]
          
-            = f.password_field :current_password, autocomplete: "current-password", autofocus: true, :size=>"50", placeholder: "enter password to confirm changes", :maxlength=>"254"
+            = f.password_field :current_password, autocomplete: "current-password", autofocus: true, :size=>"50", placeholder: "enter password to confirm changes", :maxlength=>"254", class: 'form-control-sm'
             .actions
               br
               button.btn.btn-primary.btn-lg[type="Submit", style="width:300px;height:40px;"]
@@ -58,9 +63,12 @@ section.vh-100
               br 
         div[style="position:relative; left:150px; top:2px;"]
           p
-            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, style: "color:#FF0000; width:300px;height:40px;"
+            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, style: "width:300px;height:40px;", class: "btn btn-danger"
           
 
       .col-sm-2.px-0.d-none.d-sm-block
-        
-        = image_tag("editprofile.jpg", height: '830', width: '1120')
+      
+        = image_tag("editprofile.jpg",  class: "img-fluid", style: 'height:100%; width:1200px;')
+
+       
+   

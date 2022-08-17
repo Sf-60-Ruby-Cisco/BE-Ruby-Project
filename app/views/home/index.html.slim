@@ -4,11 +4,7 @@ body.home
       | Welcome 
       = current_user.username
 
-
-  / div[style="position:fixed; left:10px; top:250px;"]
-  /   == current_user.content
-  / div[style="position:fixed; left:500px; top:250px;"]
-  /   = image_tag("UnderConstruction.jpg", height: '400', width: '950')
+= image_tag("UnderConstruction.jpg",  class: "bg-image" , style: 'height:100vh')
 
 
 

@@ -25,16 +25,18 @@
   margin-left: auto!important;
 }
 
-body.home {
+/* body.home {
   background-image: url('UnderConstruction.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+} */
+
+.col-sm-2.px-0.d-none.d-sm-block {
+  width: 50vw;
+  height: 100vh;
+  /* max-width: calc(100% - 20px); */  
+  margin-left: auto;
+  margin-top: auto;
 }
 
-/* .trix-editor{
-  
-  width: 260px;
-  height: 10;
-}
- */
