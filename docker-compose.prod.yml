@@ -2,6 +2,8 @@ version: "3.6"
 
 services:
   web:
+    env_file:
+      - '.env'
     build: 
       context: .
       dockerfile: Dockerfile.web
@@ -11,6 +13,8 @@ services:
     ports:
       - "80:3000"
   pgadmin:
+    env_file:
+      - '.env'
     image: dpage/pgadmin4
     ports:
       - "5555:80"
