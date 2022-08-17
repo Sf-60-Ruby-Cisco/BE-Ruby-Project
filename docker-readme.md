@@ -144,7 +144,7 @@ heroku run rake db:migrate -a heroku_app_name
 
 If you wanted to run migrations locally, you would do 
 ```
-docker-compose -f "path/to/docker-compose.yml" run web rake db:migrate
+docker-compose -f "path/to/docker-compose.yml" run web rake db:migrate RAILS_ENV=development
 ```
 
 

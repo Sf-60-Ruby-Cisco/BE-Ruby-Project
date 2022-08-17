@@ -13,6 +13,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER_DEV}
       - POSTGRES_PASSWORD=${POSTGRES_PW_DEV}
   web:
+    env_file:
+      - '.env'
     build:
       context: .
       dockerfile: Dockerfile.dev
