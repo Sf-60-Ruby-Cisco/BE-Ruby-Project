@@ -1,3 +1,7 @@
+# New
+.env
+.ruby-version
+
 # Ignore bundler config.
 /.bundle
 
@@ -34,6 +38,3 @@ yarn-debug.log*
 
 # Ignore RubyMine files
 /.idea
-
-# Ignore settings
-/config/application.yml
