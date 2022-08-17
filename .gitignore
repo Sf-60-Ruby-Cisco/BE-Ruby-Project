@@ -1,3 +1,7 @@
+# New
+.env
+.ruby-version
+
 # Ignore bundler config.
 /.bundle
 
