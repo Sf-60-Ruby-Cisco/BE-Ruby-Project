@@ -59,11 +59,12 @@ section.vh-100
             .actions
               br
               button.btn.btn-primary.btn-lg[type="Submit", style="width:300px;height:40px;"]
-                | Update
+                p[style="font-size:1vw;"]
+                  | Update
               br 
         div[style="position:relative; left:150px; top:2px;"]
           p
-            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, style: "width:300px;height:40px;", class: "btn btn-danger"
+            = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, form: { data: { turbo_confirm: "Are you sure?" } }, style: "width:300px;height:40px;font-size:1vw;", class: "btn btn-danger"
           
 
       .col-sm-2.px-0.d-none.d-sm-block
