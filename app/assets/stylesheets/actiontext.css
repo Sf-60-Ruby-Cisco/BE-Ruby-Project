@@ -25,11 +25,6 @@
   max-width: 50%;
 }
 
-/* .trix-content action-text-attachment .attachment {
-  padding: 0 !important;
-  max-width: 100% !important;
-} */
-
 .trix-content {
   max-height: 100px !important;   
   overflow-y: auto;
@@ -49,4 +44,3 @@
  .trix-button--icon-decrease-nesting-level,
  .trix-button--icon-strike,
  .trix-button--icon-code { display:none; }
- 
