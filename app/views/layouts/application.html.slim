@@ -14,8 +14,11 @@ html
 
   body    
     - if current_page?(root_path)  || current_page?(edit_user_registration_path)
-      = render 'devise/shared/header'
-    = notice 
-    = alert          
-    = yield
-   
+      == render 'devise/shared/header'
+    - flash.each do |type, msg| 
+      = content_tag :div, msg, class: build_alert_classes(type)
+    
+    .container      
+      = yield
+    
+    

@@ -1,29 +1,31 @@
+= render "devise/shared/error_messages", resource: resource
 section.vh-100
   .container-flui3
     .row
       .col-sm-6.text-black
         .px-5.ms-xl-4
-        div[style="position:relative; left:150px; top:2px;"]
+        div[style="position:relative; left:20px; top:2px;"]
           h1[style="font-size: 2vw;"]
             | Create new account
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form[style="width: 23rem;"]
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = render "devise/shared/error_messages", resource: resource
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f|
+         
+          
           .field
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             br
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             br
             = f.text_field :username, autofocus: true, :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Username", :maxlength=>"254"
           .field
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             
             br
             = f.email_field :email, autocomplete: "email", autofocus: true, :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Email address", :maxlength=>"254"
           .field
           .field
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             
             - if @minimum_password_length
               em[style="font-size: 1vw;"]
@@ -31,11 +33,11 @@ section.vh-100
                 = @minimum_password_length
                 |  characters minimum)
             br
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             = f.password_field :password, autocomplete: "new-password", :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Password", :maxlength=>"254"
           - if devise_mapping.rememberable?
           .field
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             
             br
           
@@ -43,7 +45,7 @@ section.vh-100
           - if devise_mapping.rememberable?
           .actions
             br
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             button.btn.btn-outline-primary.btn-lg[type="Submit"]               
               | Submit
             br

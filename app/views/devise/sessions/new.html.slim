@@ -3,17 +3,17 @@ section.vh-100
     .row
       .col-sm-6.text-black
         .px-5.ms-xl-4
-        div[style="position:relative; left:150px; top:2px;"]
+        div[style="position:relative; left:20px; top:2px;"]
           h1[style="font-size: 2vw;"]
             | Login to Car Diary
           p[style="font-size: 1vw;"] 
             | You have to be login to use the full functionality
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form[style="width: 23rem;"]
-        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f|
           .field
             
-          div[style="position:relative; left:150px; top:2px;"]
+          div[style="position:relative; left:20px; top:2px;"]
             br            
             = f.text_field :login, autofocus: true, :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Email address or Username", :maxlength=>"254"
             br
@@ -21,7 +21,7 @@ section.vh-100
             = f.password_field :password, autocomplete: "current-password", :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Password", :maxlength=>"254"
           - if devise_mapping.rememberable?
             .field
-            div[style="position:relative; left:150px; top:2px;"]       
+            div[style="position:relative; left:20px; top:2px;"]       
               br
               button.btn.btn-outline-primary.btn-lg[type="Submit"]                
                 | Login
@@ -36,6 +36,11 @@ section.vh-100
                 | Don't have an account? 
                 a.link-info[href= new_user_registration_path]
                   | Register here
+                br
+                | You didn't receive a confirmation email? 
+                a.link-info[href=  new_user_confirmation_path]
+                  | Click here
+                
       .col-sm-6.px-0.d-none.d-sm-block      
         
         = image_tag("login.jpg", class: "img-fluid", style: 'height:100%; width:1200px;')
