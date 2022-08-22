@@ -14,40 +14,37 @@
  *= require_self
  */
 
- .logo-image{
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-top: -6px;
-  }
-  
-  .navbar-nav{
-    margin-left: auto!important;
-  }
-  
-  /* body.home {
-    background-image: url('UnderConstruction.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-  } */
-  
-  .col-sm-2.px-0.d-none.d-sm-block {
-    width: 50vw;
-    height: 100vh;
-    /* max-width: calc(100% - 20px); */  
-    margin-left: auto;
-    margin-top: auto;
-  }
-  
-  .home { 
-    background: url(UnderConstruction.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    }
+.logo-image{
+width: 46px;
+height: 46px;
+border-radius: 50%;
+overflow: hidden;
+margin-top: -6px;
+}
 
-  
-  
+.navbar-nav{
+margin-left: auto!important;
+}
+
+/* body.home {
+background-image: url('UnderConstruction.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+} */
+
+.col-sm-2.px-0.d-none.d-sm-block {
+width: 50vw;
+height: 100vh;
+/* max-width: calc(100% - 20px); */  
+margin-left: auto;
+margin-top: auto;
+}
+
+.home { 
+background: url(UnderConstruction.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
