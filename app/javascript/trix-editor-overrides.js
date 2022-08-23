@@ -5,3 +5,6 @@ window.addEventListener("trix-file-accept", function(event) {
       alert("Only support attachment of jpeg or png files")
     }
   })
+
+
+  

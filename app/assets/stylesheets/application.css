@@ -14,37 +14,136 @@
  *= require_self
  */
 
-.logo-image{
-width: 46px;
-height: 46px;
-border-radius: 50%;
-overflow: hidden;
-margin-top: -6px;
+
+
+.logo-image {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: -6px;
 }
 
-.navbar-nav{
-margin-left: auto!important;
+.navbar-nav {
+  margin-left: auto !important;
 }
 
-/* body.home {
-background-image: url('UnderConstruction.jpg');
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: 100% 100%;
-} */
-
-.col-sm-2.px-0.d-none.d-sm-block {
-width: 50vw;
-height: 100vh;
-/* max-width: calc(100% - 20px); */  
-margin-left: auto;
-margin-top: auto;
+.home {
+  background: url(UnderConstruction.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.home { 
-background: url(UnderConstruction.jpg) no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+
+/* Edit user page */
+div.edit {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+}
+
+h2.edit {
+  font-size: 2vw;
+  font-family: 'Brush Script MT', cursive;
+}
+
+h1.edit {
+  font-size: 3vw;
+  font-family: 'Brush Script MT', cursive;
+}
+
+form.edit {
+  width: 23rem;
+}
+
+p {
+  width: 23rem;
+  font-family: 'Brush Script MT', cursive;
+}
+
+button.btn.btn-outline-primary {
+  font-size: 3vw;
+  width: 160px;
+  height: 40px;
+  font-size: 24px;
+  font-family: 'Brush Script MT', cursive;
+}
+
+button.btn-outline-danger{
+  font-size: 3vw;
+  width: 160px;
+  height: 40px;
+  font-size: 20px;
+  font-family: 'Brush Script MT', cursive;  
+}
+
+
+/* Edit Sign Up page */
+div.register {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+}
+
+.col-sm-4.px-0.d-none.d-sm-block {
+  width: 50vw;
+  height: 130vh;
+  max-width: calc(100% - 20px);
+  margin-left: auto;
+  margin-top: auto;
+}
+
+h1.register {
+  font-size: 2vw;
+  font-family: 'Brush Script MT', cursive;
+}
+
+div.reg {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 60px;
+}
+
+p.register {
+  font-size: 1.5vw;
+}
+
+.image_tag{
+  left: 20px;
+  top: 2px;
+}
+
+/* Edit login page */
+div.login {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2vw;
+ 
+}
+
+div.mid {
+  position:relative; 
+  left:20px;
+  top:2px;
+  margin-top: 20px;
+}
+
+div.midl{
+  margin-top: 60px;
+}
+
+p.link-info{
+  font-size: 1.28vw;
+}
+
+h1.login {
+  font-size: 3vw;
 }

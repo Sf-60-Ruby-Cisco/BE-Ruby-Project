@@ -8,7 +8,6 @@ class User < ApplicationRecord
   validate :validate_username, :content
   validates_uniqueness_of :username
   has_rich_text :content
-  # validate :content
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
    
 
@@ -30,13 +29,5 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end  
-  private
-
-  def main_picture_format
-      return unless main_picture.attached?
-      return if main_picture.blob.content_type.start_with? "image/"
-      main_picture.purge_later
-      errors.add(:main_picture, "needs to be an image")
-  end
   
 end
