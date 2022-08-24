@@ -1,0 +1,35 @@
+/* Resend confirmation page and password */
+
+button.btn.btn-primary.btn-lg.btn-block {
+    font-size: 3vw;
+    width: 372px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Brush Script MT', cursive;  
+  }
+  
+  div.confirm {
+    margin-top: 2px; 
+  }
+  
+  div.confirm {
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: 20px;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2vw; 
+  }
+  
+  div.midl{
+    margin-top: 60px;
+  }
+  
+  h1.confirm {
+    font-size: 3vw;
+  }
+
+  div.px{
+    margin-top: 20px;
+  }
+  

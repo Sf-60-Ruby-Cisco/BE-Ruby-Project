@@ -1,0 +1,30 @@
+/* Edit login page */
+div.login {
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: 20px;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2vw;
+   
+  }
+  
+  div.mid {
+    position:relative; 
+    left:20px;
+    top:2px;
+    margin-top: 20px;
+  }
+  
+  div.midl{
+    margin-top: 60px;
+  }
+  
+  p.link-info{
+    font-size: 1.28vw;
+  }
+  
+  h1.login {
+    font-size: 3vw;
+  }
+  

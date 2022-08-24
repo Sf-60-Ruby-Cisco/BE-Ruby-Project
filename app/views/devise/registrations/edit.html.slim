@@ -14,10 +14,11 @@ section.vh-100
          url: registration_path(resource_name), html: { method: :put }, 
          data: { turbo: false }) do |f|
           = render "devise/shared/error_messages", resource: resource
-          .field    
+          .field  
+          div.edit  
             = f.rich_text_area :content, value: " ",
              placeholder: "Attach profile picture",
-             class: "col-sm-5 col-form-label"
+             class: "col-sm-4 col-form-label"
           .field
           div.edit                      
             = f.text_field :username, autofocus: true, 
@@ -51,12 +52,17 @@ section.vh-100
             .actions
               br
               button.btn.btn-outline-primary[type="Submit", style="width:160px;height:40px;"]
-                  | Update               
-        div.edit
-          p
-            = button_to "Cancel my account", registration_path(resource),
-             :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } },
-              class: "btn btn-outline-danger"          
+                  | Update    
+          div.ed
+            | Don't want to make changes?
+            a.link-info[href= root_path]
+              | Go back.        
+
+        div.ed
+          | Don't want to use Car Diary anymore?
+          = button_to "Cancel my account", registration_path(resource),
+            :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } },
+            class: "btn btn-outline-danger"          
 
       .col-sm-6.px-0.d-none.d-sm-block
       

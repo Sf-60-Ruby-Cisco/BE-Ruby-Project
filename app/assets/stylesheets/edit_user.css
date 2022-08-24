@@ -1,0 +1,59 @@
+/* Edit user page */
+div.edit {
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: 20px;
+    font-family: 'Brush Script MT', cursive;
+    
+  }
+  
+  h2.edit {
+    font-size: 2vw;
+    font-family: 'Brush Script MT', cursive;
+    position: relative;
+    left: 0px;
+    top: 2px;
+  }
+  
+  h1.edit {
+    font-size: 3vw;
+    font-family: 'Brush Script MT', cursive;
+    position: relative;
+    left: 0px;
+    top: 2px;
+  }
+  
+  form.edit {
+    width: 23rem;
+  }
+  
+  p {
+    width: 23rem;
+    font-family: 'Brush Script MT', cursive;
+  }
+  
+  button.btn.btn-outline-primary {
+    font-size: 3vw;
+    width: 160px;
+    height: 40px;
+    font-size: 24px;
+    font-family: 'Brush Script MT', cursive;
+  }
+  
+  button.btn-outline-danger{
+    font-size: 3vw;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Brush Script MT', cursive;  
+  }
+  
+  div.ed {
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: 20px;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 30px;    
+  }
