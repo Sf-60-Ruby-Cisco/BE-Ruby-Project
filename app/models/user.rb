@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   attr_writer :login
   validate :validate_username, :content
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, :email
   has_rich_text :content
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :username, presence: true
+
    
 
   def login
@@ -29,5 +31,17 @@ class User < ApplicationRecord
       errors.add(:username, :invalid)
     end
   end  
+
+  # Soft deleting user makin it deactive  
+  def destroy
+    update_attribute(:deactivated, true) unless deactivated
+    update_attribute(:email, nil) 
+    update_attribute(:username, nil) 
+  end
+
+  # Stoping the user from loggin when deactivated
+  def active_for_authentication?
+    super && !deactivated
+  end
   
 end
