@@ -11,7 +11,7 @@ services:
     ports:
       - 5432:5432  
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=car_diary_development
       - POSTGRES_USER=${POSTGRES_USER_DEV}
       - POSTGRES_PASSWORD=${POSTGRES_PW_DEV}
   web:
