@@ -1,4 +1,3 @@
-
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -10,10 +9,13 @@ development:
   username: <%= ENV['POSTGRES_USER_DEV'] %>
   password: <%= ENV['POSTGRES_PW_DEV'] %>
   database: car_diary_development
+  url: <%= ENV['DATABASE_URL_DEV'] %>
 
 test:
   <<: *default
   database: car_diary_test
+  username: <%= ENV['POSTGRES_USER_DEV'] %>
+  password: <%= ENV['POSTGRES_PW_DEV'] %>
 
 
 production:
@@ -22,4 +24,4 @@ production:
   username: <%= ENV['DATABASE_USERNAME_PROD'] %>
   password: <%= ENV['DATABASE_PW_PROD'] %>
   host: <%= ENV['DATABASE_HOST_PROD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL_PROD'] %>

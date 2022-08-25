@@ -11,7 +11,7 @@ services:
     ports:
       - 5432:5432  
     environment:
-      - POSTGRES_DB=postgres
+      - POSTGRES_DB=car_diary_development
       - POSTGRES_USER=${POSTGRES_USER_DEV}
       - POSTGRES_PASSWORD=${POSTGRES_PW_DEV}
   web:
@@ -39,10 +39,5 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL_DEV}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PW_DEV}
     restart: unless-stopped
-  mailcatcher:
-    image: jeanberu/mailcatcher
-    ports:
-      - "1025:1025"
-      - "1080:1080"
 volumes:
   pgdata:

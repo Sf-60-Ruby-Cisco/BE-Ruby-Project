@@ -21,6 +21,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL_PROD}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PW_PROD}
+      POSTGRES_DB: ${DATABASE_PROD}
     restart: unless-stopped
 volumes:
   myapp_vol:
