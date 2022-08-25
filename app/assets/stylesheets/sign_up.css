@@ -43,10 +43,13 @@ div.register {
     margin-top:25px;
     width:33.3%;     
     background-color: #bae7f6;
+    color:black;
+    border-radius: 12px;
   }
 
   button.register:hover {
-    background-color: #0d6684;     
+    background-color: #0d6684;  
+    color:white;   
   }
 
   div.m{

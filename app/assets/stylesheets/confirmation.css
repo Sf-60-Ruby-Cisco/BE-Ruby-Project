@@ -50,10 +50,13 @@ button.btn.btn-primary.btn-lg.btn-block {
     margin-top:25px;
     width:58.9%;     
     background-color: #bae7f6;
+    color:black;
+    border-radius: 12px;
   }
 
   button.resend:hover {
     background-color: #0d6684; 
+    color:white;
     
   }
 
@@ -65,10 +68,13 @@ button.btn.btn-primary.btn-lg.btn-block {
     margin-top:25px;
     width:58.9%;     
     background-color: #bae7f6;
+    color:black;
+    border-radius: 12px;
   }
 
   button.forgot:hover {
     background-color: #0d6684; 
+    color:white;
     
   }
 
@@ -80,10 +86,13 @@ button.btn.btn-primary.btn-lg.btn-block {
     margin-top:25px;
     width:58.9%;     
     background-color: #bae7f6;
+    color:black;
+    border-radius: 12px;
   }
 
   button.change:hover {
     background-color: #0d6684; 
+    color:white;
     
   }
 

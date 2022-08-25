@@ -24,9 +24,9 @@ div.login {
     font-size: 1.28vw;
   }
   
-  h1.login {
+  /* h1.login {
     font-size: 3vw;
-  }
+  } */
   
 
   button.login{
@@ -37,10 +37,34 @@ div.login {
     margin-top:25px;
     width:34%;    
     background-color: #bfeaf8;  
+    color:black;
+    border-radius: 12px;
   }
 
   button.login:hover{
     background-color: #0d6684; 
-  }
+    color: white;
 
-  
+  }
+/*Shine */
+
+h1 {  
+  position: relative;
+  font-family: Brush Script MT, cursive;
+  font-size: 3vw;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #f89f8d, #fff, #86c4f0);
+  background-repeat: repeat;
+  background-size: 80%;
+  animation: animate 4s infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+@keyframes animate {
+  0% {
+    background-position: -600%;
+  }
+  100% {
+    background-position: 600%;
+  }
+}

@@ -40,10 +40,13 @@ div.edit {
     left:-60px;    
     width:33.3%;    
     background-color: #bfeaf8;  
+    color:black;
+    border-radius: 12px;
   }
 
   button.update:hover{
     background-color: #0d6684; 
+    color:white;
   }
 
   div.e{
@@ -60,7 +63,7 @@ div.edit {
     display:block;
     left:-60px;    
     width:33.3%;    
-   
+    
   }
   
   div.ed {
