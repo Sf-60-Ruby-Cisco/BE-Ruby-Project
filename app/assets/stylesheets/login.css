@@ -28,3 +28,19 @@ div.login {
     font-size: 3vw;
   }
   
+
+  button.login{
+    font-family: 'Brush Script MT', cursive;
+    font-size:0.7em;
+    display:block;
+    left:-60px;
+    margin-top:25px;
+    width:34%;    
+    background-color: #bfeaf8;  
+  }
+
+  button.login:hover{
+    background-color: #0d6684; 
+  }
+
+  

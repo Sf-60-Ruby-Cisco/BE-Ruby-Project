@@ -33,20 +33,34 @@ div.edit {
     font-family: 'Brush Script MT', cursive;
   }
   
-  button.btn.btn-outline-primary {
-    font-size: 3vw;
-    width: 160px;
-    height: 40px;
-    font-size: 24px;
+  button.update{
     font-family: 'Brush Script MT', cursive;
+    font-size:1.2em;
+    display:block;
+    left:-60px;    
+    width:33.3%;    
+    background-color: #bfeaf8;  
   }
+
+  button.update:hover{
+    background-color: #0d6684; 
+  }
+
+  div.e{
+    margin-top: 20px;
+  }
+
+ 
+  
+  
   
   button.btn-outline-danger{
-    font-size: 3vw;
-    width: 160px;
-    height: 40px;
-    font-size: 20px;
-    font-family: 'Brush Script MT', cursive;  
+    font-family: 'Brush Script MT', cursive;
+    font-size:0.60em;
+    display:block;
+    left:-60px;    
+    width:33.3%;    
+   
   }
   
   div.ed {

@@ -28,20 +28,20 @@ section.vh-100
               p
                 = @minimum_password_length
                 |  characters minimum           
-          div.register
-            = f.password_field :password, autocomplete: "new-password",
+          div.m
+            = f.password_field :password, autocomplete: "password",
              :size=>"50",class: "col-sm-4 col-form-label", 
              placeholder: "Password", :maxlength=>"254"
           - if devise_mapping.rememberable?
           .field
           div.register            
-            = f.password_field :password_confirmation, autocomplete: "new-password",
+            = f.password_field :password_confirmation, autocomplete: "confirm-password",
              :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Confirm password",
               :maxlength=>"254"
             - if devise_mapping.rememberable?
             .actions              
           div.register
-            button.btn.btn-outline-primary.btn-lg[type="Submit"]               
+            button.register[type="Submit"]               
               | Submit
           div.reg
             p.register

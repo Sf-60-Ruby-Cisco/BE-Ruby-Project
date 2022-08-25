@@ -42,7 +42,7 @@ section.vh-100
               |  characters minimum
           .field
           div.edit           
-            = f.password_field :password_confirmation, autocomplete: "new-password",
+            = f.password_field :password_confirmation, autocomplete: "Confirm password",
              autofocus: true, :size=>"50", placeholder: "Confirm password",
               :maxlength=>"254",class: "col-sm-4 col-form-label"
           .field                   
@@ -50,8 +50,8 @@ section.vh-100
             = f.password_field :current_password, autocomplete: "current-password", autofocus: true, :size=>"50",
              placeholder: "Enter password to confirm changes", :maxlength=>"254", class: "col-sm-4 col-form-label"
             .actions
-              br
-              button.btn.btn-outline-primary[type="Submit", style="width:160px;height:40px;"]
+            div.e
+              button.update[type="Submit"]
                   | Update    
           div.ed
             | Don't want to make changes?
@@ -62,7 +62,7 @@ section.vh-100
           | Don't want to use Car Diary anymore?
           = button_to "Cancel my account", registration_path(resource),
             :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } },
-            class: "btn btn-outline-danger"          
+            class: "btn btn-outline-danger"        
 
       .col-sm-6.px-0.d-none.d-sm-block
       

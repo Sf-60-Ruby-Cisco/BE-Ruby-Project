@@ -18,7 +18,7 @@ section.vh-100
                         :maxlength=>"254", class: "col-sm-7 col-form-label", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
               .field
               div               
-                button.btn.btn-primary.btn-lg.btn-block[type="Submit"]                
+                button.resend[type="Submit"]                
                   | Resend confirmation instructions  
               
               div.midl

@@ -2,7 +2,7 @@
 
 button.btn.btn-primary.btn-lg.btn-block {
     font-size: 3vw;
-    width: 372px;
+    width: 321px;
     height: 40px;
     font-size: 20px;
     font-family: 'Brush Script MT', cursive;  
@@ -31,5 +31,59 @@ button.btn.btn-primary.btn-lg.btn-block {
 
   div.px{
     margin-top: 20px;
+  }    
+
+
+  div.pass{
+    margin-top: 20px;
   }
-  
+
+  div.f{
+    font-size: 1.2vw;
+  }
+
+  button.resend{
+    font-family: 'Brush Script MT', cursive;
+    font-size:0.7em;
+    display:block;
+    left:-60px;
+    margin-top:25px;
+    width:58.9%;     
+    background-color: #bae7f6;
+  }
+
+  button.resend:hover {
+    background-color: #0d6684; 
+    
+  }
+
+  button.forgot{
+    font-family: 'Brush Script MT', cursive;
+    font-size:0.7em;
+    display:block;
+    left:-60px;
+    margin-top:25px;
+    width:58.9%;     
+    background-color: #bae7f6;
+  }
+
+  button.forgot:hover {
+    background-color: #0d6684; 
+    
+  }
+
+  button.change{
+    font-family: 'Brush Script MT', cursive;
+    font-size:0.7em;
+    display:block;
+    left:-60px;
+    margin-top:25px;
+    width:58.9%;     
+    background-color: #bae7f6;
+  }
+
+  button.change:hover {
+    background-color: #0d6684; 
+    
+  }
+
