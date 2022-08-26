@@ -31,6 +31,6 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           a.dropdown-item[href="#"]
             a= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"dropdown-item"
             
-      a.navbar-brand[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+      a.navbar-brand[data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
           .logo-image
             == current_user.content

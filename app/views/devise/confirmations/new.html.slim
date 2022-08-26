@@ -13,12 +13,12 @@ section.vh-100
               div.midl
               .field            
               = f.email_field :email, autofocus: true,
-                        autocomplete: "email", 
+                        autocomplete: "on", 
                         :size=>"50", placeholder: "Enter your email", 
-                        :maxlength=>"254", class: "col-sm-7 col-form-label", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+                        :maxlength=>"254", class: "col-sm-7", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
               .field
               div               
-                button.resend[type="Submit"]                
+                button.forgot[type="Submit"]                
                   | Resend confirmation instructions  
               
               div.midl
