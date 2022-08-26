@@ -5,7 +5,7 @@ section.vh-100
       .col-sm-6.text-black
         .px-5.ms-xl-4
         div.register
-          h1.register
+          h1.register.link-info
             | Create new account
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form
@@ -25,7 +25,7 @@ section.vh-100
           .field            
             - if @minimum_password_length
             div.register
-              p
+              p.pass
                 = @minimum_password_length
                 |  characters minimum           
           div.m
@@ -44,10 +44,10 @@ section.vh-100
             button.register[type="Submit"]               
               | Submit
           div.reg
-            p.register
-                  | Already have an account? 
-                  a.link-info[href= new_user_session_path]
-                    | Login
+            p
+              | Already have an account? 
+              a.link-info[href= new_user_session_path]
+                | Login
       .col-sm-6.px-4.d-none.d-sm-block              
         = image_tag("signup.jpg", class: "img-fluid", style: 'height:150%; width:1200px;')
 

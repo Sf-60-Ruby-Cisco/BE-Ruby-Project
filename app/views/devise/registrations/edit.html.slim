@@ -4,10 +4,11 @@ section.vh-100
       .col-sm-8.col-lg-6
         .px-5.ms-xl-4
         div.edit
-          h2.edit.link-info         
-            | Hello 
-            = current_user.username.capitalize()
-          h1.edit Edit your profile
+          h2.ee       
+            | Hello
+            h2.e
+              = current_user.username.capitalize()
+          h1.edit.link-info  Edit your profile
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form.edit
         = form_for(resource, as: resource_name,
@@ -37,7 +38,7 @@ section.vh-100
              autofocus: true, :size=>"50", placeholder: "New password",
               :maxlength=>"254", class: "col-sm-4 col-form-label"
             - if @minimum_password_length            
-            p                               
+            p.pass                               
               = @minimum_password_length
               |  characters minimum
           .field
@@ -53,13 +54,14 @@ section.vh-100
             div.e
               button.update[type="Submit"]
                   | Update    
-          div.ed
+          div.edit
             | Don't want to make changes?
             a.link-info[href= root_path]
               | Go back.        
 
-        div.ed
+        div.edit
           | Don't want to use Car Diary anymore?
+        div.edit
           = button_to "Cancel my account", registration_path(resource),
             :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } },
             class: "btn btn-outline-danger"        

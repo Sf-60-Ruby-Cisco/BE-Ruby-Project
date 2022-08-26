@@ -7,15 +7,15 @@ section.vh-100
         div.confirm
           h1.confirm
             | Forgot your password?
-          p.link-info
+          p.pass.link-info
             | Happens all the time! We will send you instructions.
             = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post },  data: { turbo: false }) do |f|
               div.midl
               .field            
               = f.email_field :email, autofocus: true,
-                        autocomplete: "email", 
+                        autocomplete: "on", 
                         :size=>"50", placeholder: "Enter your email", 
-                        :maxlength=>"254", class: "col-sm-7 col-form-label"
+                        :maxlength=>"254", class: "col-sm-7"
               .field
               div             
                 button.forgot[type="Submit"]                

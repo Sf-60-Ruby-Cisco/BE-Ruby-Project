@@ -4,8 +4,12 @@ button.btn.btn-primary.btn-lg.btn-block {
     font-size: 3vw;
     width: 321px;
     height: 40px;
-    font-size: 20px;
-    font-family: 'Brush Script MT', cursive;  
+
+    font-family: Simlifica;  
+  }
+
+  p.pass.link-info{
+     font-size: 0.826vw;
   }
   
   div.confirm {
@@ -17,20 +21,23 @@ button.btn.btn-primary.btn-lg.btn-block {
     left: 20px;
     top: 2px;
     margin-top: 20px;
-    font-family: 'Brush Script MT', cursive;
+    font-family: Simlifica;
     font-size: 2vw; 
   }
   
   div.midl{
     margin-top: 60px;
+    font-size: 1.2vw;
+   
   }
   
   h1.confirm {
-    font-size: 3vw;
+    font-size: 2.1vw;
   }
 
   div.px{
     margin-top: 20px;
+    font-size: 1.2vw;
   }    
 
 
@@ -43,7 +50,7 @@ button.btn.btn-primary.btn-lg.btn-block {
   }
 
   button.resend{
-    font-family: 'Brush Script MT', cursive;
+    font-family: Simlifica;
     font-size:0.7em;
     display:block;
     left:-60px;
@@ -61,8 +68,8 @@ button.btn.btn-primary.btn-lg.btn-block {
   }
 
   button.forgot{
-    font-family: 'Brush Script MT', cursive;
-    font-size:0.7em;
+    font-family: Simlifica;
+    font-size:0.56em;
     display:block;
     left:-60px;
     margin-top:25px;
@@ -79,7 +86,7 @@ button.btn.btn-primary.btn-lg.btn-block {
   }
 
   button.change{
-    font-family: 'Brush Script MT', cursive;
+    font-family: Simlifica;
     font-size:0.7em;
     display:block;
     left:-60px;

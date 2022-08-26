@@ -16,7 +16,7 @@ div.register {
   
   h1.register {
     font-size: 2vw;
-    font-family: 'Brush Script MT', cursive;
+    font-family: Simlifica;
   }
   
   div.reg {
@@ -26,8 +26,9 @@ div.register {
     margin-top: 60px;
   }
   
-  p.register {
-    font-size: 1.5vw;
+  p.pass {
+    font-size: 0.76vw;
+    font-family: Simlifica;
   }
   
   .image_tag{
@@ -36,7 +37,7 @@ div.register {
   }
 
   button.register{
-    font-family: 'Brush Script MT', cursive;
+    font-family: Simlifica;
     font-size:1.5em;
     display:block;
     left:-60px;

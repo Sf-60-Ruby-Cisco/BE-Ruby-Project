@@ -11,17 +11,17 @@ section.vh-100
               = f.hidden_field :reset_password_token
               .field                         
               div.midl
-                = f.password_field :password, autocomplete: "new-password",
+                = f.password_field :password,
                         autofocus: true, :size=>"50", placeholder: "New password",
-                          :maxlength=>"254", class: "col-sm-7 col-form-label"
-              div.f           
-                - if @minimum_password_length                   
-                  = @minimum_password_length
-                  |  characters minimum
-              .field
-                = f.password_field :password_confirmation, autocomplete: "Confirm new password",
-                        autofocus: true, :size=>"50", placeholder: "Confirm new password",
-                          :maxlength=>"254",class: "col-sm-7 col-form-label"  
+                          :maxlength=>"254", class: "col-sm-7"
+                p.pass         
+                  - if @minimum_password_length                   
+                    = @minimum_password_length
+                    |  characters minimum
+                .field
+                  = f.password_field :password_confirmation,
+                          autofocus: true, :size=>"50", placeholder: "Confirm new password",
+                            :maxlength=>"254", class: "col-sm-7 "  
                          
                 .actions
                 div.pass

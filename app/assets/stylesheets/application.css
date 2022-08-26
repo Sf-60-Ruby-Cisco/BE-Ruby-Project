@@ -20,6 +20,10 @@
  *= require confirmation
  */
 
+ @font-face {
+  font-family: "Simplifica";
+  src: url(/assets/fonts/Simplifica-Typeface.ttf) format("truetype");
+}
  
 .home {
   background: url(UnderConstruction.jpg) no-repeat center center fixed;

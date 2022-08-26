@@ -4,9 +4,7 @@ div.login {
     left: 20px;
     top: 2px;
     margin-top: 20px;
-    font-family: 'Brush Script MT', cursive;
-    font-size: 2vw;
-   
+    font-family: Simlifica;    
   }
   
   div.mid {
@@ -20,22 +18,21 @@ div.login {
     margin-top: 60px;
   }
   
-  p.link-info{
-    font-size: 1.28vw;
+  div.l{
+    margin-top: 30px;
   }
-  
-  /* h1.login {
-    font-size: 3vw;
-  } */
-  
+
+  p.link-info{
+    font-size: 0.88vw;
+  }
 
   button.login{
-    font-family: 'Brush Script MT', cursive;
-    font-size:0.7em;
+    font-family: Simlifica;
+    font-size:1.5em;
     display:block;
     left:-60px;
     margin-top:25px;
-    width:34%;    
+    width:33.3%;    
     background-color: #bfeaf8;  
     color:black;
     border-radius: 12px;
@@ -48,10 +45,10 @@ div.login {
   }
 /*Shine */
 
-h1 {  
+h1.login {  
   position: relative;
-  font-family: Brush Script MT, cursive;
-  font-size: 3vw;
+  font-family: Simlifica;
+  font-size: 2.1vw;
   letter-spacing: 2px;
   background: linear-gradient(90deg, #f89f8d, #fff, #86c4f0);
   background-repeat: repeat;
