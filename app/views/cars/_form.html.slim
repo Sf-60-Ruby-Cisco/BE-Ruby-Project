@@ -1,0 +1,38 @@
+= form_with(model: @car) do |form|
+  - if @car.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
+      ul
+        - @car.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :brand, style: "display: block"
+    = form.text_field :brand
+
+  div
+    = form.label :model, style: "display: block"
+    = form.text_field :model
+
+  div
+    = form.label :engine, style: "display: block"
+    = form.text_field :engine
+
+  div
+    = form.label :fuel_type, style: "display: block"
+    = form.text_field :fuel_type
+
+  div
+    = form.label :year, style: "display: block"
+    = form.date_field :year
+
+  div
+    = form.label :license_plate, style: "display: block"
+    = form.text_field :license_plate
+
+  div 
+    = form.number_field :user_id, id: :car_user_id, class:"form-control",
+     value: current_user.id, type: :hidden
+
+  div
+    = form.submit
