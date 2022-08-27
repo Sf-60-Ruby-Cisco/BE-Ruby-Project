@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     get '/users' =>  'devise/registrations#new'
     get '/users/password' => 'devise/passwords#new'
   end
-  root 'home#index'  
+  root 'cars#index'  
 
 end

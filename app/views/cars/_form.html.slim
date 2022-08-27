@@ -1,10 +1,13 @@
-= form_with(model: @car) do |form|
-  - if @car.errors.any?
-    div style="color: red"
-      h2 = "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
-      ul
-        - @car.errors.each do |error|
-          li = error.full_message
+= form_with(model: car, local: true) do |form|
+  - if car.errors.any?
+    .alert.alert-danger
+      - car.errors.full_messages.each do |message|
+        div
+          = message
+  div  
+    = form.rich_text_area :content,
+      placeholder: "Attach profile picture",
+      class: "col-sm-4 col-form-label"
 
   div
     = form.label :brand, style: "display: block"
@@ -24,7 +27,8 @@
 
   div
     = form.label :year, style: "display: block"
-    = form.date_field :year
+    = form.date_select :year,  {:start_year => 1990,:end_year => DateTime.now.year,
+     :discard_day => true, :discard_month => true}, class: 'col-sm-2 col-form-label'
 
   div
     = form.label :license_plate, style: "display: block"
