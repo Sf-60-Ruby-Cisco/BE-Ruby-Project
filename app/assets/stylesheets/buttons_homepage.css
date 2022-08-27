@@ -11,13 +11,9 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-top: 1px;
-  margin-right: 2px;
-  position: fixed;
-  top: 8vw;
-  left: 1vw;
-  font-family: Simlifica;
-  font-size: 1em;
+  margin-top: 30px;
+  margin-left: -500px;
+ 
 }
 
 .button-add:before {
@@ -95,4 +91,43 @@ h2.cc {
   float: left;
   /* padding-right: px; */
   color: #292b2c
+}
+
+
+/* Rest of the buttons and divs for home page  */
+div.a{
+  float: inline-start; 
+  margin: 30px;  
+}
+
+button.del{
+  font-family: Simlifica;
+  font-size:1.8em;
+  display:block;
+  left:-60px;
+  margin-top:25px;
+  width:100%;    
+  background-color: #d9534f;  
+  color:black;
+  border-radius: 12px;
+}
+button.del:hover{
+  background-color: #f0ad4e;
+  color: white;
+}
+
+a.btn.ed{
+  font-family: Simlifica;
+  font-size:1.5em;
+  display:block;
+  left:-60px;
+  margin-top:25px;
+  width:100%;    
+  background-color: #292b2c;  
+  color:white;
+  border-radius: 12px;
+}
+a.btn.ed:hover{
+  background-color:  white;
+  color: black;
 }

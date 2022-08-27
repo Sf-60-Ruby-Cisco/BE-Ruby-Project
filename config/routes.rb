@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     get '/users/password' => 'devise/passwords#new'
   end
   root 'cars#index'  
+  get '/about' => "about#index"
 
 end
