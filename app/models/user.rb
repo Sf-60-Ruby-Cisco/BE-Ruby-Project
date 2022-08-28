@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_rich_text :content
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
   validates :username, presence: true, length: {maximum: 40} 
-  validates :password, presence: true, length: {maximum: 20}
+  validates :password, length: {maximum: 20}
 
    
 
