@@ -29,11 +29,6 @@
   div
     = form.label :license_plate, style: "display: block"
     = form.text_field :license_plate
-
-  div
-    = form.label :current_user_id, style: "display: block"
-
-    = form.number_field :user_id, id: :car_user_id, class:" form-control", value: current_user.id, sstyle: "display: "
     
   div
     = form.submit
