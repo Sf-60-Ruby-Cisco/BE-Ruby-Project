@@ -16,11 +16,12 @@ section.vh-100
             
           div.mid
                    
-            = f.text_field :login, autofocus: true, :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Email address or Username", :maxlength=>"254"
+            = f.text_field :login, autofocus: true, :size=>"50", autocomplete: "on", 
+            class: "col-sm-4 col-form-label", placeholder: "Email address or Username"
           div.mid
-            = f.password_field :password, autocomplete: "current-password",
+            = f.password_field :password,
              :size=>"50",class: "col-sm-4 col-form-label",
-              placeholder: "Password", :maxlength=>"254"
+              placeholder: "Password"
           - if devise_mapping.rememberable?
             .field
             div.login      

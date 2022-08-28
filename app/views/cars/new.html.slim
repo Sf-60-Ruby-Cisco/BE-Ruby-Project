@@ -1,8 +1,17 @@
-h1 New car
-
+- if @car.errors.any?
+  .alert.alert-danger
+    - @car.errors.full_messages.each do |message|
+      div.n
+        = message 
+div
+  = button_to "Back" , cars_path(cars_path), method: :get, class: "button-add"
+div.newcar
+  h1.login
+    | Add new Car
+  
 == render "form", car: @car
 
-br
 
-div
-  = link_to "Back to cars", cars_path
+
+/ div
+/   = link_to "Back to cars", cars_path

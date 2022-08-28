@@ -9,8 +9,9 @@ class User < ApplicationRecord
   validate :validate_username, :content
   validates_uniqueness_of :username, :email
   has_rich_text :content
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
-  validates :username, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
+  validates :username, presence: true, length: {maximum: 40} 
+  validates :password, presence: true, length: {maximum: 20}
 
    
 
@@ -18,6 +19,7 @@ class User < ApplicationRecord
     @login || self.username || self.email
   end
 
+  # Use login for username and email
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))

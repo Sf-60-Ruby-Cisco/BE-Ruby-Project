@@ -13,14 +13,14 @@ section.vh-100
          url: registration_path(resource_name), data: { turbo: false }) do |f|              
           .field                  
           div.register
-            = f.text_field :username, autofocus: true,
+            = f.text_field :username, autofocus: true, autocomplete: "on",
              :size=>"50",class: "col-sm-4 col-form-label",
-              placeholder: "Username", :maxlength=>"254"
+              placeholder: "Username"
           .field
           div.register                           
-            = f.email_field :email, autocomplete: "email",
+            = f.email_field :email, autocomplete: "on",
              autofocus: true, :size=>"50",class: "col-sm-4 col-form-label",
-              placeholder: "Email address", :maxlength=>"254"
+              placeholder: "Email address"
           .field
           .field            
             - if @minimum_password_length
@@ -29,15 +29,15 @@ section.vh-100
                 = @minimum_password_length
                 |  characters minimum           
           div.m
-            = f.password_field :password, autocomplete: "password",
+            = f.password_field :password,
              :size=>"50",class: "col-sm-4 col-form-label", 
-             placeholder: "Password", :maxlength=>"254"
+             placeholder: "Password"
           - if devise_mapping.rememberable?
           .field
           div.register            
-            = f.password_field :password_confirmation, autocomplete: "confirm-password",
-             :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Confirm password",
-              :maxlength=>"254"
+            = f.password_field :password_confirmation,
+             :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Confirm password"
+              
             - if devise_mapping.rememberable?
             .actions              
           div.register

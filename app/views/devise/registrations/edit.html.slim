@@ -22,21 +22,20 @@ section.vh-100
              class: "col-sm-4 col-form-label"
           .field
           div.edit                      
-            = f.text_field :username, autofocus: true, 
-            autofocus: true, :size=>"50", placeholder: "Username",
-             :maxlength=>"254", class: "col-sm-4 col-form-label"
+            = f.text_field :username, 
+            autofocus: true, :size=>"50", placeholder: "Username",autocomplete: "on", class: "col-sm-4 col-form-label"
           .field
           div.edit                      
-            = f.email_field :email, autofocus: true,
-             autocomplete: "email", autofocus: true, 
+            = f.email_field :email,
+             autocomplete: "on", autofocus: true, 
              :size=>"50", placeholder: "Email", 
-             :maxlength=>"254", class: "col-sm-4 col-form-label"
+             class: "col-sm-4 col-form-label"
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           .field                        
           div.edit                                                 
             = f.password_field :password,
              autofocus: true, :size=>"50", placeholder: "New password",
-              :maxlength=>"254", class: "col-sm-4 col-form-label"
+            class: "col-sm-4 col-form-label"
             - if @minimum_password_length            
             p.pass                               
               = @minimum_password_length
@@ -45,11 +44,11 @@ section.vh-100
           div.edit           
             = f.password_field :password_confirmation,
              autofocus: true, :size=>"50", placeholder: "Confirm password",
-              :maxlength=>"254",class: "col-sm-4 col-form-label"
+             class: "col-sm-4 col-form-label"
           .field                   
           div.edit         
             = f.password_field :current_password, autofocus: true, :size=>"50",
-             placeholder: "Enter password to confirm changes", :maxlength=>"254", class: "col-sm-4 col-form-label"
+             placeholder: "Enter password to confirm changes", class: "col-sm-4 col-form-label"
             .actions
             div.e
               button.update[type="Submit"]

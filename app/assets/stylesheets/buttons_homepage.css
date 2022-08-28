@@ -95,7 +95,7 @@ h2.cc {
 
 
 /* Rest of the buttons and divs for home page  */
-div.a{
+div.render{
   float: inline-start; 
   margin: 30px;  
 }

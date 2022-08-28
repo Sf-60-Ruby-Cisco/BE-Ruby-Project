@@ -1,42 +1,48 @@
-= form_with(model: car, local: true) do |form|
-  - if car.errors.any?
-    .alert.alert-danger
-      - car.errors.full_messages.each do |message|
-        div
-          = message
-  div  
-    = form.rich_text_area :content,
-      placeholder: "Attach profile picture",
-      class: "col-sm-4 col-form-label"
+ 
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-6.text-black
+        .px-5.ms-xl-4
+        .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+          
 
-  div
-    = form.label :brand, style: "display: block"
-    = form.text_field :brand, :maxlength =>"15"
+          = form_with(model: car, local: true) do |form|
+                     
+            div.f 
+              = form.rich_text_area :content,
+                placeholder: "Car picture",
+                class: "col-sm-6 col-form-label"
 
-  div
-    = form.label :model, style: "display: block"
-    = form.text_field :model
+            div.f
+              = form.text_field :brand, autofocus: true, :size=>"50", placeholder: "Brand",autocomplete: "on", class: "col-sm-6 col-form-label"
 
-  div
-    = form.label :engine, style: "display: block"
-    = form.text_field :engine
+            div.f    
+              = form.text_field :model, autofocus: true, :size=>"50", placeholder: "Model",autocomplete: "on", class: "col-sm-6 col-form-label"
 
-  div
-    = form.label :fuel_type, style: "display: block"
-    = form.text_field :fuel_type
+            div.f
+              = form.text_field :engine, autofocus: true, :size=>"50", placeholder: "Engine",autocomplete: "on", class: "col-sm-6 col-form-label"
 
-  div
-    = form.label :year, style: "display: block"
-    = form.date_select :year,  {:start_year => 1990,:end_year => DateTime.now.year,
-     :discard_day => true, :discard_month => true}, class: 'col-sm-2 col-form-label'
+            div.f  
+              = form.text_field :fuel_type, autofocus: true, :size=>"50", placeholder: "Fuel Type",autocomplete: "on", class: "col-sm-6 col-form-label"
 
-  div
-    = form.label :license_plate, style: "display: block"
-    = form.text_field :license_plate
+            div.f              
+              = form.date_select :year,  {:start_year => 1990,:end_year => DateTime.now.year,
+              :discard_day => true, :discard_month => true, include_blank: true, datetime_select: :start}, class: 'col-sm-6 col-form-label'
+             
 
-  div 
-    = form.number_field :user_id, id: :car_user_id, class:"form-control",
-     value: current_user.id, type: :hidden
+            div.f
+              = form.text_field :license_plate, autofocus: true, :size=>"50", placeholder: "License Plate", autocomplete: "on", class: "col-sm-6 col-form-label"
 
-  div
-    = form.submit
+
+            div 
+              = form.number_field :user_id, id: :car_user_id, class:"form-control",
+              value: current_user.id, type: :hidden
+
+            div.l
+              button.car[type="Submit"]                
+                | Confirm
+                
+      .col-sm-6.px-8.d-none.d-sm-block    
+        div.c         
+          = image_tag("garrage.jpg", class: "img-fluid")

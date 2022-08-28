@@ -12,16 +12,15 @@ section.vh-100
               .field                         
               div.midl
                 = f.password_field :password,
-                        autofocus: true, :size=>"50", placeholder: "New password",
-                          :maxlength=>"254", class: "col-sm-7"
+                        autofocus: true, :size=>"50", placeholder: "New password", class: "col-sm-7"
                 p.pass         
                   - if @minimum_password_length                   
                     = @minimum_password_length
                     |  characters minimum
                 .field
                   = f.password_field :password_confirmation,
-                          autofocus: true, :size=>"50", placeholder: "Confirm new password",
-                            :maxlength=>"254", class: "col-sm-7 "  
+                    autofocus: true, :size=>"50", placeholder: "Confirm new password",
+                    class: "col-sm-7 "  
                          
                 .actions
                 div.pass
