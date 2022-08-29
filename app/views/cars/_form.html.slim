@@ -31,14 +31,8 @@ section.vh-100
               = form.date_select :year,  {:start_year => 1990,:end_year => DateTime.now.year,
               :discard_day => true, :discard_month => true, include_blank: true, datetime_select: :start}, class: 'col-sm-6 col-form-label'
              
-
             div.f
               = form.text_field :license_plate, autofocus: true, :size=>"50", placeholder: "License Plate", autocomplete: "on", class: "col-sm-6 col-form-label"
-
-
-            div 
-              = form.number_field :user_id, id: :car_user_id, class:"form-control",
-              value: current_user.id, type: :hidden
 
             div.l
               button.car[type="Submit"]                
