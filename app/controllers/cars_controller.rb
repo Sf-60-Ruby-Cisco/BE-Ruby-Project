@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :check_user, :only => [:edit, :show]
@@ -72,10 +73,10 @@ class CarsController < ApplicationController
 
 
     # Restrict url to be edited, and denie acees to other users cars
-  def check_user
-    @car = Car.find(params[:id])
-    unless current_user.id == @car.user_id
-      redirect_to (request.referrer || root_path)
+    def check_user
+      @car = Car.find(params[:id])
+      unless current_user.id == @car.user_id
+        redirect_to (request.referrer || root_path)
       return
     end
   end

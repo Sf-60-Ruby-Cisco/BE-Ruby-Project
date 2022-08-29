@@ -16,10 +16,11 @@ section.vh-100
          data: { turbo: false }) do |f|
           = render "devise/shared/error_messages", resource: resource
           .field  
-          div.edit  
-            = f.rich_text_area :content,
-             placeholder: "Attach profile picture",
-             class: "col-sm-4 col-form-label"
+          div.edit
+            label.btn.btn-info.btn-sm
+              |  Upload  picture
+              span[style="display:none;"]
+                = f.file_field :content
           .field
           div.edit                      
             = f.text_field :username, 

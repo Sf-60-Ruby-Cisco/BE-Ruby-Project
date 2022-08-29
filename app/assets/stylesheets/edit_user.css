@@ -56,7 +56,7 @@ button.update {
   display: block;
   left: -60px;
   width: 33.3%;
-  background-color: #bfeaf8;
+  background-color: #0dcaf0;
   color: black;
   border-radius: 12px;
 }
@@ -105,3 +105,12 @@ p.passedit {
   font-family: Simlifica;
   margin-top: -20px;
 }
+
+ 
+label.btn.btn-info.btn-sm{
+  font-family: Simlifica;
+  font-size: 1.2em;
+  width: 33.3%;
+}
+
+

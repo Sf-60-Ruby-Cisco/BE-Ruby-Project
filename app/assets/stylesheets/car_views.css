@@ -46,3 +46,16 @@ button.car:hover {
 div.c{
     margin-top: 100px;
 }
+
+label.btn.btn-info.btn-lg{
+    font-family: Simlifica;
+    font-size: 1.2em;
+    display: block;
+    left: -60px;
+    margin-top: 25px;
+    width: 50%;
+    background-color: #292b2c;  
+    color:white;
+    border-radius: 12px;
+
+}

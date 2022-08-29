@@ -9,10 +9,11 @@ section.vh-100
 
           = form_with(model: car, local: true) do |form|
                      
-            div.f 
-              = form.rich_text_area :content,
-                placeholder: "Car picture",
-                class: "col-sm-6 col-form-label"
+            div
+              label.btn.btn-info.btn-lg
+                |  Upload  picture
+                span[style="display:none;"]
+                  = form.file_field :content
 
             div.f
               = form.text_field :brand, autofocus: true, :size=>"50", placeholder: "Brand",autocomplete: "on", class: "col-sm-6 col-form-label"

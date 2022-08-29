@@ -1,10 +1,12 @@
 div id="#{dom_id car}"
 
-  .card[style="width:300px;"]
-      - if car.content.present?
-        == car.content
+  .card[style="width:15vw;"]
+      - if car.content.image?
+          a.[href= rails_blob_path(car.content)]
+            = image_tag car.content.variant(:thumb)
       - else 
-        = image_tag("car.png", width: "250px", height: "97px")
+        a.[href= "/assets/car-3a3e6819a2796417745db5379405ed182c8136129ed07f0f30a0bde4f9ba2706.png"]
+          = image_tag("car.png", width: "250px", height: "276px")
       .card-body          
         h2.cc
           = current_user.username.capitalize() 

@@ -3,16 +3,18 @@ class User < ApplicationRecord
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-         
-  has_many :cars
-  attr_writer :login
+   
+  attr_writer :login       
+  has_many :cars  
   validate :validate_username, :content
   validates_uniqueness_of :username, :email
-  has_rich_text :content
+  has_one_attached :content do |attachable|
+    attachable.variant :thumb, resize_to_limit: [46, 46]
+  end
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
   validates :username, presence: true, length: {maximum: 40} 
-  validates :password, length: {maximum: 20}
-
+  validates :password, length: {maximum: 20}  
+  validate :validate_filetypes
    
 
   def login
@@ -35,7 +37,7 @@ class User < ApplicationRecord
     end
   end  
 
-  # Soft deleting user makin it deactive  
+  # Soft deleting user making it deactive  
   def destroy
     update_attribute(:deactivated, true) unless deactivated
     update_attribute(:email, nil) 
@@ -46,5 +48,14 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && !deactivated
   end
-  
+
+  private 
+
+  def validate_filetypes
+    return unless content.attached?   
+    unless content.content_type.in?(%w[image/png image/jpeg image/jpg image/gif])
+      errors.add(:You, "can only upload jpg, png ang gif files!")
+    end
+  end
+
 end

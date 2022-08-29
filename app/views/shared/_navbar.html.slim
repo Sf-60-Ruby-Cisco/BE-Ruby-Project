@@ -30,7 +30,12 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           /   a= link_to "Do something", root_path, class:"dropdown-item"
           a.dropdown-item[href="#"]
             a= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"dropdown-item"
+    - if current_user.content.present?
+      a.navbar-brand[href= rails_blob_path(current_user.content)]
+        .logo-image
+          - if current_user.content.image?
+            = image_tag current_user.content.variant(:thumb)
+          
             
-      a.navbar-brand[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-          .logo-image
-            == current_user.content
+    
+    
