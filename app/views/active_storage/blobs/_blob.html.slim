@@ -4,7 +4,7 @@
 = blob.filename.extension
 | "> 
 - if blob.representable?
-  = image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 150, 150 ] : [ 200, 200 ])
+  = image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 300, 300 ] : [ 100, 100 ])
 figcaption.attachment__caption
   - if caption = blob.try(:caption)
     = caption
