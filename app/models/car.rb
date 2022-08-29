@@ -1,7 +1,6 @@
-class Car < ApplicationRecord
-    
+class Car < ApplicationRecord    
 
-  belongs_to :user, optional: true
+  belongs_to :user
   has_one_attached :content do |attachable|
       attachable.variant :thumb, resize_to_limit: [300, 300]
   end
