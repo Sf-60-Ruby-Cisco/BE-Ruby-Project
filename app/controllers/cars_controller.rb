@@ -15,8 +15,7 @@ class CarsController < ApplicationController
 
   # GET /cars/new
   def new
-    # @car = Car.new
-    @car = current_user.cars.create
+    @car = Car.new
   end
 
   # GET /cars/1/edit
@@ -25,7 +24,7 @@ class CarsController < ApplicationController
 
   # POST /cars or /cars.json
   def create    
-    @car = Car.new(car_params)      
+    @car = Car.new(car_params.merge(user: current_user))      
     respond_to do |format|
       if @car.save
         format.html { redirect_to car_url(@car), notice: "Car was successfully created." }
