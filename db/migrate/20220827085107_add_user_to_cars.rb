@@ -1,5 +1,6 @@
-class AddUserToCar < ActiveRecord::Migration[7.0]
+class AddUserToCars < ActiveRecord::Migration[7.0]
   def change
-    add_reference :cars, :user, foreign_key: true
+    add_column :cars, :user_id, :integer
+    add_index :cars, :user_id
   end
 end
