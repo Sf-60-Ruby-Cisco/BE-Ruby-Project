@@ -1,0 +1,12 @@
+p style="color: green" = notice
+
+h1 Taxes
+
+#taxes
+  - @taxes.each do |tax|
+    == render tax
+
+  = link_to "New tax", new_car_tax_path
+br
+br
+=> link_to "Back", car_path(@car)
