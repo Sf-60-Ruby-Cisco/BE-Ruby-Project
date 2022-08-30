@@ -1,0 +1,15 @@
+div id="#{dom_id tax}"
+  p
+    strong Name:
+    =< tax.name
+  p
+    strong Description:
+    =< tax.description
+  p
+    strong From date:
+    =< tax.from_date
+  p
+    strong Until date:
+    =< tax.until_date
+  P
+  => link_to "Show tax", [@car, tax]

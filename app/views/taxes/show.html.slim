@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @tax
+
+div
+  => link_to "Edit this tax", edit_car_tax_path([@car, @tax])
+  '|
+  =< link_to "Back to taxes", [@car, :taxes]
+
+  = button_to "Destroy this tax", [@car, @tax], method: :delete

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_25_184846) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_134159) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,8 +61,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_184846) do
     t.string "license_plate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.date "from_date"
+    t.date "until_date"
+    t.bigint "car_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_taxes_on_car_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,4 +92,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_184846) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "taxes", "cars"
 end
