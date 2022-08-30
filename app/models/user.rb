@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_one_attached :content do |attachable|
     attachable.variant :thumb, resize_to_limit: [46, 46]
   end
+  
+  validates :password, length: { minimum: 6, maximum: 20 }, on: :create
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
-  validates :username, presence: true, length: {maximum: 40} 
-  validates :password, length: {maximum: 20}  
-  validate :validate_filetypes
+  before_validation :validate_filetypes, :username_length  
    
 
   def login
@@ -58,4 +58,10 @@ class User < ApplicationRecord
     end
   end
 
+  def username_length     
+    return unless username.length < 3 || username.length > 40
+    errors.add(:username, "must be between 3 and 40 characters")
+    end
+
 end
+

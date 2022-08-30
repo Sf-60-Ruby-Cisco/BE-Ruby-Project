@@ -10,11 +10,6 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         li= link_to 'About',about_path, class:"nav-link"
       
         li= link_to 'Add Car', new_car_path , class:"nav-link"
-    
-        / li= link_to 'Do something',root_path, class:"nav-link"
-      
-        / li= link_to "Another thing",root_path, class:"nav-link"      
-        
 
   .collapse.navbar-collapse#navbarSupportedContent
     
@@ -26,10 +21,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         .dropdown-menu.dropdown-menu-dark.bg-dark[aria-labelledby="navbarDropdownMenuLink"]
           a.dropdown-item
             a= link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item"
-          / a.dropdown-item
-          /   a= link_to "Do something", root_path, class:"dropdown-item"
           a.dropdown-item[href="#"]
-            a= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"dropdown-item"
+            a= button_to 'Sign out', destroy_user_session_path, method: :delete, class:"dropdown-item"
     - if current_user.content.present?
       a.navbar-brand[href= rails_blob_path(current_user.content)]
         .logo-image

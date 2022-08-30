@@ -67,11 +67,11 @@ class CarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def car_params
-      params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :user_id, :content)
+      params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :content)
     end
 
 
-    # Restrict url to be edited, and denie acees to other users cars
+    # Deny url to be edited, and denie acees to other users cars
     def check_user
       @car = Car.find(params[:id])
       unless current_user.id == @car.user_id
