@@ -25,9 +25,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  def destroy(resource)
-    super
-  end
+  # def destroy(resource)
+  #   super
+  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
