@@ -39,5 +39,10 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL_DEV}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PW_DEV}
     restart: unless-stopped
+  mailcatcher:
+    image: jeanberu/mailcatcher
+    ports:
+      - "1025:1025"
+      - "1080:1080"
 volumes:
   pgdata:

@@ -1,0 +1,61 @@
+/* Edit Sign Up page */
+div.register {
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: 20px;
+  }
+  
+  .col-sm-4.px-0.d-none.d-sm-block {
+    width: 50vw;
+    height: 130vh;
+    max-width: calc(100% - 20px);
+    margin-left: auto;
+    margin-top: auto;
+  }
+  
+  h1.register {
+    font-size: 2vw;
+    font-family: Simlifica;
+  }
+  
+  div.reg {
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: 60px;
+  }
+  
+  p.pass {
+    font-size: 0.76vw;
+    font-family: Simlifica;
+  }
+  
+  .image_tag{
+    left: 20px;
+    top: 2px;
+  }
+
+  button.register{
+    font-family: Simlifica;
+    font-size:1.5em;
+    display:block;
+    left:-60px;
+    margin-top:25px;
+    width:33.3%;     
+    background-color: #bae7f6;
+    color:black;
+    border-radius: 12px;
+  }
+
+  button.register:hover {
+    background-color: #0d6684;  
+    color:white;   
+  }
+
+  div.m{
+    position: relative;
+    left: 20px;
+    top: 2px;
+    margin-top: -20px;
+  }

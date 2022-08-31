@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :cars
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users' =>  'devise/registrations#new'
   end
-  root 'home#index'  
+  root 'cars#index'  
+  get '/about' => "about#index"
+
 end

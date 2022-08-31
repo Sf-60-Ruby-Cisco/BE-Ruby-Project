@@ -1,0 +1,133 @@
+.button-add {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 2vw;
+  margin-left: 27vw;
+ 
+}
+
+.button-add:before {
+  content: "";
+  background: linear-gradient(45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-add {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-add:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+
+
+
+h2.c{
+  font-size: 1.5vw;
+  font-family: Simlifica;
+  position: relative;
+  left: 0px;
+  top: 2px;
+  display: block;
+  display: inline-block;
+  color: #292b2c
+}
+
+h2.cc {
+  font-size: 1.5vw;
+  font-family: Simlifica;
+  position: relative;
+  left: 0px;
+  top: 2px;
+  float: left;
+  /* padding-right: px; */
+  color: #292b2c
+}
+
+
+/* Rest of the buttons and divs for home page  */
+div.render{
+  float: inline-start; 
+  margin: 30px;  
+}
+
+button.del{
+  font-family: Simlifica;
+  font-size:1.8em;
+  display:block;
+  left:-60px;
+  margin-top:25px;
+  width:100%;    
+  background-color: #d9534f;  
+  color:black;
+  border-radius: 12px;
+}
+button.del:hover{
+  background-color: #f0ad4e;
+  color: white;
+}
+
+a.btn.ed{
+  font-family: Simlifica;
+  font-size:1.5em;
+  display:block;
+  left:-60px;
+  margin-top:25px;
+  width:100%;    
+  background-color: #292b2c;  
+  color:white;
+  border-radius: 12px;
+}
+a.btn.ed:hover{
+  background-color:  white;
+  color: black;
+}

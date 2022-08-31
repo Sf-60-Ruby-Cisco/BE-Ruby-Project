@@ -1,9 +1,12 @@
 class CarsController < ApplicationController
+  
   before_action :set_car, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :check_user, :only => [:edit, :show]
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.all
+    @cars = Car.where(user: current_user)
   end
 
   # GET /cars/1 or /cars/1.json
@@ -20,9 +23,8 @@ class CarsController < ApplicationController
   end
 
   # POST /cars or /cars.json
-  def create
-    @car = Car.new(car_params)
-
+  def create    
+    @car = Car.new(car_params.merge(user: current_user))      
     respond_to do |format|
       if @car.save
         format.html { redirect_to car_url(@car), notice: "Car was successfully created." }
@@ -65,6 +67,16 @@ class CarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def car_params
-      params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :user_id)
+      params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :content)
     end
+
+
+    # Deny url to be edited, and deny access to other users cars
+    def check_user
+      @car = Car.find(params[:id])
+      unless current_user.id == @car.user_id
+        redirect_to (request.referrer || root_path)
+      return
+    end
+  end
 end

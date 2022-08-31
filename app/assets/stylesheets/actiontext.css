@@ -25,8 +25,9 @@
   max-width: 50%;
 }
 
-.trix-content action-text-attachment .attachment {
-  padding: 0 !important;
-  max-width: 100% !important;
+.trix-content {
+  max-height: 100px !important;   
+  overflow-y: auto;
 }
 
+ 

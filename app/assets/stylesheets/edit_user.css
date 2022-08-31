@@ -1,0 +1,116 @@
+/* Edit user page */
+div.edit {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
+
+}
+
+h2.e {
+  font-size: 2.1vw;
+  font-family: Simlifica;
+  position: relative;
+  left: 0px;
+  top: 2px;
+  display: block;
+  display: inline-block;
+  color: #3F26BF
+}
+
+h2.ee {
+  font-size: 2.1vw;
+  font-family: Simlifica;
+  position: relative;
+  left: 0px;
+  top: 2px;
+  float: left;
+  padding-right: 10px;
+  color: #0095B7
+}
+
+
+h1.edit {
+  font-size: 3vw;
+  font-family: Simlifica;
+  position: relative;
+  left: 0px;
+  top: 2px;
+  font-family: Simlifica;
+
+}
+
+form.edit {
+  width: 23rem;
+}
+
+p {
+  width: 23rem;
+  font-family: Simlifica;
+}
+
+button.update {
+  font-family: Simlifica;
+  font-size: 1.2em;
+  display: block;
+  left: -60px;
+  width: 33.3%;
+  background-color: #0dcaf0;
+  color: black;
+  border-radius: 12px;
+}
+
+button.update:hover {
+  background-color: #0d6684;
+  color: white;
+}
+
+div.e {
+  margin-top: 20px;
+}
+
+
+button.btn-outline-danger {
+  font-family: Simlifica;
+  font-size: 1.2em;
+  display: block;
+  left: -60px;
+  width: 33.3%;
+  border-radius: 12px;
+}
+
+div.ed {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
+  font-size: 30px;
+}
+
+div.ed {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
+
+}
+
+
+
+p.passedit {
+  font-size: 0.76vw;
+  font-family: Simlifica;
+  margin-top: -20px;
+}
+
+ 
+label.btn.btn-info.btn-sm{
+  font-family: Simlifica;
+  font-size: 1.2em;
+  width: 33.3%;
+}
+
+
