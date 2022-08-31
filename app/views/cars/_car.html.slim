@@ -32,12 +32,10 @@ div id="#{dom_id car}"
         =< car.license_plate
 
       a.btn.ed[href= edit_car_path(car)]
-        | Edit Car          
+        | Edit car          
       = button_to "Delete car", car, method: :delete, class: "del"
 
-      / a.btn.btn-danger.btn-lg[href= car_path(car), method: :delete]
-      /   | Delete Car  
-
+  
 
 
   
