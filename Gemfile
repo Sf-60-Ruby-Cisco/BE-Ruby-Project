@@ -17,6 +17,8 @@ gem 'devise'
 
 gem "image_processing", ">= 1.2"
 
+# gem 'money-rails', '~> 1.15'
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"

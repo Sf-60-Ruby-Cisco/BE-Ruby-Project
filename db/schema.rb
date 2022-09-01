@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_31_101816) do
 
   create_table "chargings", force: :cascade do |t|
     t.string "brand_station"
-    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.integer "amount", null: false
     t.date "date"
     t.bigint "car_id", null: false
     t.datetime "created_at", null: false
