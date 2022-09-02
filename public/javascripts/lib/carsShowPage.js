@@ -16,7 +16,7 @@ editActionButtons.forEach(editBtn => {
 
         chargingForm.querySelector('p[id="chargingFormHeader"]').textContent = "Editing Charging";
         setChargingFormFields(getChargingFormFields(chargingForm), params=[
-            brand_station.textContent, amount.textContent, date.textContent, chargingId
+            brand_station.textContent, amount.textContent.replace('$', ''), date.textContent, chargingId
         ])
 
         chargingForm.querySelector('button[id="createBtn"]').style.display = 'none';
