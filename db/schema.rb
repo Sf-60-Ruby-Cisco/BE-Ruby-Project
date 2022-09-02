@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_134159) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_02_072255) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_134159) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "car_taxes", force: :cascade do |t|
+    t.bigint "car_id", null: false
+    t.bigint "tax_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_car_taxes_on_car_id"
+    t.index ["tax_id"], name: "index_car_taxes_on_tax_id"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "brand"
     t.string "model"
@@ -73,6 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_134159) do
     t.bigint "car_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_cents"
+    t.string "amount_currency"
     t.index ["car_id"], name: "index_taxes_on_car_id"
   end
 
@@ -92,5 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_134159) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "car_taxes", "cars"
+  add_foreign_key "car_taxes", "taxes"
   add_foreign_key "taxes", "cars"
 end

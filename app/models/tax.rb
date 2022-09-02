@@ -1,3 +1,4 @@
 class Tax < ApplicationRecord
-  belongs_to :car
+  has_many :car_taxes
+  has_many :cars, through: :car_taxes
 end
