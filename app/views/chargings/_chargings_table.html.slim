@@ -10,7 +10,9 @@
                 - for item in @chargings
                   tr
                     td.brand_station = item.brand_station
-                    td.amount = item.amount
+                    td.amount
+                      | $
+                      = item.amount
                     td.date = item.date
                     td.actions
                       a[href="#" class="editAction" id="#{item.id}"] Edit 
