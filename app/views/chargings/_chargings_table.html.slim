@@ -1,0 +1,19 @@
+            p[class="h4"] Chargings
+            table[class="table table-striped table-dark"]
+              thead
+                tr
+                  th[scope="col"] Station 
+                  th[scope="col"] Amount
+                  th[scope="col"] Date
+                  th[scope="col"] Actions
+                tbody
+                - for item in @chargings
+                  tr
+                    td.brand_station = item.brand_station
+                    td.amount
+                      | $
+                      = item.amount
+                    td.date = item.date
+                    td.actions
+                      a[href="#" class="editAction" id="#{item.id}"] Edit 
+                      == link_to "Delete", car_charging_path(car_id: @car.id, id: item.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this charging ?" }
