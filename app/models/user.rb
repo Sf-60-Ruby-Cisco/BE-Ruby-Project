@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ApplicationRecord  
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -12,9 +12,10 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [46, 46]
   end
   
+  validates_with TypeValidator
   validates :password, length: { minimum: 6, maximum: 20 }, on: :create
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
-  before_validation :validate_filetypes, :username_length  
+  before_validation :username_length     
    
 
   def login
@@ -31,37 +32,29 @@ class User < ApplicationRecord
     end
   end
 
+  # Soft deleting user making it deactive  
+  def destroy
+    update_attribute(:deactivated, true) unless deactivated
+    update_attribute(:email, nil) 
+    update_attribute(:username, nil) 
+  end  
+
   def validate_username
     if User.where(email: username).exists?
       errors.add(:username, :invalid)
     end
   end  
 
-  # Soft deleting user making it deactive  
-  def destroy
-    update_attribute(:deactivated, true) unless deactivated
-    update_attribute(:email, nil) 
-    update_attribute(:username, nil) 
-  end
-
   # Stoping the user from loggin when deactivated
   def active_for_authentication?
     super && !deactivated
-  end
+  end  
 
-  private 
-
-  def validate_filetypes
-    return unless content.attached?   
-    unless content.content_type.in?(%w[image/png image/jpeg image/jpg image/gif])
-      errors.add(:You, "can only upload jpg, png ang gif files!")
-    end
-  end
+  private
 
   def username_length     
     return unless username.length < 3 || username.length > 40
     errors.add(:username, "must be between 3 and 40 characters")
     end
-
 end
 

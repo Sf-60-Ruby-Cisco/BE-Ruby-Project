@@ -59,6 +59,12 @@ class CarsController < ApplicationController
     end
   end
 
+  def purge_content
+    @car = Car.find(params[:id])    
+    @car.content.purge
+    redirect_to cars_url, notice: "Car's picture was successfully deleted, default picture will be displayed instead." 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
