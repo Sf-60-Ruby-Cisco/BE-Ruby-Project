@@ -4,7 +4,11 @@ div[class="navbar-cars-show"]
 
     = link_to "Add Charging", "", class: "button-add", id: "addChargingBtn"
 
-    = link_to "View Chargings", "", class: "button-add", id: "showChargingsBtn"
+    = link_to "Add Repair", "", class: "button-add", id: "addRepairBtn"
+
+    = link_to "Taxes and others", "", class: "button-add", id: "showChargingsBtn"
+
+    
 br
 section.vh-100
   .container-flui3
@@ -15,9 +19,13 @@ section.vh-100
 
         div[id="chargingForm" style="display: none"]
           == render 'chargings/form_charging'
+        div[id="repairForm" style="display: none"]
+          == render 'repairs/form_repairs'
 
         div[id="chargingsContainer" style="display: block"]
-          - if @chargings.any?
-            == render 'chargings/chargings_table'
+         
+            == render 'chargings/chargings_table'       
+      
+            == render 'repairs/repairs_table'
 
 <script type="text/javascript" src="/javascripts/lib/carsShowPage.js"></script>
