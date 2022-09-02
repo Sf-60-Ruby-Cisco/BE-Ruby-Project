@@ -1,0 +1,18 @@
+        = form_with(url: car_chargings_path(car_id: @car.id), method: :create) do |form|
+          p[class="h4" id="chargingFormHeader"] Add Charging          
+          div.f
+            = form.text_field :brand_station, autofocus: true, :size=>"50", placeholder: "Brand Station",autocomplete: "on", class: "col-sm-6 col-form-label"
+
+          div.f    
+            = form.number_field :amount, autofocus: true, placeholder: "Amount",autocomplete: "off", class: "col-sm-6 col-form-label"
+
+          div.f
+            = form.date_field :date, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label", required: true
+
+          div.f
+            = form.hidden_field :id, name: "id", required: false
+
+          div.l
+            button.car[type="Submit" id="createBtn"]                
+              | Add Charging
+            button.car[type="Submit" id="updateBtn" formmethod="patch" style="display: none"] Edit Charging
