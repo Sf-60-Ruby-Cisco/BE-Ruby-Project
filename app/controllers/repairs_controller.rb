@@ -5,7 +5,8 @@ class RepairsController < ApplicationController
 
   
   def create
-    @repair = @car.repairs.build(repair_params)
+    @repair = @car.repairs.build(repair_params.except(
+      :id, :car_id, :utf8, :_method, :authenticity_token, :commit))
     
     respond_to do |format|
       if @repair.save
@@ -21,7 +22,7 @@ class RepairsController < ApplicationController
    
   def update
     respond_to do |format|
-      if @repair.update(repair_params)
+      if @repair.update(repair_params.except(:id, :car_id, :utf8, :_method, :authenticity_token, :commit))
         format.html { redirect_to car_url(@car), status: 303, notice: "Repair was successfully updated." }
         format.json { render :plain => {success:true}.to_json,status: 200, content_type: 'application/json' }
       else
@@ -57,7 +58,7 @@ class RepairsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def repair_params
-      params.permit(:description, :amount, :date, :content, :car_id, :id)
+      params.permit(:utf8, :_method, :authenticity_token, :commit, :description, :amount, :date, :content, :car_id, :id)
     end
   
   end
