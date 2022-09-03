@@ -1,19 +1,27 @@
 = form_with(url: car_repairs_path(car_id: @car.id), method: :create) do |form|
   p[class="h4" id="repairFormHeader"] Add Repair         
   div.f
-    = form.text_area :description, autofocus: true, :size=>"50", placeholder: "Repair description",autocomplete: "on", class: "col-sm-6 col-form-label"
+    = form.text_area :description, autofocus: true, :size=>"50", placeholder: "Repair description",autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f    
     = form.number_field :amount, step: :any, required: true, autofocus: true, placeholder: "Amount",autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f
     = form.date_field :date, required: true, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label"
+  
+  div.f
+    = form.hidden_field :id, name: "id", required: false
+
+  div.f[id="invoiceContainer" style="display: none;"]
+    p[class="h5"] Current Invoice
+    a[href="" id="linkToCurrentInvoice"]
+      img[id="currentInvoiceImg" src="" style="width: 550px; height: 300px;"]
 
   div.f
     label.btn.btn-dark
       | Upload your invoice
       span[style="display:none;"]
-        = form.file_field :content
+        = form.file_field :content, required: false, id: "repairFileField"
 
   div.l
   button.car[type="Submit" id="createBtn"]                
