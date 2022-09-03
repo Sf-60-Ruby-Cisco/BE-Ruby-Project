@@ -12,8 +12,11 @@ table[class="table table-striped table-dark"]
         td.description = item.description
         td.amount
           | $
-          = item.amount
-        td.date = item.date
+          = item.amount                
+        td.date = item.date        
         td.actions
-          a[href="#" class="editAction" id="#{item.id}"] Edit 
-          = link_to "Delete", car_repair_path(car_id: @car.id, id: item.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this repairs ?" }
+          a[href="#" class="" id="#{item.id}"] Edit            
+          -if item.content.attached?            
+            a.[href= rails_blob_path(item.content)]
+              | Invoice 
+          = link_to "Delete ", car_repair_path(car_id: @car.id, id: item.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this repairs ?" }

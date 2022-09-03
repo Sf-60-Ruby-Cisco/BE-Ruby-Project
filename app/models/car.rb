@@ -10,6 +10,6 @@ class Car < ApplicationRecord
   validates_with TypeValidator
   validate :content
   validates :engine, :year,:fuel_type,:brand, :model, presence: true, length: {maximum: 20}
-  validates :license_plate, length: {maximum: 10}
+  validates :license_plate, presence: true, length: { is: 8 }
     
 end

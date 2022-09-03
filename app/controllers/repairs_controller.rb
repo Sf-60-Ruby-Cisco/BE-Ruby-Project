@@ -12,7 +12,7 @@ class RepairsController < ApplicationController
         format.html { redirect_to car_url(@car), notice: "Repair was successfully created." }
         format.json { render :plain => {success:true}.to_json, content_type: 'application/json' }
       else
-        format.html { redirect_to car_url(@car), status: :unprocessable_entity }
+        format.html { redirect_to car_url(@car), status: :unprocessable_entity, alert: "Something went wrong! Amount must be greather than 0. Allowed file types are jpg, png, gif ang pdf!" }
         format.json { render json: @repair.errors, status: :unprocessable_entity }
       end
     end
@@ -47,10 +47,11 @@ class RepairsController < ApplicationController
     end
 
     def get_car
-      @car = @car = Car.find(params[:car_id])
+      @car = Car.find(params[:car_id])
         unless current_user.id == @car.user_id
           redirect_to (request.referrer || root_path)
         return
+      end
     end
   
 

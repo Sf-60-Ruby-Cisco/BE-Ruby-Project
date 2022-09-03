@@ -15,7 +15,7 @@ if (addRepairBtn === undefined) {
     const repairsContainer = document.getElementById("repairsContainer");
 }
 
-var editrepairActionButtons = [...document.getElementsByClassName("editrepairAction")];
+var editRepairActionButtons = [...document.getElementsByClassName("editRepairAction")];
 
 /// Show Edit Charging Form ///
 editActionButtons.forEach(editBtn => {
@@ -36,26 +36,7 @@ editActionButtons.forEach(editBtn => {
 
     })
 })
-//  2 ----+
-
-editrepairActionButtons.forEach(editBtn => {
-    editBtn.addEventListener("click", (ev) => {
-        ev.preventDefault();
-        let repairId = ev.target.id;
-        let [description, amount, date] = [...ev.target.parentNode.parentNode.children];
-
-        repairForm.querySelector('p[id="repairFormHeader"]').textContent = "Editing Repair";
-        setRepairFormFields(getRepairFormFields(repairForm), params=[
-            description.textContent, amount.textContent, date.textContent, repairId
-        ])
-
-        repairForm.querySelector('button[id="createBtn"]').style.display = 'none';
-        repairForm.querySelector('button[id="updateBtn"]').style.display = 'block';
-        repairContainer.style.display = 'none';
-        repairForm.style.display = 'block';
-
-    })
-})
+/// Show Edit Repair  Form  ?///
 
 
 
@@ -79,11 +60,11 @@ addChargingBtn.addEventListener("click", (ev) => {
     }
 });
 
-// 2 ---
+/// Show Add Repair Form ///
 
 addRepairBtn.addEventListener("click", (ev) => {
     ev.preventDefault();
-    let repairFormHeader = repairForm.querySelector('p[id="chargingFormHeader"]')
+    let repairFormHeader = repairForm.querySelector('p[id="repairFormHeader"]')
 
     if (repairForm.style.display == 'none' || repairFormHeader.textContent == 'Editing Repair') {
         if (repairFormHeader.textContent == 'Editing Repair') {
@@ -122,27 +103,6 @@ function getChargingFormFields(chargingForm) {
             chargingForm.querySelector('input[name="amount"]'),
             chargingForm.querySelector('input[name="date"]'),
             chargingForm.querySelector('input[name="id"]'),
-        ]
-}
-
-function setRepairFormFields(fields_arr, params=[]) {
-    console.log(fields_arr);
-    if (params.length > 0) {
-        fields_arr.forEach(function (field, idx) {
-            field.value = params[idx];
-        })
-    } else {
-        fields_arr.forEach(field => {
-            field.value = '';
-        })
-    }
-}
-//  2
-function getRepairFormFields(repairForm) {
-    return [
-            repairForm.querySelector('input[name="description"]'),
-            repairForm.querySelector('input[name="amount"]'),
-            repairForm.querySelector('input[name="date"]'),
         ]
 }
 

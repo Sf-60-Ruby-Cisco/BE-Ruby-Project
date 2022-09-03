@@ -2,8 +2,8 @@ class TypeValidator < ActiveModel::Validator
   
   def validate(record)
     return unless record.content.attached?   
-    unless record.content.content_type.in?(%w[image/png image/jpeg image/jpg image/gif])
-      record.errors.add(:You, "can only upload jpg, png ang gif files!")
+    unless record.content.content_type.in?(%w[image/png image/jpeg image/jpg image/gif application/pdf])
+      record.errors.add(:You, "can only upload jpg, png, gif ang pdf files!")
     end
   end
 end
