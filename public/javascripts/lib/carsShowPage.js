@@ -26,8 +26,12 @@ function forRepairs() {
             ]
 
             if (invoiceImgLink) {
+                // Push the link two times to match fields_arr.length and params.length in setFormFields
                 params.push(invoiceImgLink.href, invoiceImgLink.href);
+
                 repairForm.querySelector('#invoiceContainer').style.display = 'block';
+            } else {
+                repairForm.querySelector('#invoiceContainer').style.display = 'none';
             }
             
             // Reset the file field 
