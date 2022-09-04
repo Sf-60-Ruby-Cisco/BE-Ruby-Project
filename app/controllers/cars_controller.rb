@@ -6,11 +6,12 @@ class CarsController < ApplicationController
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.where(user: current_user)
+    @cars = Car.where(user: current_user).all.order("created_at ASC")
   end
 
   # GET /cars/1 or /cars/1.json
   def show
+    index
     @chargings = @car.chargings.all.order("created_at DESC")
     @repairs = @car.repairs.all.order("created_at DESC")
   end
@@ -18,15 +19,18 @@ class CarsController < ApplicationController
 
   # GET /cars/new
   def new
+    index
     @car = Car.new
   end
 
   # GET /cars/1/edit
   def edit
+    index
   end
 
   # POST /cars or /cars.json
-  def create    
+  def create   
+    
     @car = Car.new(car_params.merge(user: current_user))      
     respond_to do |format|
       if @car.save
