@@ -160,7 +160,7 @@ function getChargingFormFields(chargingForm) {
 /// Set form fields ///
 function setFormFields(fields_arr, params=[]) {
     fields_arr.forEach(function (field, idx) {
-        if (params.length > 0) {
+        if (params[idx]) {
             valueToSet = params[idx]
         } else {
             valueToSet = '';
