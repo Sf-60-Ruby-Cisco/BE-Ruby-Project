@@ -3,10 +3,11 @@ class CarsController < ApplicationController
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :check_user, :only => [:edit, :show]
+  
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.where(user: current_user).order("created_at ASC")
+    @cars = current_user.cars.order(created_at: :asc)
   end
 
   # GET /cars/1 or /cars/1.json
@@ -31,7 +32,7 @@ class CarsController < ApplicationController
   # POST /cars or /cars.json
   def create   
     
-    @car = Car.new(car_params.merge(user: current_user))      
+    @car = current_user.cars.new(car_params)     
     respond_to do |format|
       if @car.save
         format.html { redirect_to car_url(@car), notice: "Car was successfully created." }

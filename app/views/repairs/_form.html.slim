@@ -1,4 +1,4 @@
-= form_with(url: car_repairs_path(car_id: @car.id), method: :create) do |form|
+= form_with(url: car_repairs_path(car_id: @car.id)) do |form|
   p[class="h4" id="repairFormHeader"] Add Repair         
   div.f
     = form.text_area :description, autofocus: true, :size=>"50", placeholder: "Repair description",autocomplete: "off", class: "col-sm-6 col-form-label"
@@ -8,11 +8,10 @@
 
   div.f
     = form.date_field :date, required: true, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label"
+
+    div.f
+      = form.hidden_field :id, name: "id", required: false
   
-  div.f
-    = form.hidden_field :id, name: "id", required: false
-
-
   div.f[id="invoiceContainer" style="display: none;"]
     p[class="h5"] Current Invoice
     a[href="" id="linkToCurrentInvoice"]
