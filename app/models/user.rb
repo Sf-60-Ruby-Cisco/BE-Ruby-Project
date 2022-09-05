@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates_with TypeValidator
   validates :password, length: { minimum: 6, maximum: 20 }, on: :create
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
-  validates :username, presence: true, length: { in: 3..40 }, format: { with: /\A[a-zA-Z0-9]+\z/, on: :create }  
+  validates :username, presence: true, length: { in: 3..40 }, format: { with: /\A[a-zA-Z0-9]+\z/, on: :create,message: "empty spaces not allowed" } 
    
 
   def login
@@ -50,11 +50,5 @@ class User < ApplicationRecord
     super && !deactivated
   end  
 
-  private
-
-  # def username_length     
-  #   return unless username.length < 3 || username.length > 40
-  #   errors.add(:username, "must be between 3 and 40 characters")
-  #   end
 end
 
