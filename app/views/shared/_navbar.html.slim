@@ -9,9 +9,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       
         li= link_to 'About',about_path, class:"nav-link"
       
-        li= link_to 'Add Car', new_car_path , class:"nav-link"  
+        li= link_to 'Add Car', new_car_path, class:"nav-link"  
 
-        - if @cars
+        - if @cars.present?
           li.nav-item.dropdown            
             a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]          
               | Cars
@@ -19,7 +19,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
               - @cars.each do |car|            
                 a.dropdown-item
                   a= link_to "#{car.brand} #{car.license_plate}", car_path(id: car.id), class:"dropdown-item"           
-        
+        - else 
+          li= link_to "No cars added", new_car_path, class:"nav-link"
+          
   .collapse.navbar-collapse#navbarSupportedContent
     
     ul.navbar-nav.nav

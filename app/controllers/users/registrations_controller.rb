@@ -16,9 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    # Overwrite car index method because of navbar logic to show all available cars
+    @cars = Car.where(user: current_user).all.order("created_at ASC")
+    super
+  end
 
   # PUT /resource
   # def update
