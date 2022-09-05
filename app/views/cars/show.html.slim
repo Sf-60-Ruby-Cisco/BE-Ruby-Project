@@ -20,7 +20,7 @@ section.vh-100
         div[id="chargingForm" style="display: none"]
           == render 'chargings/form_charging'
         div[id="repairForm" style="display: none"]
-          == render 'repairs/form_repairs'
+          == render 'repairs/form'
 
         div[id="chargingsContainer" style="display: block"]
             == render 'chargings/chargings_table' 
@@ -28,6 +28,6 @@ section.vh-100
         br
 
         div[id="repairsContainer" style="display: block"]     
-            == render 'repairs/repairs_table'
+            == render 'repairs/table'
 
 <script type="text/javascript" src="/javascripts/lib/carsShowPage.js"></script>

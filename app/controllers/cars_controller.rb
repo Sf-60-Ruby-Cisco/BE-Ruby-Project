@@ -6,14 +6,14 @@ class CarsController < ApplicationController
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.where(user: current_user).all.order("created_at ASC")
+    @cars = Car.where(user: current_user).order("created_at ASC")
   end
 
   # GET /cars/1 or /cars/1.json
   def show
     index
     @chargings = @car.chargings.all.order("created_at DESC")
-    @repairs = @car.repairs.all.order("created_at DESC")
+    @repairs = @car.repairs.order("created_at DESC")
   end
 
 
