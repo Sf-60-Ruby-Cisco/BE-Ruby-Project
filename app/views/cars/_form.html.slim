@@ -7,12 +7,6 @@ section.vh-100
           
 
           = form_with(model: car, local: true) do |form|
-            - if @car.errors.any?
-              .alert.alert-danger
-                h4 = "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
-                ul
-                  - @car.errors.each do |error|
-                    li = error.full_message
             div
               label.btn.btn-info.btn-lg
                 |  Upload  picture
