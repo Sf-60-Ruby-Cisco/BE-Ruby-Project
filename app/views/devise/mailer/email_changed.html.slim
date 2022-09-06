@@ -1,6 +1,6 @@
 p
   | Hello 
-  = @email
+  = @user.username.capitalize()
   | !
 - if @resource.try(:unconfirmed_email?)
   p

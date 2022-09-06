@@ -1,28 +1,54 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :username
-    br
-    = f.text_field :username, autofocus: true
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+= render "devise/shared/error_messages", resource: resource
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-6.text-black
+        .px-5.ms-xl-4
+        div.register
+          h1.register.link-info
+            | Create new account
+        .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+          form
+        = form_for(resource, as: resource_name,
+         url: registration_path(resource_name), data: { turbo: false }) do |f|              
+          .field                  
+          div.register
+            = f.text_field :username, autofocus: true, autocomplete: "on",
+             :size=>"50",class: "col-sm-4 col-form-label",
+              placeholder: "Username"
+          .field
+          div.register                           
+            = f.email_field :email, autocomplete: "on",
+             autofocus: true, :size=>"50",class: "col-sm-4 col-form-label",
+              placeholder: "Email address"
+          .field
+          .field            
+            - if @minimum_password_length
+            div.register
+              p.pass
+                = @minimum_password_length
+                |  characters minimum           
+          div.m
+            = f.password_field :password,
+             :size=>"50",class: "col-sm-4 col-form-label", 
+             placeholder: "Password"
+          - if devise_mapping.rememberable?
+          .field
+          div.register            
+            = f.password_field :password_confirmation,
+             :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Confirm password"
+              
+            - if devise_mapping.rememberable?
+            .actions              
+          div.register
+            button.register[type="Submit"]               
+              | Submit
+          div.reg
+            p
+              | Already have an account? 
+              a.link-info[href= new_user_session_path]
+                | Login
+      .col-sm-6.px-4.d-none.d-sm-block              
+        = image_tag("signup.jpg", class: "img-fluid", style: 'height:150%; width:1200px;')
+
+       

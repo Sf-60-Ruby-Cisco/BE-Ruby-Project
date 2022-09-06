@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_092256) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_152948) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,8 +65,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092256) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "chargings", force: :cascade do |t|
+    t.string "brand_station"
+    t.date "date"
+    t.bigint "car_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.index ["car_id"], name: "index_chargings_on_car_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -74,6 +85,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092256) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.boolean "deactivated"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -82,4 +99,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_092256) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cars", "users"
+  add_foreign_key "chargings", "cars"
 end
