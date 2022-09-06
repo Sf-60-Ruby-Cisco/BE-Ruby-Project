@@ -3,12 +3,11 @@ class CarsController < ApplicationController
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.where(user: current_user)
+    @cars = current_user.cars
   end
 
   # GET /cars/1 or /cars/1.json
-  def show
-  end
+  def show; end
 
   # GET /cars/new
   def new
@@ -16,12 +15,11 @@ class CarsController < ApplicationController
   end
 
   # GET /cars/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cars or /cars.json
   def create
-    @car = Car.new(car_params.merge(user: current_user))
+    @car = current_user.cars.new(car_params)
 
     respond_to do |format|
       if @car.save
