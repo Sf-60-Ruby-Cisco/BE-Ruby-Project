@@ -1,14 +1,14 @@
 class CarsController < ApplicationController
   before_action :set_car, only: %i[ show edit update destroy ]
+  before_action :check_user, :only => [:edit, :show]
 
   # GET /cars or /cars.json
   def index
-    @cars = Car.where(user: current_user)
+    @cars = current_user.cars
   end
 
   # GET /cars/1 or /cars/1.json
-  def show
-  end
+  def show; end
 
   # GET /cars/new
   def new
@@ -16,13 +16,11 @@ class CarsController < ApplicationController
   end
 
   # GET /cars/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /cars or /cars.json
   def create
-    @car = Car.new(car_params.merge(user: current_user))
-
+    @car = current_user.cars.new(car_params)
     respond_to do |format|
       if @car.save
         format.html { redirect_to car_url(@car), notice: "Car was successfully created." }
@@ -57,6 +55,12 @@ class CarsController < ApplicationController
     end
   end
 
+  def purge_content
+    @car = Car.find(params[:id])    
+    @car.content.purge
+    redirect_to cars_url, notice: "Car's picture was successfully deleted, default picture will be displayed instead." 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
@@ -65,6 +69,15 @@ class CarsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def car_params
-      params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :user_id)
+      params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :content)
     end
+
+
+    # Deny url to be edited, and deny access to other users cars
+    def check_user
+      @car = Car.find(params[:id])
+      unless current_user.id == @car.user_id
+        redirect_to(request.referrer || root_path)
+    end
+  end
 end

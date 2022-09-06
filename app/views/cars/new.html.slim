@@ -1,8 +1,11 @@
-h1 New car
+div
+  = button_to "Back" , cars_path, method: :get, class: "button-add"
+div.newcar
+  h1.login
+    | Add new car
 
+  
 == render "form", car: @car
 
-br
 
-div
-  = link_to "Back to cars", cars_path
+

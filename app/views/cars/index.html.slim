@@ -1,11 +1,8 @@
-p style="color: green" = notice
-
-h1 Cars
+div
+  = button_to "Add car" , new_car_path, method: :get, class: "button-add"
 
 #cars
   - @cars.each do |car|
-    == render car
-    p
-      = link_to "Show this car", car
-
-= link_to "Add a new car", new_car_path
+    div.render
+      == render car
+  

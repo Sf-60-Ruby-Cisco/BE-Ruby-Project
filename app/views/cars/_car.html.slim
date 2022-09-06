@@ -1,19 +1,37 @@
 div id="#{dom_id car}"
-  p
-    strong Brand:
-    =< car.brand
-  p
-    strong Model:
-    =< car.model
-  p
-    strong Engine:
-    =< car.engine
-  p
-    strong Fuel type:
-    =< car.fuel_type
-  p
-    strong Year:
-    =< car.year
-  p
-    strong License plate:
-    =< car.license_plate
+  .card[style="width:20vw;"]
+      - if car.content.image?
+          a.[href= rails_blob_path(car.content)]
+            = image_tag car.content.variant(resize_to_limit: [nil, 300]), class: "img-fluid"
+            = button_to "Delete picture", purge_content_car_path(car), method: :delete, class: "btn btn-danger btn-sm"
+      - else 
+        a.[href= asset_path("car.png")]
+          = image_tag("car.png", width: "100%", height: "330px")
+      .card-body          
+        h2.cc
+          = current_user.username.capitalize() 
+        h2.c      
+          |'s Car
+      p.card-text
+        strong Brand:
+        =< car.brand
+      p.card-text
+        strong Model:
+        =< car.model
+      p.card-text
+        strong Engine:
+        =< car.engine
+      p.card-text
+        strong Fuel type:
+        =< car.fuel_type
+      p.card-text
+        strong Year:
+        =< car.year.year
+      p.card-text
+        strong License plate:
+        =< car.license_plate
+
+      a.btn.ed[href= edit_car_path(car)]
+        | Edit car          
+      = button_to "Delete car", car, method: :delete, class: "del"
+      = link_to "Taxes", car_taxes_path(@car)

@@ -1,48 +1,71 @@
-h2
-  | Edit 
-  = resource_name.to_s.humanize
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :picture
-    = f.rich_text_area :content, value: " "
-  .field
-    = f.label :username
-    br
-    = f.text_field :username, autofocus: true
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
-      | Currently waiting confirmation for: 
-      = resource.unconfirmed_email
-  .field
-    = f.label :password
-  i
-    | (leave blank if you don't want to change it)
-  br
-  = f.password_field :password, autocomplete: "new-password"
-  - if @minimum_password_length
-    br
-    em
-      = @minimum_password_length
-      |  characters minimum
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-  i
-    | (we need your current password to confirm your changes)
-  br
-  = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-8.col-lg-6
+        .px-5.ms-xl-4
+        div.edit
+          h2.ee       
+            | Hello
+            h2.e
+              = current_user.username.capitalize()
+          h1.edit.link-info  Edit your profile
+        .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
+          form.edit
+        = form_for(resource, as: resource_name,
+         url: registration_path(resource_name), html: { method: :put }, 
+         data: { turbo: false }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field  
+          div.edit
+            label.btn.btn-info.btn-sm
+              |  Upload  picture
+              span[style="display:none;"]
+                = f.file_field :content
+          .field
+          div.edit                      
+            = f.text_field :username, 
+            autofocus: true, :size=>"50", placeholder: "Username",autocomplete: "on", class: "col-sm-4 col-form-label"
+          .field
+          div.edit                      
+            = f.email_field :email,
+             autocomplete: "on", autofocus: true, 
+             :size=>"50", placeholder: "Email", 
+             class: "col-sm-4 col-form-label"
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          .field                        
+          div.edit                                                 
+            = f.password_field :password,
+             autofocus: true, :size=>"50", placeholder: "New password",
+            class: "col-sm-4 col-form-label"
+            - if @minimum_password_length            
+            p.pass                               
+              = @minimum_password_length
+              |  characters minimum
+          .field
+          div.edit           
+            = f.password_field :password_confirmation,
+             autofocus: true, :size=>"50", placeholder: "Confirm password",
+             class: "col-sm-4 col-form-label"
+          .field                   
+          div.edit         
+            = f.password_field :current_password, autofocus: true, :size=>"50",
+             placeholder: "Enter password to confirm changes", class: "col-sm-4 col-form-label"
+            .actions
+            div.e
+              button.update[type="Submit"]
+                  | Update    
+          div.edit
+            | Don't want to make changes?
+            a.link-info[href= root_path]
+              | Go back.        
+
+        div.edit
+          | Don't want to use Car Diary anymore?
+        div.edit
+          = button_to "Cancel my account", registration_path(resource),
+            :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } },
+            class: "btn btn-outline-danger"        
+
+      .col-sm-6.px-0.d-none.d-sm-block
+      
+        = image_tag("editprofile.jpg",  class: "img-fluid")

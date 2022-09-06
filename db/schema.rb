@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_02_072255) do
     t.string "license_plate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
@@ -85,10 +85,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_02_072255) do
     t.integer "amount_cents"
     t.string "amount_currency"
     t.index ["car_id"], name: "index_taxes_on_car_id"
+
+  create_table "chargings", force: :cascade do |t|
+    t.string "brand_station"
+    t.date "date"
+    t.bigint "car_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
+    t.index ["car_id"], name: "index_chargings_on_car_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -96,6 +106,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_02_072255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.boolean "deactivated"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -106,4 +122,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_02_072255) do
   add_foreign_key "car_taxes", "cars"
   add_foreign_key "car_taxes", "taxes"
   add_foreign_key "taxes", "cars"
+  add_foreign_key "chargings", "cars"
 end

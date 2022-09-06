@@ -1,11 +1,34 @@
-h2
-  | Resend confirmation instructions
-= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-  br
-  = f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
-  .actions
-    = f.submit "Resend confirmation instructions"
-= render "devise/shared/links"
+= render "devise/shared/error_messages", resource: resource
+section.vh-100
+  .container-flui3
+    .row
+      .col-sm-6.text-black
+        .px-5.ms-xl-4
+        div.confirm
+          h1.confirm
+            | Resend confirmation instructions
+          p.link-info
+            | You are one step away from successful login
+            = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post },  data: { turbo: false }) do |f|
+              div.midl
+              .field            
+              = f.email_field :email, autofocus: true,
+                autocomplete: "on", 
+                :size=>"50", placeholder: "Enter your email",
+                class: "col-sm-7", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+              .field
+              div               
+                button.forgot[type="Submit"]                
+                  | Resend confirmation instructions  
+              
+              div.midl
+                a.text-muted[href= new_user_password_path]
+                  | Forgot password?
+              div.px
+                | Don't have an account? 
+                a.link-info[href= new_user_registration_path]
+                  | Register here
+              div.px
+                | You already have a confirmation email? 
+                a.link-info[href= new_user_session_path]
+                  | Login
