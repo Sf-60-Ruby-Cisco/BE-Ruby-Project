@@ -12,8 +12,8 @@ class CarsController < ApplicationController
 
   # GET /cars/1 or /cars/1.json
   def show
-    @chargings = @car.chargings.all.order("created_at DESC")
-    @repairs = @car.repairs.order("created_at DESC")
+    @chargings = @car.chargings.order(created_at: :desc)
+    @repairs = @car.repairs.order(created_at: :desc)
   end
 
 
@@ -83,7 +83,7 @@ class CarsController < ApplicationController
     def check_user
       @car = Car.find(params[:id])
       unless current_user.id == @car.user_id
-        redirect_to (request.referrer || root_path)
+        redirect_to (request.referrer||root_path)
       return
     end
   end

@@ -1,51 +1,51 @@
 /* Edit login page */
 div.login {
-    position: relative;
-    left: 20px;
-    top: 2px;
-    margin-top: 20px;
-    font-family: Simlifica;    
-  }
-  
-  div.mid {
-    position:relative; 
-    left:20px;
-    top:2px;
-    margin-top: 20px;
-  }
-  
-  div.midl{
-    margin-top: 60px;
-  }
-  
-  div.l{
-    margin-top: 30px;
-  }
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
+}
 
-  p.link-info{
-    font-size: 0.88vw;
-  }
+div.mid {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+}
 
-  button.login{
-    font-family: Simlifica;
-    font-size:1.5em;
-    display:block;
-    left:-60px;
-    margin-top:25px;
-    width:33.3%;    
-    background-color: #bfeaf8;  
-    color:black;
-    border-radius: 12px;
-  }
+div.midl {
+  margin-top: 60px;
+}
 
-  button.login:hover{
-    background-color: #0d6684; 
-    color: white;
-  }
-  
+div.l {
+  margin-top: 30px;
+}
+
+p.link-info {
+  font-size: 0.88vw;
+}
+
+button.login {
+  font-family: Simlifica;
+  font-size: 1.5em;
+  display: block;
+  left: -60px;
+  margin-top: 25px;
+  width: 33.3%;
+  background-color: #bfeaf8;
+  color: black;
+  border-radius: 12px;
+}
+
+button.login:hover {
+  background-color: #0d6684;
+  color: white;
+}
+
 /*Shine */
 
-h1.login {  
+h1.login {
   position: relative;
   font-family: Simlifica;
   font-size: 2.1vw;
