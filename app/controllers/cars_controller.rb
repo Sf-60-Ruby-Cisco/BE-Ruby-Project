@@ -1,4 +1,4 @@
-class CarsController < ApplicationController
+class CarsController < ApplicationController  
   
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
@@ -12,7 +12,6 @@ class CarsController < ApplicationController
 
   # GET /cars/1 or /cars/1.json
   def show
-    index
     @chargings = @car.chargings.all.order("created_at DESC")
     @repairs = @car.repairs.order("created_at DESC")
   end
@@ -20,18 +19,14 @@ class CarsController < ApplicationController
 
   # GET /cars/new
   def new
-    index
     @car = Car.new
   end
 
   # GET /cars/1/edit
-  def edit
-    index
-  end
+  def edit; end
 
   # POST /cars or /cars.json
-  def create   
-    
+  def create       
     @car = current_user.cars.new(car_params)     
     respond_to do |format|
       if @car.save
@@ -60,7 +55,6 @@ class CarsController < ApplicationController
   # DELETE /cars/1 or /cars/1.json
   def destroy
     @car.destroy
-
     respond_to do |format|
       format.html { redirect_to cars_url, notice: "Car was successfully destroyed." }
       format.json { head :no_content }

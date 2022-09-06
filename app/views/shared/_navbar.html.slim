@@ -11,7 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       
         li= link_to 'Add Car', new_car_path, class:"nav-link"  
 
-        - if @cars.present?
+        - if user_cars.present?
           li.nav-item.dropdown            
             a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]          
               | Cars

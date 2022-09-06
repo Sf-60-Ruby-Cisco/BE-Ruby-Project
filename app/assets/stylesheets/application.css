@@ -22,16 +22,16 @@
  *= car_views
  */
 
- @font-face {
+@font-face {
   font-family: "Simplifica";
   src: url(/assets/fonts/Simplifica-Typeface.ttf) format("truetype");
 }
- 
-body{
+
+body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-footer{
+footer {
   margin-top: auto;
 }
