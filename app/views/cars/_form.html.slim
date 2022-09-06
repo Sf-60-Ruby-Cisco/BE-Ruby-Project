@@ -1,6 +1,5 @@
- 
 section.vh-100
-  .container-flui3
+  .container-fluid
     .row
       .col-sm-6.text-black
         .px-5.ms-xl-4
@@ -8,7 +7,12 @@ section.vh-100
           
 
           = form_with(model: car, local: true) do |form|
-                     
+            - if @car.errors.any?
+              .alert.alert-danger
+                h4 = "#{pluralize(@car.errors.count, "error")} prohibited this car from being saved:"
+                ul
+                  - @car.errors.each do |error|
+                    li = error.full_message
             div
               label.btn.btn-info.btn-lg
                 |  Upload  picture
@@ -30,7 +34,7 @@ section.vh-100
             div.f              
               = form.date_select :year,  {:start_year => 1990,:end_year => DateTime.now.year,
               :discard_day => true, :discard_month => true, include_blank: true, datetime_select: :start}, class: 'col-sm-6 col-form-label'
-             
+
             div.f
               = form.text_field :license_plate, autofocus: true, :size=>"50", placeholder: "License Plate", autocomplete: "on", class: "col-sm-6 col-form-label"
 
