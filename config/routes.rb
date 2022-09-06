@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   resources :cars do
-    resources :repairs
+    resources :repairs, :only => [:create, :destroy]
     resources :chargings, :only => [:create, :destroy]
     member do
       delete :purge_content
     end      
   end
   patch '/cars/:car_id/chargings' => "chargings#update"
-  patch '/cars/:car_id/repairs' => "repairs#update"
+  # patch '/cars/:car_id/repairs' => "repairs#update"
 
   
   devise_for :users, controllers: { registrations: 'users/registrations' } 

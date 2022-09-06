@@ -5,7 +5,7 @@ class RepairsController < ApplicationController
 
   
   def create
-    @repair = @car.repairs.build(repair_params)
+    @repair = @car.repairs.new(repair_params)
     
     respond_to do |format|             
       if @repair.save
@@ -17,11 +17,6 @@ class RepairsController < ApplicationController
       end
     end
   end
-  
-  def edit
-    @car = Car.find(params[:car_id])
-    @repair = @car.repairs.find(params[:id])
-  end 
 
   def update
     respond_to do |format|
@@ -61,7 +56,7 @@ class RepairsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def repair_params
-      params.permit(:description, :amount, :date, :content, :car_id)
+      params.require(:repair).permit(:description, :amount, :date, :content)
     end
   
   end
