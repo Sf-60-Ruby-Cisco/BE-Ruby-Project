@@ -61,12 +61,12 @@ label.btn.btn-info.btn-lg{
 }
 
 .navbar-cars-show {
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-cars-show a {
-display: inline-block;
-margin-left: 20px;
+  display: inline-block;
+  margin-left: 20px;
 }

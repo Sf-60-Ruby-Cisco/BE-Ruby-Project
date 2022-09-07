@@ -1,0 +1,11 @@
+tr[id="#{dom_id(charging)}_item"]
+    td.brand_station = charging.brand_station
+    td.amount
+        | $
+        = charging.amount
+    td.date = charging.date
+    td.actions
+        == turbo_frame_tag charging
+            == link_to "Edit ", edit_car_charging_path(car_id: @car.id, id: charging.id)
+        == link_to "Delete", car_charging_path(car_id: @car.id, id: charging.id), data: { \
+            turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this charging ?" }

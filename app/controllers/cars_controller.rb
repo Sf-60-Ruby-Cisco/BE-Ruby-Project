@@ -11,7 +11,7 @@ class CarsController < ApplicationController
 
   # GET /cars/1 or /cars/1.json
   def show
-    @chargings = @car.chargings.all.order("created_at DESC")
+    @chargings = @car.chargings.order("created_at DESC")
   end
 
   # GET /cars/new

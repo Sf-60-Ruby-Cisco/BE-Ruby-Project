@@ -14,10 +14,10 @@ section.vh-100
       .col-sm-6.px-8.d-none.d-sm-block 
 
         div[id="chargingForm" style="display: none"]
-          == render 'chargings/form_charging'
-
+          == render 'chargings/form', car: @car, charging: @car.chargings.build
+        
         div[id="chargingsContainer" style="display: block"]
           - if @chargings.any?
-            == render 'chargings/chargings_table'
+            == render 'chargings/table'
 
 <script type="text/javascript" src="/javascripts/lib/carsShowPage.js"></script>

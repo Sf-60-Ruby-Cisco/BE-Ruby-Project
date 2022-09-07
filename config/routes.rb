@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     member do
       delete :purge_content
     end
-    resources :chargings, :only => [:create, :destroy]
+    resources :chargings, :only => [:create, :edit, :update, :destroy]
   end
-  patch '/cars/:car_id/chargings' => "chargings#update"
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
     get '/users' =>  'devise/registrations#new'
