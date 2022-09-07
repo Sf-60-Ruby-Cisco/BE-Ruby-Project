@@ -3,7 +3,7 @@ class ChargingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_charging, only: %i[ edit update destroy ]
 
-  # GET /cars/:car_id/chargings/:id
+  # GET /cars/:car_id/chargings/:id/edit
   def edit
   end
 
@@ -30,6 +30,7 @@ class ChargingsController < ApplicationController
         format.html { redirect_to car_url(@car), status: :see_other, notice: "Charging was successfully updated." }
         format.json { render :plain => {success:true}.to_json, status: 200, content_type: 'application/json' }
       else
+        # Replace the current Edit Form with new Edit Form with errors
         format.turbo_stream { 
           render turbo_stream: turbo_stream.replace(
             "#{helpers.dom_id(@charging)}_form", partial: "form", locals: { car: @car, charging: @charging }) 
