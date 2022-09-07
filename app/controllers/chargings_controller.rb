@@ -3,6 +3,7 @@ class ChargingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_charging, only: %i[ edit update destroy ]
 
+  # GET /cars/:car_id/chargings/:id
   def edit
   end
 
@@ -21,7 +22,7 @@ class ChargingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cars/:car_id/chargings
+  # PATCH/PUT /cars/:car_id/chargings/:id
   def update
     respond_to do |format|
       if @charging.update(charging_params)
