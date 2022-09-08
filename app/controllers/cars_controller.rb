@@ -1,16 +1,14 @@
 class CarsController < ApplicationController  
-  CARS_PER_PAGE = 3
 
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :check_user, :only => [:edit, :show]
+  before_action :check_user, :only => [:edit, :show] 
   
   
 
   # GET /cars or /cars.json
-  def index
-    @page = params.fetch(:page, 0).to_i
-    @cars = current_user.cars.order(created_at: :asc).offset(@page * CARS_PER_PAGE).limit(CARS_PER_PAGE)      
+  def index   
+    @cars = current_user.cars.order(created_at: :asc).page params[:page]     
   end
 
   # GET /cars/1 or /cars/1.json

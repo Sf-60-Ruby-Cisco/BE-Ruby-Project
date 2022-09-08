@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       delete :purge_content
     end  
     resources :repairs, :only => [:create, :edit, :update, :destroy]
-    resources :chargings, :only => [:create, :edit, :update, :destroy]    
+    resources :chargings, :only => [:create, :edit, :update, :destroy]       
   end
     
   devise_for :users, controllers: { registrations: 'users/registrations' } 
@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     get '/users' =>  'devise/registrations#new'
   end
   root 'cars#index'  
-  get '/about' => "about#index"
+  get '/about' => "about#index" 
 end
 

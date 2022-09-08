@@ -39,25 +39,10 @@ footer {
 div.next {
   position: relative;
   left: 30px;
-  top: 20px;
-  margin-top: 20px;
-  font-family: Simlifica;
-}
-h1.one {
-  font-size: 1vw;
-  font-family: Simlifica;
-  position: relative;
-  left: 0px;
-
-  display: block;
-  display: inline-block;
+  font-family: Simlifica;  
 }
 
-h1.two{
-  font-size: 1vw;
-  font-family: Simlifica;
-  position: relative;
-  left: 0px;
-  float: left;
-  padding-right: 10px;
+.pagination a, .pagination span.current, .pagination span.gap {
+  color: black;
 }
+

@@ -6,6 +6,7 @@ class Car < ApplicationRecord
   has_one_attached :content do |attachable|
       attachable.variant :thumb, resize_to_limit: [300, 300]
   end
+  paginates_per 3
 
   validates_with TypeValidator
   validate :content
