@@ -2,14 +2,9 @@ div
   = button_to "Add car", new_car_path, method: :get, class: "button-add"
 div.next
   = paginate @cars, theme: 'bootstrap-5',
-  pagination_class: "pagination-sm flex-wrap justify-content-center",
-  nav_class: "d-inline-block"
-  = rel_next_prev_link_tags @cars
+  pagination_class: "pagination-sm flex-wrap justify-content-center"
+
 #cars
   - @cars.each do |car|
     div.render
       == render car
-div.next  
-  = paginate @cars, theme: 'bootstrap-5',
-  pagination_class: "pagination-sm flex-wrap justify-content-center",
-  nav_class: "d-inline-block"

@@ -36,9 +36,12 @@ footer {
   margin-top: auto;
 }
 
+/* Pagination */
+
 div.next {
   position: relative;
   left: 30px;
+  margin-top: 20px;
   font-family: Simlifica;  
 }
 
