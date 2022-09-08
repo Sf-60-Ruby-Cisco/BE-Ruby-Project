@@ -8,7 +8,8 @@ class CarsController < ApplicationController
 
   # GET /cars or /cars.json
   def index   
-    @cars = current_user.cars.order(created_at: :asc).page params[:page]     
+    @cars = current_user.cars.order(created_at: :asc).page(params[:page])
+    @cars = current_user.cars.page(@cars.total_pages) if @cars.to_a.empty?   
   end
 
   # GET /cars/1 or /cars/1.json
@@ -84,8 +85,8 @@ class CarsController < ApplicationController
     def check_user
       @car = Car.find(params[:id])
       unless current_user.id == @car.user_id
-        redirect_to (request.referrer||root_path)
-      return
+        redirect_to (request.referrer||root_path)      
+      end
     end
-  end
+
 end
