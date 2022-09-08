@@ -1,6 +1,19 @@
 div
   = button_to "Add car", new_car_path, method: :get, class: "button-add"
 
+div.next
+  span> Page: 
+  = @page + 1 
+  '
+  h1.two
+    - if @page > 0  
+      = link_to "< Previous page ", cars_path(page: @page -1), :class => "link-dark"
+  h1.one
+    - if @page + 1 < total_pages   
+        = link_to "Next page >", cars_path(page: @page + 1), :class => "link-dark"
+
+
+
 #cars
   - @cars.each do |car|
     div.render
