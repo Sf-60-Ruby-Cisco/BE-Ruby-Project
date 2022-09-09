@@ -14,10 +14,11 @@ html
 
   body       
     == render '/shared/navbar' if current_user
-    - flash.each do |type, msg| 
-      = content_tag :div, msg, class: build_alert_classes(type)
+    div[id="messagesContainer"]
+      - flash.each do |type, msg| 
+        = content_tag :div, msg, class: build_alert_classes(type)
     
-    .container      
-      = yield
-    
-    
+  .container      
+    = yield
+  footer              
+    == render 'shared/footer'

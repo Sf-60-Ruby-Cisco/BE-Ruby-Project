@@ -22,16 +22,30 @@
  *= car_views
  */
 
- @font-face {
+@font-face {
   font-family: "Simplifica";
   src: url(/assets/fonts/Simplifica-Typeface.ttf) format("truetype");
 }
- 
-/* .home {
-  background: url(UnderConstruction.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}  */
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  margin-top: auto;
+}
+
+/* Pagination */
+
+div.next {
+  position: relative;
+  left: 30px;
+  margin-top: 20px;
+  font-family: Simlifica;  
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  color: black;
+}
 

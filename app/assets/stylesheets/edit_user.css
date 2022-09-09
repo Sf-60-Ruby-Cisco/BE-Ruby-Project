@@ -5,7 +5,6 @@ div.edit {
   top: 2px;
   margin-top: 20px;
   font-family: Simlifica;
-
 }
 
 h2.e {
@@ -16,7 +15,7 @@ h2.e {
   top: 2px;
   display: block;
   display: inline-block;
-  color: #3F26BF
+  color: #3f26bf;
 }
 
 h2.ee {
@@ -27,9 +26,8 @@ h2.ee {
   top: 2px;
   float: left;
   padding-right: 10px;
-  color: #0095B7
+  color: #0095b7;
 }
-
 
 h1.edit {
   font-size: 3vw;
@@ -38,7 +36,6 @@ h1.edit {
   left: 0px;
   top: 2px;
   font-family: Simlifica;
-
 }
 
 form.edit {
@@ -70,7 +67,6 @@ div.e {
   margin-top: 20px;
 }
 
-
 button.btn-outline-danger {
   font-family: Simlifica;
   font-size: 1.2em;
@@ -95,10 +91,7 @@ div.ed {
   top: 2px;
   margin-top: 20px;
   font-family: Simlifica;
-
 }
-
-
 
 p.passedit {
   font-size: 0.76vw;
@@ -106,11 +99,8 @@ p.passedit {
   margin-top: -20px;
 }
 
- 
-label.btn.btn-info.btn-sm{
+label.btn.btn-info.btn-sm {
   font-family: Simlifica;
   font-size: 1.2em;
   width: 33.3%;
 }
-
-

@@ -1,61 +1,70 @@
 div.f {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 div.n {
-    float: left;
-    margin-left: 3vw;
-    font-family: Simlifica;
-    font-size: 1em;
+  float: left;
+  margin-left: 3vw;
+  font-family: Simlifica;
+  font-size: 1em;
 }
 
 div.editcar {
-    position: relative;
-    left: 3vw;
-    top: 2px;
-    margin-top: 20px;
-    font-family: Simlifica;
+  position: relative;
+  left: 3vw;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
 }
 
 div.newcar {
-    position: relative;
-    left: 3.3vw;
-    top: 2px;
-    margin-top: 20px;
-    font-family: Simlifica;
+  position: relative;
+  left: 3.3vw;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
 }
 
 button.car {
-    font-family: Simlifica;
-    font-size: 1.5em;
-    display: block;
-    left: -60px;
-    margin-top: 25px;
-    width: 51%;
-    background-color: #292b2c;  
-    color:white;
-    border-radius: 12px;
+  font-family: Simlifica;
+  font-size: 1.5em;
+  display: block;
+  left: -60px;
+  margin-top: 25px;
+  width: 51%;
+  background-color: #292b2c;
+  color: white;
+  border-radius: 12px;
 }
 
 button.car:hover {
-    background-color:  white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
-
-div.c{
-    margin-top: 100px;
+div.c {
+  margin-top: 100px;
 }
 
-label.btn.btn-info.btn-lg{
-    font-family: Simlifica;
-    font-size: 1.2em;
-    display: block;
-    left: -60px;
-    margin-top: 25px;
-    width: 50%;
-    background-color: #292b2c;  
-    color:white;
-    border-radius: 12px;
+label.btn.btn-info.btn-lg {
+  font-family: Simlifica;
+  font-size: 1.2em;
+  display: block;
+  left: -60px;
+  margin-top: 25px;
+  width: 50%;
+  background-color: #292b2c;
+  color: white;
+  border-radius: 12px;
+}
 
+.navbar-cars-show {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-cars-show a {
+  display: inline-block;
+  margin-left: 20px;
 }
