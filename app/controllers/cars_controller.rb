@@ -9,7 +9,8 @@ class CarsController < ApplicationController
   # GET /cars or /cars.json
   def index   
     @cars = current_user.cars.order(created_at: :asc).page(params[:page])
-    @cars = current_user.cars.page(@cars.total_pages) if @cars.to_a.empty?   
+    # Prevent pagination to show empty page 
+    @cars = current_user.cars.page(@cars.total_pages) if @cars.to_a.empty?    
   end
 
   # GET /cars/1 or /cars/1.json

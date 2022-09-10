@@ -1,0 +1,13 @@
+/ | Total cost of repairs for #{current_user.username.capitalize()}'s cars:  
+/ = number_to_currency(@total_repairs.sum.to_f / 100)
+div.stat
+  | Monthly statistic for all #{current_user.username.capitalize()}'s cars 
+div
+  - if @total_repairs  
+    = bar_chart @total_repairs, height: "130px", width: "500px", title: "Monthly repairs for all cars ", suffix: "¢", xtitle: "Price in cents", colors: ["blue"]
+    
+  - for car in @cars
+    - if car.repairs.present?
+        = bar_chart car.repairs.group_by_month(:date, format: "%B %Y").sum(:amount_cents), height: "90px", width: "500px", title: "Repairs for #{car.license_plate}", suffix: "¢"
+
+

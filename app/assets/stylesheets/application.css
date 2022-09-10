@@ -49,3 +49,10 @@ div.next {
   color: black;
 }
 
+div.stat{
+  font-family: Simlifica;  
+  position: relative;
+  font-size: 2vw;
+  margin-top: 10px;
+  margin-left: 300px;
+}

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       delete :purge_content
     end  
     get 'page/:page', action: :index, on: :collection
-    resources :repairs, :only => [:create, :edit, :update, :destroy]
+    resources :repairs, except: :index
     resources :chargings, :only => [:create, :edit, :update, :destroy]       
   end
 
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   end
   root 'cars#index'  
   get '/about' => "about#index" 
+  get '/statistics' => 'statistics#index'
 end
 

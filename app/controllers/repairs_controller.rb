@@ -6,6 +6,10 @@ class RepairsController < ApplicationController
   
   def edit; end
 
+  def index
+    @repairs = @car.repairs.all
+  end
+
   def create
     @repair = @car.repairs.new(repair_params)
     
@@ -56,8 +60,7 @@ class RepairsController < ApplicationController
       @car = Car.find(params[:car_id])
         unless current_user.id == @car.user_id
           redirect_to (request.referrer||root_path)
-        return
-      end
+        end
     end
   
 
