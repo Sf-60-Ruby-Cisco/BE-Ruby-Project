@@ -6,6 +6,6 @@ div
     
   - for car in @cars
     - if car.repairs.present?
-        = bar_chart car.repairs.group_by_month(:date, format: "%B %Y").sum(:amount_cents), height: "90px", width: "500px", title: "Repairs for #{car.license_plate}", suffix: "¢"
+        = bar_chart car.repairs.group_by_month(:date, format: "%B %Y").sum(:amount_cents), height: "100px", width: "500px", title: "Repairs for #{car.license_plate}", suffix: "¢"
 
 

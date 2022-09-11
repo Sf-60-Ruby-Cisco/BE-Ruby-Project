@@ -23,9 +23,8 @@ body#page-top
       .row.gx-4.gx-lg-5
         .col-lg-3.col-md-6.mb-5.mb-lg-0
           span.service-icon.rounded-circle.mx-auto.mb-3
-            - if current_user.content.image?
-              a.mine[href='https://github.com/Stoyan83']
-                = image_tag("mine_image.jpg", width: "120px", height: "120px", class: "circular" )
+            a.mine[href='https://github.com/Stoyan83']
+              = image_tag("mine_image.jpg", width: "120px", height: "120px", class: "circular" )
          
           h4
             strong Stoyan Stoyanov
