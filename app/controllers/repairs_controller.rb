@@ -41,7 +41,7 @@ class RepairsController < ApplicationController
     @repair.destroy
 
     respond_to do |format|
-      format.html { redirect_to car_url(@car), status: :ok, notice: "Repair was successfully destroyed." }
+      format.html { redirect_to car_url(@car), status: :see_other, notice: "Repair was successfully destroyed." }
       format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
     end
   end
