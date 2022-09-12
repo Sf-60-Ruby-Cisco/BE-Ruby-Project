@@ -42,7 +42,6 @@ addChargingBtn.addEventListener("click", (ev) => {
     if (chargingForm.style.display == 'none') {
         chargingForm.style.display = 'block';
         repairForm.style.display = 'none';
-        hideTables();
     } else {
         chargingForm.style.display = 'none';
     }
