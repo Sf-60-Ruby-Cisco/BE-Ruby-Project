@@ -10,7 +10,6 @@ class ChargingsController < ApplicationController
   # POST /cars/:car_id/chargings
   def create
     @charging = @car.chargings.new(charging_params)
-
     respond_to do |format|
       if @charging.save
         format.html { redirect_to car_url(@car), notice: "Charging was successfully created." }

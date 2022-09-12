@@ -11,7 +11,8 @@ div id="#{dom_id car}"
       .card-body          
         h2.cc
           a
-            == link_to "#{current_user.username.capitalize()}'s Car", car_path(id: car.id)
+            == link_to "History for #{car.license_plate}", car_path(id: car.id)
+
       p.card-text
         strong Brand:
         =< car.brand
@@ -34,6 +35,10 @@ div id="#{dom_id car}"
       a.btn.ed[href= edit_car_path(car)]
         | Edit car          
       = button_to "Delete car", car, method: :delete, class: "del"
+
+
+
+
 
   
 
