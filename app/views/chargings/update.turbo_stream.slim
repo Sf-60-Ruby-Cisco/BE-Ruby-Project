@@ -1,0 +1,6 @@
+// Replace the Edited Table Item with the Updated one
+== turbo_stream.replace "#{dom_id(@charging)}_item"
+  == render "charging", charging: @charging
+// Display Success  
+== turbo_stream.replace "messagesContainer"
+  div[class="alert alert-dismissable alert-success"] Charging was successfully updated.

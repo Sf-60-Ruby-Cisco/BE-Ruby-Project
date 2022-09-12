@@ -1,16 +1,19 @@
 class ChargingsController < ApplicationController
   before_action :get_car
   before_action :authenticate_user!
-  before_action :set_charging, only: %i[ update destroy ]
+  before_action :set_charging, only: %i[ edit update destroy ]
+
+  # GET /cars/:car_id/chargings/:id/edit
+  def edit
+  end
 
   # POST /cars/:car_id/chargings
   def create
-    @charging = Charging.new(charging_params.except(:id, :car_id).merge(car_id: @car.id))
-
+    @charging = @car.chargings.new(charging_params)
     respond_to do |format|
       if @charging.save
-        format.html { redirect_to car_url(@car), notice: "Charging was successfully created." }
-        format.json { render :plain => {success:true}.to_json, status: 200, content_type: 'application/json' }
+        format.html { redirect_to car_url(@car), status: :see_other, notice: "Charging was successfully created." }
+        format.json { render :plain => {success:true}.to_json, status: :created, content_type: 'application/json' }
       else
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }
@@ -18,13 +21,19 @@ class ChargingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cars/:car_id/chargings
+  # PATCH/PUT /cars/:car_id/chargings/:id
   def update
     respond_to do |format|
-      if @charging.update(charging_params.except(:id, :car_id))
-        format.html { redirect_to car_url(@car), status: 303, notice: "Charging was successfully updated." }
-        format.json { render :plain => {success:true}.to_json, status: 200, content_type: 'application/json' }
+      if @charging.update(charging_params)
+        format.turbo_stream  # views/chargings -> update.turbo_stream.slim
+        format.html { redirect_to car_url(@car), status: :see_other, notice: "Charging was successfully updated." }
+        format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
       else
+        # Replace the current Edit Form with new Edit Form with errors
+        format.turbo_stream { 
+          render turbo_stream: turbo_stream.replace(
+            "#{helpers.dom_id(@charging)}_form", partial: "form", locals: { car: @car, charging: @charging }) 
+        }
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }
       end
@@ -36,8 +45,8 @@ class ChargingsController < ApplicationController
     @charging.destroy
 
     respond_to do |format|
-      format.html { redirect_to car_url(@car), status: 303, notice: "Charging was successfully destroyed." }
-      format.json { render :plain => {success:true}.to_json, status: 200, content_type: 'application/json' }
+      format.html { redirect_to car_url(@car), status: :see_other, notice: "Charging was successfully destroyed." }
+      format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
     end
   end
 
@@ -48,16 +57,12 @@ class ChargingsController < ApplicationController
     end
 
     def get_car
-        @car = Car.find(params[:car_id])
-        if current_user != @car.user
-            redirect_to root_path, alert: "Access Denied!"
-        end
-        return
+      @car = current_user.cars.find(params[:car_id])
     end
 
     # Only allow a list of trusted parameters through.
     def charging_params
-      params.permit(:brand_station, :amount, :date, :car_id, :id)
+      params.require(:charging).permit(:brand_station, :amount, :date)
     end
 
 end

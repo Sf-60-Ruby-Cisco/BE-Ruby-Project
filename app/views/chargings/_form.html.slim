@@ -1,0 +1,19 @@
+/ We need the "#{dom_id(charging)}_form") to be able to replace the form on :update if errors occur
+= form_with(model: [car, charging], id: "#{dom_id(charging)}_form") do |form|    
+  - if charging.errors.any?
+    ul
+      - charging.errors.each do |error|
+        li 
+          == error.full_message
+
+  div.f
+    = form.text_field :brand_station, autofocus: true, :size=>"50", placeholder: "Brand Station",autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.f    
+    = form.number_field :amount, required: true, placeholder: "Amount",autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.f
+    = form.date_field :date, required: true, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.l
+    = form.button class: "car"

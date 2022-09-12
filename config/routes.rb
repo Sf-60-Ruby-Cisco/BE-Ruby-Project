@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end  
     get 'page/:page', action: :index, on: :collection
     resources :repairs, except: :index
-    resources :chargings, :only => [:create, :edit, :update, :destroy]       
+    resources :chargings, except: :index      
   end
 
   devise_for :users, controllers: { registrations: 'users/registrations' } 

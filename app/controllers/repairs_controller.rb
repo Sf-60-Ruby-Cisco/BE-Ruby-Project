@@ -23,7 +23,7 @@ class RepairsController < ApplicationController
   def update
     respond_to do |format|
       if @repair.update(repair_params) 
-        format.turbo_stream { redirect_to car_url(@car), status: :see_other, notice: "Repair was successfully updated." }
+        format.turbo_stream # views/repairs -> update.turbo_stream.slim
         format.html { redirect_to car_url(@car), status: :see_other, notice: "Repair was successfully updated." }
         format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
       else
@@ -41,7 +41,7 @@ class RepairsController < ApplicationController
     @repair.destroy
 
     respond_to do |format|
-      format.html { redirect_to car_url(@car), status: :ok, notice: "Repair was successfully destroyed." }
+      format.html { redirect_to car_url(@car), status: :see_other, notice: "Repair was successfully destroyed." }
       format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
     end
   end

@@ -32,7 +32,7 @@ class CarsController < ApplicationController
     @car = current_user.cars.new(car_params)     
     respond_to do |format|
       if @car.save
-        format.html { redirect_to car_url(@car), notice: "Car was successfully created." }
+        format.html { redirect_to car_url(@car), status: :created, notice: "Car was successfully created." }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new, status: :unprocessable_entity }

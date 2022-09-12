@@ -12,6 +12,7 @@ div id="#{dom_id car}"
         h2.cc
           a
             == link_to "History for #{car.license_plate}", car_path(id: car.id)
+
       p.card-text
         strong Brand:
         =< car.brand

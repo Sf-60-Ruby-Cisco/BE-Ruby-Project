@@ -1,0 +1,17 @@
+// Here we need to tag the tr with "#{dom_id(charging)}_item" for table item replacement 
+// which happens in views/chargings/update.turbo_stream.slim after successfull :update, 
+// because there's no page refresh
+tr[id="#{dom_id(charging)}_item"]
+    td.brand_station = charging.brand_station
+    td.amount
+        | $
+        = charging.amount
+    td.date = charging.date
+    td.actions
+        // tag each Edit link(encapsulate it) with a turbo-frame and it's charging.id, 
+        // here the Edit form for the selected elem. will be streamed 
+        // from :edit with -> views/chargings/edit.html.slim <- onClick
+        == turbo_frame_tag charging
+            == link_to "Edit ", edit_car_charging_path(car_id: @car.id, id: charging.id)
+        == link_to "Delete", car_charging_path(car_id: @car.id, id: charging.id), data: { \
+            turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this charging ?" }
