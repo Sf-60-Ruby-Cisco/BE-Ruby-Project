@@ -13,8 +13,8 @@ class ChargingsController < ApplicationController
 
     respond_to do |format|
       if @charging.save
-        format.html { redirect_to car_url(@car), notice: "Charging was successfully created." }
-        format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
+        format.html { redirect_to car_url(@car), status: :see_other, notice: "Charging was successfully created." }
+        format.json { render :plain => {success:true}.to_json, status: :created, content_type: 'application/json' }
       else
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }
@@ -58,10 +58,7 @@ class ChargingsController < ApplicationController
     end
 
     def get_car
-      @car = Car.find(params[:car_id])
-      if current_user != @car.user
-        redirect_to root_path, alert: "Access Denied!"
-      end
+      @car = current_user.cars.find(params[:car_id])
     end
 
     # Only allow a list of trusted parameters through.
