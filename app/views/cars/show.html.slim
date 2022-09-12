@@ -23,11 +23,9 @@ section.vh-100
           == render 'chargings/form', car: @car, charging: @car.chargings.build
         
         div[id="repairsContainer" style="display: block"]
-          - if @repairs.any?
             == render 'repairs/table'
             
         div[id="chargingsContainer" style="display: block"]
-          - if @chargings.any?
             == render 'chargings/table'
         
 <script type="text/javascript" src="/javascripts/lib/carsShowPage.js"></script>
