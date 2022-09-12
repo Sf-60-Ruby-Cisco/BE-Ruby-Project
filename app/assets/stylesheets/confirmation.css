@@ -1,87 +1,82 @@
 /* Resend confirmation page and password */
 
 button.btn.btn-primary.btn-lg.btn-block {
-    font-size: 3vw;
-    width: 321px;
-    height: 40px;
+  font-size: 3vw;
+  width: 321px;
+  height: 40px;
 
-    font-family: Simlifica;  
-  }
+  font-family: Simlifica;
+}
 
-  p.pass.link-info{
-     font-size: 0.826vw;
-  }
-  
-  div.confirm {
-    margin-top: 2px; 
-  }
-  
-  div.confirm {
-    position: relative;
-    left: 20px;
-    top: 2px;
-    margin-top: 20px;
-    font-family: Simlifica;
-    font-size: 2vw; 
-  }
-  
-  div.midl{
-    margin-top: 60px;
-    font-size: 1.2vw;
-   
-  }
-  
-  h1.confirm {
-    font-size: 2.1vw;
-  }
+p.pass.link-info {
+  font-size: 0.826vw;
+}
 
-  div.px{
-    margin-top: 20px;
-    font-size: 1.2vw;
-  }    
+div.confirm {
+  margin-top: 2px;
+}
 
+div.confirm {
+  position: relative;
+  left: 20px;
+  top: 2px;
+  margin-top: 20px;
+  font-family: Simlifica;
+  font-size: 2vw;
+}
 
-  div.pass{
-    margin-top: 20px;
-  }
+div.midl {
+  margin-top: 60px;
+  font-size: 1.2vw;
+}
 
-  div.f{
-    font-size: 1.2vw;
-  }
+h1.confirm {
+  font-size: 2.1vw;
+}
 
-  button.forgot{
-    font-family: Simlifica;
-    font-size:0.56em;
-    display:block;
-    left:-60px;
-    margin-top:25px;
-    width:58.9%;     
-    background-color: #bae7f6;
-    color:black;
-    border-radius: 12px;
-  }
+div.px {
+  margin-top: 20px;
+  font-size: 1.2vw;
+}
 
-  button.forgot:hover {
-    background-color: #0d6684; 
-    color:white;
-    
-  }
+div.pass {
+  margin-top: 20px;
+}
 
-  button.change{
-    font-family: Simlifica;
-    font-size:0.7em;
-    display:block;
-    left:-60px;
-    margin-top:25px;
-    width:58.9%;     
-    background-color: #bae7f6;
-    color:black;
-    border-radius: 12px;
-  }
+div.f {
+  font-size: 1.2vw;
+}
 
-  button.change:hover {
-    background-color: #0d6684; 
-    color:white;
-    
-  }
+button.forgot {
+  font-family: Simlifica;
+  font-size: 0.56em;
+  display: block;
+  left: -60px;
+  margin-top: 25px;
+  width: 58.9%;
+  background-color: #bae7f6;
+  color: black;
+  border-radius: 12px;
+}
 
+button.forgot:hover {
+  background-color: #0d6684;
+  color: white;
+}
+
+button.change {
+  font-family: Simlifica;
+  font-size: 0.7em;
+  display: block;
+  left: -60px;
+  margin-top: 25px;
+  width: 58.9%;
+  background-color: #bae7f6;
+  color: black;
+  border-radius: 12px;
+}
+
+button.change:hover {
+  background-color: #0d6684;
+  color: white;
+}

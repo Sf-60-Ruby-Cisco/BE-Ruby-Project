@@ -1,16 +1,23 @@
-class CarsController < ApplicationController
+class CarsController < ApplicationController  
+
   before_action :set_car, only: %i[ show edit update destroy ]
-  before_action :check_user, :only => [:edit, :show]
+  before_action :authenticate_user!
+  before_action :check_user, :only => [:edit, :show] 
+  
+  
 
   # GET /cars or /cars.json
-  def index
-    @cars = current_user.cars
+  def index   
+    @cars = current_user.cars.order(created_at: :asc).page(params[:page])
+    @cars = current_user.cars.page(@cars.total_pages) if @cars.to_a.empty?   
   end
 
   # GET /cars/1 or /cars/1.json
   def show
     @chargings = @car.chargings.order(created_at: :desc)
+    @repairs = @car.repairs.order(created_at: :desc)
   end
+
 
   # GET /cars/new
   def new
@@ -21,8 +28,8 @@ class CarsController < ApplicationController
   def edit; end
 
   # POST /cars or /cars.json
-  def create
-    @car = current_user.cars.new(car_params)
+  def create       
+    @car = current_user.cars.new(car_params)     
     respond_to do |format|
       if @car.save
         format.html { redirect_to car_url(@car), status: :created, notice: "Car was successfully created." }
@@ -50,7 +57,6 @@ class CarsController < ApplicationController
   # DELETE /cars/1 or /cars/1.json
   def destroy
     @car.destroy
-
     respond_to do |format|
       format.html { redirect_to cars_url, notice: "Car was successfully destroyed." }
       format.json { head :no_content }
@@ -79,7 +85,8 @@ class CarsController < ApplicationController
     def check_user
       @car = Car.find(params[:id])
       unless current_user.id == @car.user_id
-        redirect_to(request.referrer || root_path)
+        redirect_to (request.referrer||root_path)      
+      end
     end
-  end
+
 end

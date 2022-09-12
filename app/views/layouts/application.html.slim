@@ -18,7 +18,7 @@ html
       - flash.each do |type, msg| 
         = content_tag :div, msg, class: build_alert_classes(type)
     
-    .container      
-      = yield
-    
-    
+  .container      
+    = yield
+  footer              
+    == render 'shared/footer'
