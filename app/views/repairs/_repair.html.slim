@@ -6,7 +6,7 @@ tr[id="#{dom_id(repair)}_item"]
   td.date = repair.date
   td.actions 
     == turbo_frame_tag repair
-    == link_to "Edit ", edit_car_repair_path(car_id: @car.id, id: repair.id)
+      == link_to "Edit ", edit_car_repair_path(car_id: @car.id, id: repair.id)
     -if repair.content.attached?            
       a.[href= rails_blob_path(repair.content) id="invoiceImgLink"]
         | Invoice 
