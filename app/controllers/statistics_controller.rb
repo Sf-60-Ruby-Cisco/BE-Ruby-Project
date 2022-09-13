@@ -5,18 +5,30 @@ class StatisticsController < ApplicationController
 
     @total_repairs = current_user.cars.joins(:repairs).group_by_month(:date, format: "%B %Y").sum(:amount_cents)  
 
-    @all_cars = []
+    @total_chargings = current_user.cars.joins(:chargings).group_by_month(:date, format: "%B %Y").sum(:amount_cents)  
+
+    @total = @total_repairs.merge(@total_chargings) { |_,a,b| a+b }
+
+    @all_car_repairs = []
+    @all_car_chargings = []
     for car in @cars
       if car.repairs.present?
-        @all_cars.push(car.repairs.group_by_month(:date, format: "%B %Y").sum(:amount_cents))
+        @all_car_repairs.push(car.repairs.group_by_month(:date, format: "%B %Y").sum(:amount_cents))
+      end
+      if car.chargings.present?
+        @all_car_chargings.push(car.chargings.group_by_month(:date, format: "%B %Y").sum(:amount_cents))
       end
     end
 
-    @license_plates = []
+    @license_plate_repairs = []
+    @license_plate_chargings = []
     for car in @cars
       if car.repairs.present?
-        @license_plates.push(car.license_plate)
+        @license_plate_repairs.push(car.license_plate)
       end
+      if car.chargings.present?
+        @license_plate_chargings.push(car.license_plate)
+      end    
     end
   end   
 end
