@@ -6,10 +6,6 @@ class RepairsController < ApplicationController
   
   def edit; end
 
-  def index
-    @repairs = @car.repairs.all
-  end
-
   def create
     @repair = @car.repairs.new(repair_params)
     

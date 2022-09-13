@@ -1,5 +1,13 @@
-div.stat
-  | Monthly statistic for all #{current_user.username.capitalize()}'s cars 
+- if @total.length > 0
+  div.stat
+    | Monthly statistic for all #{current_user.username.capitalize()}'s cars 
+- else 
+  - if user_cars.present?
+    div.stat
+      | #{current_user.username.capitalize()} you have no expenses this month!
+  - else 
+    div.stat
+      | #{current_user.username.capitalize()} you have no cars yet!
 
 - max_length_repairs = 0
 - if @total_repairs.length > 0
