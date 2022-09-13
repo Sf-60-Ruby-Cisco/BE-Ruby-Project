@@ -20,6 +20,7 @@
  *= require confirmation
  *= require buttons_homepage
  *= car_views
+ *= about
  */
 
 @font-face {
@@ -42,10 +43,27 @@ div.next {
   position: relative;
   left: 30px;
   margin-top: 20px;
-  font-family: Simlifica;  
+  font-family: Simlifica;
 }
 
-.pagination a, .pagination span.current, .pagination span.gap {
+.pagination a,
+.pagination span.current,
+.pagination span.gap {
   color: black;
 }
 
+div.stat {
+  font-family: Simlifica;
+  position: relative;
+  font-size: 2vw;
+  margin-top: 10px;
+  margin-left: 300px;
+}
+
+.circular{
+  margin-bottom: 30px;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+}

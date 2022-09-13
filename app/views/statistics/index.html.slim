@@ -1,0 +1,11 @@
+div.stat
+  | Monthly statistic for all #{current_user.username.capitalize()}'s cars 
+div
+  - @total_repairs.each do |key, value|
+    == bar_chart ({key => value/100.to_f}), height: "100px", width: "500px", title: "Monthly repairs for all cars ", prefix: "$", colors: ["blue"], max: 5000
+    
+  - for i in 0..@license_plates.length() do
+    - if @cars[i].repairs.present?
+      - @all_cars[i].each do |key, value|         
+        = bar_chart ({key => value/100.to_f}), height: "100px", width: "500px", title: "Repairs for #{@license_plates[i]}", prefix: "$", max: 5000
+  
