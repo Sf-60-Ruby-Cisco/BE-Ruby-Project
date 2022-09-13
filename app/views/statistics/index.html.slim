@@ -19,14 +19,14 @@
     - for i in 0..@license_plate_repairs.length() do
       - if @all_car_repairs[i].present?
         - @all_car_repairs[i].each do |key, value|         
-          = bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Repairs for #{@license_plate_repairs[i]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil
+          = bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Repairs for #{@license_plate_repairs[i]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
 
 - max_length_chargings = 0
 - if @total_chargings.length > 0
   #contentwrapper
     - @total_chargings.each do |key, value|
       - max_length_chargings = value/100.to_f
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly chargings for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_chargings
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly chargings for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_chargings + 500
 
       - for i in 0..@license_plate_repairs.length() do
         - if @all_car_chargings[i].present?
