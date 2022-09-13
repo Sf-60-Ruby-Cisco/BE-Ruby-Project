@@ -37,5 +37,5 @@
   #contentwrapper1
     - @total.each do |key, value|
       == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Total spent money", prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings + max_length_repairs - 500)
-      == pie_chart ({"repairs" => max_length_repairs - 500, "chargings" => max_length_chargings.to_f - 500}), colors: ['#1E90FF', '#B0E0E6']
+      == pie_chart ({"repairs" => max_length_repairs - 500, "chargings" => max_length_chargings.to_f - 500}), colors: ['#1E90FF', '#B0E0E6'], prefix: "$"
      
