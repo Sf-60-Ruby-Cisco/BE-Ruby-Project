@@ -26,16 +26,16 @@
   #contentwrapper
     - @total_chargings.each do |key, value|
       - max_length_chargings = value/100.to_f
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly chargings for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_chargings + 500
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly chargings for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_chargings.ceil + 500
 
       - for i in 0..@license_plate_repairs.length() do
         - if @all_car_chargings[i].present?
           - @all_car_chargings[i].each do |key, value|         
-            = bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Chargings for #{@license_plate_chargings[i]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings + 500
+            = bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Chargings for #{@license_plate_chargings[i]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
 
 - if @total.length > 0
   #contentwrapper1
     - @total.each do |key, value|
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Total spent money", prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings + max_length_repairs + 500)      
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Total spent money", prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + 500)      
       == pie_chart ({"repairs" => max_length_repairs , "chargings" => max_length_chargings.to_f}), colors: ['#1E90FF', '#B0E0E6'], prefix: "$"
       
