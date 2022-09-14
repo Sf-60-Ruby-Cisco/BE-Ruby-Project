@@ -1,0 +1,4 @@
+== turbo_stream.update "chargingsList"
+  == render chargings
+== turbo_stream.update "chargingsPagination"
+  == paginate chargings, param_name: :chargings_page, data: { turbo_stream: true }

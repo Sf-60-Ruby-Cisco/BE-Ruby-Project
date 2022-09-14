@@ -10,5 +10,5 @@ p[class="h3"]
       tbody[id="chargingsList"]
         == render @chargings
 
-div[id="pagination"]
-  == paginate @chargings, params: { controller: "cars", action: :show, format: :turbo_stream, trailing_slash: true }
+div[id="chargingsPagination"]
+  == paginate @chargings, param_name: :chargings_page, data: { turbo_stream: true }

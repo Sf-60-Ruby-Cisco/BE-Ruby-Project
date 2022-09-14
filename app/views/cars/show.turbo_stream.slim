@@ -1,4 +1,8 @@
-== turbo_stream.update "chargingsList"
-  == render @chargings
-== turbo_stream.update "pagination"
-  == paginate @chargings, params: { :format => :turbo_stream, controller: "cars", action: :show }
+- if params["chargings_page"] || params["created_charging"] || params["deleted_charging"]
+  == render "chargings/update", chargings: @chargings
+- elsif params["repairs_page"] || params["created_repair"] || params["deleted_repair"]
+  == render "repairs/update", repairs: @repairs
+
+- if flash.any?
+  == turbo_stream.replace "messagesContainer"
+    == render "layouts/flash", flash: flash
