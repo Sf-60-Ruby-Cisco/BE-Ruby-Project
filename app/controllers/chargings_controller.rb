@@ -1,4 +1,6 @@
 class ChargingsController < ApplicationController
+  include ChargingsControllerConcern
+  
   before_action :get_car
   before_action :authenticate_user!
   before_action :set_charging, only: %i[ edit update destroy ]
@@ -20,18 +22,13 @@ class ChargingsController < ApplicationController
         format.json { render :plain => {success:true}.to_json, status: :created, content_type: 'application/json' }
       else
         format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.replace(
-              "#{helpers.dom_id(@charging)}_form", 
-              partial: "form", 
-              locals: { car: @car, charging: @charging }
-            ),
-            turbo_stream.replace(
-              "messagesContainer", 
-              partial: "layouts/flash", 
-              locals: { flash: {error: "There was an error when creating a charging, please try again." } }
+          render turbo_stream: 
+            stream_form_errors_and_error_message(
+              record= @charging, 
+              form_for= :charging,
+              form= "chargings/form", 
+              error_message= "There was an error when creating a charging, please try again."
             )
-          ]
         end
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }
@@ -49,18 +46,13 @@ class ChargingsController < ApplicationController
       else
         # Replace the current Edit Form with new Edit Form with errors
         format.turbo_stream do
-          render turbo_stream: [
-            turbo_stream.replace(
-              "#{helpers.dom_id(@charging)}_form", 
-              partial: "form", 
-              locals: { car: @car, charging: @charging }
-            ),
-            turbo_stream.replace(
-              "messagesContainer", 
-              partial: "layouts/flash", 
-              locals: { flash: {error: "There was an error when updating a charging, please try again." } }
+          render turbo_stream: 
+            stream_form_errors_and_error_message(
+              record= @charging, 
+              form_for= :charging,
+              form= "chargings/form", 
+              error_message= "There was an error when updating a charging, please try again."
             )
-          ]
         end
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }

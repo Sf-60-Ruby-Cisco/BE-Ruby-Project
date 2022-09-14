@@ -35,7 +35,7 @@ body {
 
 footer {
   position: fixed; 
-  right: 100; 
+  left: 0; 
   bottom: 0; 
   height: 3%; 
   width: 100%;
