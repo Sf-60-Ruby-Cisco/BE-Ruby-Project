@@ -32,8 +32,13 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 footer {
-  margin-top: auto;
+  position: fixed; 
+  right: 100; 
+  bottom: 0; 
+  height: 3%; 
+  width: 100%;
 }
 
 /* Pagination */
