@@ -19,6 +19,7 @@ html
         = content_tag :div, msg, class: build_alert_classes(type)
     
   .container      
-    = yield
-  footer              
-    == render 'shared/footer'
+    = yield  
+    - unless action_name == "show" && controller_name == "cars"  
+      footer      
+        == render 'shared/footer'
