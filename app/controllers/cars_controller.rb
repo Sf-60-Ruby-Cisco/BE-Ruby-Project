@@ -11,8 +11,8 @@ class CarsController < ApplicationController
 
   # GET /cars/1 or /cars/1.json
   def show
-    @chargings = @car.chargings.order(created_at: :desc).page(params[:chargings_page]).per(4)
-    @repairs = @car.repairs.order(created_at: :desc).page(params[:repairs_page]).per(4)
+    @chargings = @car.chargings.order(created_at: :desc).page(params[:chargings_page]).per(5)
+    @repairs = @car.repairs.order(created_at: :desc).page(params[:repairs_page]).per(5)
     respond_to do |format|
       format.html
       format.turbo_stream # views/cars/ -> show.turbo_stream.slim

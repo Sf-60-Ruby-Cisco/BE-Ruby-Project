@@ -2,11 +2,9 @@ div[class="navbar-cars-show"]
   nav
     = link_to "Back" , cars_path, class: "button-add"
 
-    = link_to "Add Charging", "", class: "button-add", id: "addChargingBtn"
+    = link_to "Add Charging", "", class: "button-add form_button", id: "chargingForm"
 
-    = link_to "Add Repair", "", class: "button-add", id: "addRepairBtn"
-
-    = link_to "Taxes and others", "", class: "button-add", id: "showTablesBtn"
+    = link_to "Add Repair", "", class: "button-add form_button", id: "repairForm"
 
 br
 section.vh-100
@@ -16,18 +14,18 @@ section.vh-100
         == render @car
       .col-sm-6.px-8.d-none.d-sm-block 
 
-        div[id="repairForm" style="display: none"]
+        div[id="repairForm" class="formContainer collapse"]
           == render 'repairs/form', car: @car, repair: @car.repairs.build
           
-        div[id="chargingForm" style="display: none"]
+        div[id="chargingForm" class="formContainer collapse"]
           == render 'chargings/form', car: @car, charging: @car.chargings.build
         
-        div[id="repairsContainer" style="display: block"]
-            == render 'repairs/table'
-            
+        div
+          == render 'repairs/table'
+
         br
 
-        div[id="chargingsContainer" style="display: block"]
-            == render 'chargings/table'
+        div
+          == render 'chargings/table'
         
 <script type="module" src="/javascripts/lib/carsShowPage.js"></script>

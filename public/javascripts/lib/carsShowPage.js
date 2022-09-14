@@ -1,58 +1,50 @@
-if (addChargingBtn === undefined) {
-    const addChargingBtn = document.getElementById("addChargingBtn");
-    const showTablesBtn = document.getElementById("showTablesBtn");
-    const chargingForm = document.getElementById("chargingForm");
-    const chargingsContainer = document.getElementById("chargingsContainer");
-    const addRepairBtn = document.getElementById("addRepairBtn");
-    const repairForm = document.getElementById("repairForm");
-    const repairsContainer = document.getElementById("repairsContainer");
-}
+var formButtonsArr = [...document.getElementsByClassName("form_button")];
+var tableHeadingsArr = [...document.getElementsByClassName("tableHeading")];
+var arrowDown = "<span>&#8595;</span>";
+var arrowUp = "<span>&#8593;</span>";
 
-/// Show/Hide Tables ///
-showTablesBtn.addEventListener("click", (ev) => {
-    ev.preventDefault();
 
-    if (chargingsContainer.style.display == 'none') {
-        chargingsContainer.style.display = 'block';
-        repairsContainer.style.display = 'block';
-        hideForms();
-    } else {
-        hideTables();
-    }
+/************  Toggle Tables  *************/
+tableHeadingsArr.forEach(heading => {
+    heading.addEventListener('click', (event) => {
+        event.preventDefault();
+        let tbody = heading.parentNode.parentNode.querySelector("tbody");
+        let tablePagination = heading.parentNode.parentNode.querySelector('div .tablePagination');
+        if (tbody.classList.contains("collapse")) {
+            tbody.classList.remove("collapse");
+            tablePagination.classList.remove("collapse");
+            heading.parentNode.querySelector("span").remove();
+            heading.parentNode.insertAdjacentHTML("beforeend", arrowUp);
+        } else {
+            tbody.classList.add("collapse")
+            tablePagination.classList.add("collapse");
+            heading.parentNode.querySelector("span").remove();
+            heading.parentNode.insertAdjacentHTML("beforeend", arrowDown);
+        }
+
+    });
 })
 
-/// Show Add Repair Form ///
-addRepairBtn.addEventListener("click", (ev) => {
-  ev.preventDefault();
+/************   Show/Hide Forms   *************/
+formButtonsArr.forEach(button => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        let buttonId = button.id;
+        let targetedFormContainer = document.querySelector(`div[id="${buttonId}"]`);
 
-  if (repairForm.style.display == "none") {
-    repairForm.style.display = "block";
-    chargingForm.style.display = "none";
-  } else {
-    repairForm.style.display = "none";
-  }
-});
+        if (targetedFormContainer.classList.contains("collapse")) {
+            let formContainersArr = [...document.getElementsByClassName('formContainer')];
+            formContainersArr.forEach(formContainer => {
+                if (formContainer.id == targetedFormContainer.id) { return };
+                if (formContainer.classList.contains("collapse")) { return };
+                formContainer.classList.add("collapse")
+            });
 
+            targetedFormContainer.classList.remove("collapse");
+        } else {
+            targetedFormContainer.classList.add("collapse");
+        }
 
-/// Show Add Charging Form ///
-addChargingBtn.addEventListener("click", (ev) => {
-    ev.preventDefault();
+    })
+})
 
-    if (chargingForm.style.display == 'none') {
-        chargingForm.style.display = 'block';
-        repairForm.style.display = 'none';
-    } else {
-        chargingForm.style.display = 'none';
-    }
-});
-
-
-function hideTables() {
-    repairsContainer.style.display = "none";
-    chargingsContainer.style.display = "none";
-}
-
-function hideForms() {
-    repairForm.style.display = "none";
-    chargingForm.style.display = "none";
-}
