@@ -10,15 +10,15 @@ tableHeadingsArr.forEach(heading => {
         event.preventDefault();
         let tbody = heading.parentNode.parentNode.querySelector("tbody");
         let tablePagination = heading.parentNode.parentNode.querySelector('div .tablePagination');
+
+        heading.parentNode.querySelector("span").remove();
         if (tbody.classList.contains("collapse")) {
             tbody.classList.remove("collapse");
             tablePagination.classList.remove("collapse");
-            heading.parentNode.querySelector("span").remove();
             heading.parentNode.insertAdjacentHTML("beforeend", arrowUp);
         } else {
             tbody.classList.add("collapse")
             tablePagination.classList.add("collapse");
-            heading.parentNode.querySelector("span").remove();
             heading.parentNode.insertAdjacentHTML("beforeend", arrowDown);
         }
 
