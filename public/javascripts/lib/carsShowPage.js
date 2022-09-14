@@ -17,7 +17,7 @@ tableHeadingsArr.forEach(heading => {
             tablePagination.classList.remove("collapse");
             heading.parentNode.insertAdjacentHTML("beforeend", arrowUp);
         } else {
-            tbody.classList.add("collapse")
+            tbody.classList.add("collapse");
             tablePagination.classList.add("collapse");
             heading.parentNode.insertAdjacentHTML("beforeend", arrowDown);
         }
@@ -37,7 +37,7 @@ formButtonsArr.forEach(button => {
             formContainersArr.forEach(formContainer => {
                 if (formContainer.id == targetedFormContainer.id) { return };
                 if (formContainer.classList.contains("collapse")) { return };
-                formContainer.classList.add("collapse")
+                formContainer.classList.add("collapse");
             });
 
             targetedFormContainer.classList.remove("collapse");
