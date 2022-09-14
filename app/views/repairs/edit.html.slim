@@ -4,4 +4,4 @@
   - else
     == render "form", car: @car, repair: @repair
     == link_to "Cancel ", edit_car_repair_path(car_id: @car.id, id: @repair.id, params: {cancel: true}), \
-        class: "car", data: { turbo_stream: true }
+        class: "car"
