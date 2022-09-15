@@ -1,0 +1,20 @@
+= form_with(model: [car, tax], id: "#{dom_id(tax)}_form") do |form|    
+  - if tax.errors.any?
+    ul.alert.alert-danger    
+      - tax.errors.each do |error|
+        li 
+          == error.full_message
+  div.f
+    = form.text_field :tax_type, autofocus: true, :size=>"50", placeholder: "Tax Type",autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.f
+    = form.text_area :description, :size=>"50", autofocus: true, placeholder: "Tax description",autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.f    
+    = form.number_field :amount, step: :any, required: true, autofocus: true, placeholder: "Amount",autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.f
+    = form.date_field :date, required: true, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label"
+
+  div.l
+    = form.button class: "car"

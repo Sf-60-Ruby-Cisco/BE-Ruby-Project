@@ -13,6 +13,7 @@ class CarsController < ApplicationController
   def show
     @chargings = @car.chargings.order(created_at: :desc).page(params[:chargings_page]).per(5)
     @repairs = @car.repairs.order(created_at: :desc).page(params[:repairs_page]).per(5)
+    @taxes = @car.taxes.order(created_at: :desc).page(params[:taxes_page]).per(5)
     respond_to do |format|
       format.html
       format.turbo_stream # views/cars/ -> show.turbo_stream.slim

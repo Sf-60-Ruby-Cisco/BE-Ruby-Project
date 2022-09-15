@@ -1,0 +1,4 @@
+  == turbo_stream.update "taxesList"
+    == render taxes
+  == turbo_stream.update "taxesPagination"
+    == paginate taxes, param_name:  :taxes_page, data: { turbo_stream: true }
