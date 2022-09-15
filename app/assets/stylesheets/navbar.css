@@ -1,4 +1,8 @@
-.navbar-nav {
+/* .navbar-nav {
   margin-left: auto !important;
   font-family: Simlifica;
+} */
+.navbar-nav{
+  margin-left:5px;
+  width:150%;
 }

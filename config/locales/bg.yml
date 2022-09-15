@@ -1,0 +1,13 @@
+bg:
+  welcome: "Добе дошли!"
+
+    
+  pagination:
+    first: "&laquo; първа"
+    last: "Last &raquo;"
+    previous: "&lsaquo; Prev"
+    next: "Next &rsaquo;"
+    truncate: "&hellip;"
+  
+  
+  

@@ -27,6 +27,10 @@ gem "chartkick"
 
 gem "groupdate"
 
+gem 'rails-i18n', '~> 7.0.0'
+
+gem 'devise-i18n'
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"
