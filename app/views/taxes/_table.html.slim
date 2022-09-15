@@ -13,4 +13,4 @@ table[class="table table-striped table-dark"]
     == render @taxes
    
 div[id="taxesPagination" class="tablePagination collapse"]
-  == paginate @taxes, param_name:  :taxes_page, data: { turbo_stream: true }
+  == render "taxes/paginate", taxes: @taxes

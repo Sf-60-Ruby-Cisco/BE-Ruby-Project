@@ -13,7 +13,7 @@ class RepairsController < ApplicationController
     respond_to do |format|             
       if @repair.save
         format.html { 
-          redirect_to car_url(@car, params: { created_repair: true }), 
+          redirect_to car_url(@car, params: { update: "repairs" }), 
           status: :see_other, 
           notice: "Repair was successfully created." 
         }
@@ -61,7 +61,7 @@ class RepairsController < ApplicationController
 
     respond_to do |format|
       format.html { 
-        redirect_to car_url(@car, params: { deleted_repair: true }), 
+        redirect_to car_url(@car, params: { update: "repairs" }), 
         status: :see_other, 
         notice: "Repair was successfully destroyed." 
       }

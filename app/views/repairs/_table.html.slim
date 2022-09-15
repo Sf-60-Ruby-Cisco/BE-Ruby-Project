@@ -12,4 +12,4 @@ table[class="table table-striped table-dark"]
     == render @repairs
    
 div[id="repairsPagination" class="tablePagination collapse"]
-  == paginate @repairs, param_name:  :repairs_page, data: { turbo_stream: true }
+  == render "repairs/paginate", repairs: @repairs

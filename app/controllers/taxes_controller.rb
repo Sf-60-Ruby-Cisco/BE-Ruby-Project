@@ -15,7 +15,7 @@ class TaxesController < ApplicationController
     respond_to do |format|
       if @tax.save
         format.html { 
-          redirect_to car_url(@car, params: { created_tax: true }), 
+          redirect_to car_url(@car, params: { update: "taxes" }), 
           status: :see_other, 
           notice: "Tax was successfully added."
         }
@@ -65,7 +65,7 @@ class TaxesController < ApplicationController
 
     respond_to do |format|
       format.html { 
-        redirect_to car_url(@car, params: { deleted_tax: true }), 
+        redirect_to car_url(@car, params: { update: "taxes" }), 
         status: :see_other, 
         notice: "Tax was successfully destroyed." 
       }

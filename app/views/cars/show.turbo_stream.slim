@@ -1,9 +1,10 @@
-- if params["chargings_page"] || params["created_charging"] || params["deleted_charging"]
-  == render "chargings/update", chargings: @chargings
-- elsif params["repairs_page"] || params["created_repair"] || params["deleted_repair"]
-  == render "repairs/update", repairs: @repairs
-- elsif params["taxes_page"] || params["created_tax"] || params["deleted_tax"]
-  == render "taxes/update", taxes: @taxes
+- if params["update"]
+  - if params["update"] == "chargings"
+    == render "chargings/update", chargings: @chargings
+  - elsif params["update"] == "repairs"
+    == render "repairs/update", repairs: @repairs
+  - elsif params["update"] == "taxes"
+    == render "taxes/update", taxes: @taxes
 
 - if flash.any?
   == turbo_stream.replace "messagesContainer"

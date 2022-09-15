@@ -1,4 +1,4 @@
   == turbo_stream.update "repairsList"
     == render repairs
   == turbo_stream.update "repairsPagination"
-    == paginate repairs, param_name:  :repairs_page, data: { turbo_stream: true }
+    == render "repairs/paginate", repairs: repairs

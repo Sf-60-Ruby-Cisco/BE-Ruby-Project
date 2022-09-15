@@ -1,6 +1,6 @@
 class ChargingsController < ApplicationController
   include ChargingsControllerConcern
-  
+
   before_action :get_car
   before_action :authenticate_user!
   before_action :set_charging, only: %i[ edit update destroy ]
@@ -14,8 +14,10 @@ class ChargingsController < ApplicationController
     @charging = @car.chargings.new(charging_params)
     respond_to do |format|
       if @charging.save
+        # Send params &update=chargings to views/cars/show.turbo_stream
+        # to update the Chargings Table and its Pagination (request is processed as Turbo_Stream)
         format.html { 
-          redirect_to car_url(@car, params: { created_charging: true }), 
+          redirect_to car_url(@car, params: { update: "chargings" }), 
           status: :see_other, 
           notice: "Charging was successfully created."
         }
@@ -66,7 +68,7 @@ class ChargingsController < ApplicationController
 
     respond_to do |format|
       format.html { 
-        redirect_to car_url(@car, params: { deleted_charging: true }), 
+        redirect_to car_url(@car, params: { update: "chargings" }), 
         status: :see_other, 
         notice: "Charging was successfully destroyed." 
       }
