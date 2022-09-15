@@ -15,7 +15,8 @@ section.vh-100
       .col-sm-5.text-black
         == render @car
       .col-sm-6.px-8.d-none.d-sm-block 
-
+        // id must be the same as the == link_to "Add Repair" above, needed for carsShowPage.js
+        // class="formContainer collapse" is also needed
         div[id="repairForm" class="formContainer collapse"]
           == render 'repairs/form', car: @car, repair: @car.repairs.build
           

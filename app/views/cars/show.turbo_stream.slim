@@ -1,5 +1,6 @@
 - if params["update"]
   - if params["update"] == "chargings"
+    // Updates the Chargings Table and its pagination -> views/chargings/_update.turbo_stream.slim
     == render "chargings/update", chargings: @chargings
   - elsif params["update"] == "repairs"
     == render "repairs/update", repairs: @repairs
