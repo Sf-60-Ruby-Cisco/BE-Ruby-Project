@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :expenses
   resources :cars do   
     member do
       delete :purge_content
