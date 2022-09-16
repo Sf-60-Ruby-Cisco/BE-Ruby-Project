@@ -10,9 +10,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         - else 
           li= link_to 'English', url_for(locale: :en), class:"nav-link"
       
-        li= link_to 'About',about_path, class:"nav-link"
+        li= link_to t("navbar.about"),about_path, class:"nav-link"
 
-        li= link_to 'Login', new_user_session_path, class:"nav-link"
+        li= link_to t('navbar.login'), new_user_session_path, class:"nav-link"
       
              
 

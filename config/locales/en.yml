@@ -30,13 +30,123 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  welcome: "Welcome"
-  
+  confirmation:
+    resend_confirmation_instructions: "Resend confirmation instructions"
+    resend_confirm: "Resend confirmation instructions"
+    login_adv: "You are one step away from successful login"
+    email_field: Enter your email
+    forgot_pass: "Forgot password?"
+    dont_have_acc: "Don't have an account?"
+    ref: "Register here"
+    login: "Login"
+    already_have: "You already have a confirmation email?"
+    happens: "Happens all the time! We will send you instructions."
+    resend_pass: "Send me reset password instructions"
+    know_pass: "You already know your password?"
 
-  pagination:
-    first: "&laquo; First"
-    last: "Last &raquo;"
-    previous: "&lsaquo; Prev"
-    next: "Next &rsaquo;"
-    truncate: "&hellip;"
+  login:
+    login_intro: "Login to Car Diary"
+    adv: "You have to be login to use the full functionality"
+    email_user: "Email or username"
+    pass: "Password"
+    dont_recieve: "You didn't receive a confirmation email?"
+    click: "Click here"
+
+  navbar:
+    about: "About"
+    login: "Login"
+    add_car: "Add car"
+    cars: "Cars"
+    no_cars: "No cars added"
+    statistic: 'View statistic'
+    profile: "Your profile"
+    out: "Sign out"
+    edit: "Edit profile"
   
+  footer: "Our Github project "
+
+  about:
+    free: "Free application made for educational purposes."
+    find: "Find out more"
+    what: "What is Car Diary?"
+    who: "Who are we"
+    description: "This is a diary for your car. Here you can add, edit or delete all kind of taxes, repairs, fuel chargings for one or several cars. View statistics for all expenses. Get a reminder when final date for tax paying is coming."
+    stoyan: "Love learning and challenging myself!"
+    stoyan_name: "Stoyan Stoyanov"
+    welcome: "Welcome to Car Diary!"
+    start: "Let's start!"
+    
+  profile:
+    new: "Create new account"
+    user: "Username"
+    email: "Email address"
+    pass: "Password"
+    confirm: "Confirm Password"
+    have: 'Already have an account? '
+    submit: "Submit"
+    char: " characters minimum "
+    new_pass: "New password"
+    change: "Enter password to confirm changes"
+
+  car:
+    add: "Add car"
+    history: "History for"
+    brand: "Brand"
+    model: "Model"
+    engine: "Engine"
+    fuel: "Fuel type"
+    year: "Year"
+    license: "License plate"
+    pic: "Delete picture"
+    delete: "Delete car"
+    back: "Back"
+    charg: "Add Charging"
+    repair: "Add repair"
+    others: "Taxes and others"
+    edit: "Edit your car"
+    e: "Edit "
+    invoice: " Invoice "
+    d: "Delete"
+    station: "Station "
+    amopunt: "Amount "
+    date: "Date"
+    action: "Actions"
+    desc: "Description"
+    r: "Repairs"
+    c: "Chargings"
+    bs: "Brand station"
+    rd: "Repair description"
+    upload: " Upload your invoice"
+    up: "Upload picture"
+    confirm: "Confirm"
+    new: "Add new car"
+
+  
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Show %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b>"
+      one_page:
+        display_entries:
+          few: "Show <b>%{count}</b> %{entry_name}"
+          many: "Show <b>%{count}</b> %{entry_name}"
+          one: "Show <b>%{count}</b> %{entry_name}"
+          other: "Show<b>все %{count}</b> %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      next: "Next &rsaquo;"
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"
+
+  statistic:
+    descr: "Monthly statistic for all cars"
+    not: "you have no expenses this month!"
+    no_cars: "you have no cars yet!"
+    descr_repair: " Monthly repairs for all cars"
+    descr_ch: " Monthly chargings for all cars"
+    rep: "Repairs for"
+    ch: "Chargings for"
+    total: "Total money spent"
+    

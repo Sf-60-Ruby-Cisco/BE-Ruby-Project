@@ -7,10 +7,10 @@
           == error.full_message
 
   div.f
-    = form.text_field :brand_station, autofocus: true, :size=>"50", placeholder: "Brand Station",autocomplete: "off", class: "col-sm-6 col-form-label"
+    = form.text_field :brand_station, autofocus: true, :size=>"50", placeholder: t("car.bs"),autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f    
-    = form.number_field :amount, step: :any, required: true, placeholder: "Amount",autocomplete: "off", class: "col-sm-6 col-form-label"
+    = form.number_field :amount, step: :any, required: true, placeholder: t("car.amount"),autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f
     = form.date_field :date, required: true, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label"
