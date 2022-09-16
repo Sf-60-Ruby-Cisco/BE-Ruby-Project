@@ -1,9 +1,10 @@
 class RepairsController < ApplicationController
+  include ChargingsControllerConcern
+
   before_action :get_car
   before_action :authenticate_user!
   before_action :set_repair, only: %i[edit update destroy ]  
 
-  
   def edit; end
 
   def create
@@ -11,9 +12,22 @@ class RepairsController < ApplicationController
     
     respond_to do |format|             
       if @repair.save
-        format.html { redirect_to car_url(@car), notice: "Repair was successfully created." }
+        format.html { 
+          redirect_to car_url(@car, params: { update: "repairs" }), 
+          status: :see_other, 
+          notice: "Repair was successfully created." 
+        }
         format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
       else
+        format.turbo_stream do
+          render turbo_stream: 
+            stream_form_errors_and_error_message(
+              record= @repair, 
+              form_for= :repair,
+              form= "repairs/form", 
+              error_message= "There was an error when creating a repair, please try again."
+            )
+        end
         format.html { redirect_to car_url(@car), status: :unprocessable_entity, alert: "Something went wrong! Amount must be greather than 0. Allowed file types are jpg, png, gif ang pdf!" }
         format.json { render json: @repair.errors, status: :unprocessable_entity }
       end
@@ -27,10 +41,15 @@ class RepairsController < ApplicationController
         format.html { redirect_to car_url(@car), status: :see_other, notice: "Repair was successfully updated." }
         format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
       else
-        format.turbo_stream { 
-          render turbo_stream: turbo_stream.replace(
-            "#{helpers.dom_id(@repair)}_form", partial: "form", locals: { car: @car, repair: @repair }) 
-        }
+        format.turbo_stream do
+          render turbo_stream:
+            stream_form_errors_and_error_message(
+              record= @repair, 
+              form_for= :repair,
+              form= "repairs/form", 
+              error_message= "There was an error when updating a repair, please try again."
+            )
+        end
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @repair.errors, status: :unprocessable_entity }
       end
@@ -41,7 +60,11 @@ class RepairsController < ApplicationController
     @repair.destroy
 
     respond_to do |format|
-      format.html { redirect_to car_url(@car), status: :see_other, notice: "Repair was successfully destroyed." }
+      format.html { 
+        redirect_to car_url(@car, params: { update: "repairs" }), 
+        status: :see_other, 
+        notice: "Repair was successfully destroyed." 
+      }
       format.json { render :plain => {success:true}.to_json, status: :ok, content_type: 'application/json' }
     end
   end
@@ -60,7 +83,6 @@ class RepairsController < ApplicationController
       end
     end
   
-
     # Only allow a list of trusted parameters through.
     def repair_params
       params.require(:repair).permit(:description, :amount, :date, :content)

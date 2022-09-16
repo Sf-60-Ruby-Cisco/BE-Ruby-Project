@@ -2,11 +2,11 @@ div[class="navbar-cars-show"]
   nav
     = link_to "Back" , cars_path, class: "button-add"
 
-    = link_to "Add Charging", "", class: "button-add", id: "addChargingBtn"
+    = link_to "Add Charging", "", class: "button-add form_button", id: "chargingForm"
 
-    = link_to "Add Repair", "", class: "button-add", id: "addRepairBtn"
+    = link_to "Add Repair", "", class: "button-add form_button", id: "repairForm"
 
-    = link_to "Taxes and others", "", class: "button-add", id: "showTablesBtn"
+    = link_to "Add Tax", "", class: "button-add form_button", id: "taxForm"
 
 br
 section.vh-100
@@ -15,19 +15,30 @@ section.vh-100
       .col-sm-5.text-black
         == render @car
       .col-sm-6.px-8.d-none.d-sm-block 
-
-        div[id="repairForm" style="display: none"]
+        // id must be the same as the == link_to "Add Repair" above, needed for carsShowPage.js
+        // class="formContainer collapse" is also needed
+        div[id="repairForm" class="formContainer collapse"]
           == render 'repairs/form', car: @car, repair: @car.repairs.build
           
-        div[id="chargingForm" style="display: none"]
+        div[id="chargingForm" class="formContainer collapse"]
           == render 'chargings/form', car: @car, charging: @car.chargings.build
         
-        div[id="repairsContainer" style="display: block"]
-          - if @repairs.any?
-            == render 'repairs/table'
-            
-        div[id="chargingsContainer" style="display: block"]
-          - if @chargings.any?
-            == render 'chargings/table'
+        div[id="taxForm", class="formContainer collapse"]
+          == render 'taxes/form', car: @car, tax: @car.taxes.build
         
-<script type="text/javascript" src="/javascripts/lib/carsShowPage.js"></script>
+        div
+          == render 'repairs/table'
+
+        br
+
+        div
+          == render 'chargings/table'
+        
+        br
+
+        div
+          == render 'taxes/table'
+
+        br
+        
+<script type="application/javascript" src="/javascripts/lib/carsShowPage.js"></script>

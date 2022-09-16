@@ -1,0 +1,4 @@
+== turbo_stream.replace "#{dom_id(@tax)}_item"
+  == render "tax", tax: @tax
+== turbo_stream.replace "messagesContainer"
+  == render "layouts/flash", flash: { notice: "Tax was successfully updated." }

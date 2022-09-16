@@ -1,4 +1,4 @@
 == turbo_stream.replace "#{dom_id(@repair)}_item"
   == render "repair", repair: @repair
 == turbo_stream.replace "messagesContainer"
-  div[class="alert alert-dismissable alert-success"] Repair was successfully updated.
+  == render "layouts/flash", flash: { notice: "Repair was successfully updated." }

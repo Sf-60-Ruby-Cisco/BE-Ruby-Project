@@ -1,6 +1,6 @@
 = form_with(model: [car, repair], id: "#{dom_id(repair)}_form") do |form|    
   - if repair.errors.any?
-    .alert.alert-danger    
+    ul.alert.alert-danger    
       - repair.errors.each do |error|
         li 
           == error.full_message

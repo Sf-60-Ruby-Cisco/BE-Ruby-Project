@@ -1,3 +1,7 @@
 == turbo_frame_tag @repair
+  - if params["cancel"]
+    == link_to "Edit ", edit_car_repair_path(car_id: @car.id, id: @repair.id)
+  - else
     == render "form", car: @car, repair: @repair
-    == button_to "Cancel Repair", car_path(@car.id), class: "car", :method => "get"
+    == link_to "Cancel ", edit_car_repair_path(car_id: @car.id, id: @repair.id, params: {cancel: true}), \
+        class: "car"

@@ -1,0 +1,7 @@
+== turbo_frame_tag @tax
+  - if params["cancel"]
+    == link_to "Edit ", edit_car_tax_path(car_id: @car.id, id: @tax.id)
+  - else
+    == render "form", car: @car, tax: @tax
+    == link_to "Cancel ", edit_car_tax_path(car_id: @car.id, id: @tax.id, params: {cancel: true}), \
+        class: "car"

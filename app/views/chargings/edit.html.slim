@@ -1,3 +1,7 @@
 == turbo_frame_tag @charging
+  - if params["cancel"]
+    == link_to "Edit ", edit_car_charging_path(car_id: @car.id, id: @charging.id)
+  - else
     == render "form", car: @car, charging: @charging
-    == link_to "Cancel ", car_path(@car.id), class: "car"
+    == link_to "Cancel ", edit_car_charging_path(car_id: @car.id, id: @charging.id, params: {cancel: true}), \
+        class: "car"

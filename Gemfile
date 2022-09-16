@@ -27,7 +27,7 @@ gem "puma", "~> 5.0"
 
 gem "importmap-rails"
 
-gem "turbo-rails"
+gem "turbo-rails", github: "hotwired/turbo-rails", branch: "turbo-7-2-0"
 
 gem "stimulus-rails"
 

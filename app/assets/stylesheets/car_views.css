@@ -79,3 +79,8 @@ label.btn.btn-info.btn-lg {
   display: inline-block;
   margin-left: 20px;
 }
+
+a.tableHeading, a.tableHeading:hover, a.tableHeading:focus, a.tableHeading:active {
+  color: black; 
+  text-decoration: none !important;
+}
