@@ -1,20 +1,21 @@
 - if @total.length > 0
   div.stat
-    | Monthly statistic for all #{current_user.username.capitalize()}'s cars 
+    = t("statistic.descr")
 - else 
   - if user_cars.present?
     div.stat
-      | #{current_user.username.capitalize()} you have no expenses this month!
+      | #{current_user.username.capitalize()} #{t("statistic.not")}
+     
   - else 
     div.stat
-      | #{current_user.username.capitalize()} you have no cars yet!
+      | #{current_user.username.capitalize()} #{t("statistic.no_cars")}     
 
 - max_length_repairs = 0
 - if @total_repairs.length > 0
   #leftcolumn
     - @total_repairs.each do |key, value|
       - max_length_repairs = value/100.to_f 
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly repairs for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_repairs.ceil + 500
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.descr_repair"), prefix: "$", colors: ["#1E90FF"], max: max_length_repairs.ceil + 500
 
   
     - if @all_car_repairs.present?
@@ -26,7 +27,7 @@
   #contentwrapper
     - @total_chargings.each do |key, value|
       - max_length_chargings = value/100.to_f
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly chargings for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_chargings.ceil + 500
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.descr_ch"), prefix: "$", colors: ["#1E90FF"], max: max_length_chargings.ceil + 500
 
      
       - if @all_car_chargings.present?

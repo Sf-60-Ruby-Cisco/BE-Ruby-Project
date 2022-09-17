@@ -96,11 +96,12 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.2)
+      devise (>= 4.8.0)
     diff-lcs (1.5.0)
     digest (3.1.0)
     erubi (1.10.0)
     ffi (1.15.5)
-    ffi (1.15.5-x64-mingw32)
     globalid (1.0.0)
       activesupport (>= 5.0)
     groupdate (6.1.0)
@@ -166,13 +167,10 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.6-x64-mingw32)
-      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.2)
-    pg (1.4.2-x64-mingw32)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -198,6 +196,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
+    rails-i18n (7.0.5)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.0.3)
       actionpack (= 7.0.3)
       activesupport (= 7.0.3)
@@ -277,6 +278,7 @@ DEPENDENCIES
   chartkick
   debug
   devise
+  devise-i18n
   groupdate
   image_processing (>= 1.2)
   importmap-rails
@@ -286,6 +288,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3)
+  rails-i18n (~> 7.0.0)
   rspec-rails
   slim-rails
   sprockets-rails

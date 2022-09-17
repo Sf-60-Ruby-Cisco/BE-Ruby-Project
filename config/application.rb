@@ -27,5 +27,8 @@ module CarDiary
     config.generators do |g|
       g.template_engine :slim
     end
+    config.i18n.available_locales = [:en, :bg]
+    config.i18n.default_locale = :en
+    config.i18n.fallbacks = true
   end
 end

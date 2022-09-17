@@ -6,29 +6,29 @@ section.vh-100
         .px-5.ms-xl-4
         div.confirm
           h1.confirm
-            | Resend confirmation instructions
+            = t('.resend_confirmation_instructions')
           p.link-info
-            | You are one step away from successful login
+            = t('confirmation.login_adv')
             = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post },  data: { turbo: false }) do |f|
               div.midl
               .field            
               = f.email_field :email, autofocus: true,
                 autocomplete: "on", 
-                :size=>"50", placeholder: "Enter your email",
+                :size=>"50", placeholder: "#{t 'confirmation.email_field'}",
                 class: "col-sm-7", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
               .field
               div               
                 button.forgot[type="Submit"]                
-                  | Resend confirmation instructions  
+                  = t('confirmation.resend_confirm')
               
               div.midl
                 a.text-muted[href= new_user_password_path]
-                  | Forgot password?
+                  = t("confirmation.forgot_pass")
               div.px
-                | Don't have an account? 
+                = t('confirmation.dont_have_acc')
                 a.link-info[href= new_user_registration_path]
-                  | Register here
+                  = t('confirmation.ref')
               div.px
-                | You already have a confirmation email? 
+                = t('confirmation.already_have')
                 a.link-info[href= new_user_session_path]
-                  | Login
+                  = t('confirmation.login')

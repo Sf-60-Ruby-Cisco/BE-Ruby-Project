@@ -5,9 +5,9 @@ section.vh-100
         .px-5.ms-xl-4
         div.login
           h1.login
-            | Login to Car Diary
+            = t("login.login_intro")
           p.login.link-info
-            | You have to be login to use the full functionality
+            = t("login.adv")
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form
         = form_for(resource, as: resource_name, url: session_path(resource_name),
@@ -17,29 +17,29 @@ section.vh-100
           div.mid
                    
             = f.text_field :login, autofocus: true, :size=>"50", autocomplete: "on", 
-            class: "col-sm-4 col-form-label", placeholder: "Email address or Username"
+            class: "col-sm-4 col-form-label", placeholder: "#{t 'login.email_user'}"
           div.mid
             = f.password_field :password,
              :size=>"50",class: "col-sm-4 col-form-label",
-              placeholder: "Password"
+              placeholder: "#{t 'login.pass'}"
           - if devise_mapping.rememberable?
             .field
             div.login      
             
               button.login[type="Submit"]                
-                | Login         
+                = t('confirmation.login')        
       
               div.midl
                   a.text-muted[href= new_user_password_path]
-                    | Forgot password?
+                    = t('confirmation.forgot_pass')
               div.l
-                | Don't have an account? 
+                = t('confirmation.dont_have_acc') 
                 a.link-info[href= new_user_registration_path]
-                  | Register here
+                  = t('confirmation.ref')
               div.l
-                | You didn't receive a confirmation email? 
+                = t('login.dont_recieve')
                 a.link-info[href=  new_user_confirmation_path]
-                  | Click here
+                  = t('login.click')
                 
       .col-sm-6.px-6.d-none.d-sm-block      
         
