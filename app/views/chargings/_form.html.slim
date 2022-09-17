@@ -1,7 +1,7 @@
 / We need the "#{dom_id(charging)}_form") to be able to replace the form on :update if errors occur
 = form_with(model: [car, charging], id: "#{dom_id(charging)}_form") do |form|    
   - if charging.errors.any?
-    ul
+    ul.alert.alert-danger
       - charging.errors.each do |error|
         li 
           == error.full_message

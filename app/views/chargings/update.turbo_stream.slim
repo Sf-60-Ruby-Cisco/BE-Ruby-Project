@@ -3,4 +3,4 @@
   == render "charging", charging: @charging
 // Display Success  
 == turbo_stream.replace "messagesContainer"
-  div[class="alert alert-dismissable alert-success"] Charging was successfully updated.
+  == render "layouts/flash", flash: { notice: "Charging was successfully updated." }

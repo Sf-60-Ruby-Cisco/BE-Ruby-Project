@@ -3,7 +3,7 @@ class Car < ApplicationRecord
   belongs_to :user
   has_many :repairs, dependent: :delete_all
   has_many :chargings, dependent: :delete_all
-  
+  has_many :taxes, dependent: :delete_all
   has_one_attached :content do |attachable|
       attachable.variant :thumb, resize_to_limit: [300, 300]
   end

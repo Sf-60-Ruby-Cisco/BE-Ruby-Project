@@ -1,0 +1,12 @@
+tr[id="#{dom_id(tax)}_item"]
+  td.tax_type = tax.tax_type
+  td.tax = tax.description
+  td.amount
+    | $
+    = tax.amount
+  td.date = tax.date
+  td.actions 
+    == turbo_frame_tag tax
+      == link_to "Edit ", edit_car_tax_path(car_id: @car.id, id: tax.id)
+    == link_to "Delete", car_tax_path(car_id: @car.id, id: tax.id), data: { \
+        turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this tax ?" }

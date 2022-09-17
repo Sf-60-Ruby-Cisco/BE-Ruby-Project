@@ -1,11 +1,8 @@
 class CarsController < ApplicationController  
-
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :check_user, :only => [:edit, :show] 
   
-  
-
   # GET /cars or /cars.json
   def index   
     @cars = current_user.cars.order(created_at: :asc).page(params[:page])
@@ -15,8 +12,13 @@ class CarsController < ApplicationController
 
   # GET /cars/1 or /cars/1.json
   def show
-    @chargings = @car.chargings.order(created_at: :desc)
-    @repairs = @car.repairs.order(created_at: :desc)
+    @chargings = @car.chargings.order(created_at: :desc).page(params[:chargings_page])
+    @repairs = @car.repairs.order(created_at: :desc).page(params[:repairs_page])
+    @taxes = @car.taxes.order(created_at: :desc).page(params[:taxes_page])
+    respond_to do |format|
+      format.html
+      format.turbo_stream # views/cars/ -> show.turbo_stream.slim
+    end
   end
 
 

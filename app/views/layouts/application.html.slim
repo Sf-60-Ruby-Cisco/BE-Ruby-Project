@@ -14,9 +14,7 @@ html
 
   body       
     == render '/shared/navbar' if current_user
-    div[id="messagesContainer"]
-      - flash.each do |type, msg| 
-        = content_tag :div, msg, class: build_alert_classes(type)
+    == render "layouts/flash", flash: flash
     
   .container      
     = yield  
