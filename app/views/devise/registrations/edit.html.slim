@@ -5,10 +5,10 @@ section.vh-100
         .px-5.ms-xl-4
         div.edit
           h2.ee       
-            | Hello
+            = t("confirmation.hello")
             h2.e
               = current_user.username.capitalize()
-          h1.edit.link-info  Edit your profile
+          h1.edit.link-info  = t("confirmation.edit")
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form.edit
         = form_for(resource, as: resource_name,
@@ -53,17 +53,17 @@ section.vh-100
             .actions
             div.e
               button.update[type="Submit"]
-                  | Update    
+                  = t("car.confirm")   
           div.edit
-            | Don't want to make changes?
+            = t("confirmation.cancel")
             a.link-info[href= root_path]
-              | Go back.        
+              = t("car.back")        
 
         div.edit
-          | Don't want to use Car Diary anymore?
+          = t("confirmation.delete")
         div.edit
-          = button_to "Cancel my account", registration_path(resource),
-            :method => :delete, form: { data: { turbo_confirm: "Are you sure?" } },
+          = button_to t("confirmation.bdel"), registration_path(resource),
+            :method => :delete, form: { data: { turbo_confirm: t("confirmation.sure") } },
             class: "btn btn-outline-danger"        
 
       .col-sm-6.px-0.d-none.d-sm-block

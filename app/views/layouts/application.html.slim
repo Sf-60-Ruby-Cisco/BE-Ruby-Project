@@ -21,6 +21,5 @@ html
   
   .container      
     = yield  
-    - unless action_name == "show" && controller_name == "cars"  
-      footer      
-        == render 'shared/footer'
+    footer      
+      == render 'shared/footer'

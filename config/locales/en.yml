@@ -43,6 +43,12 @@ en:
     happens: "Happens all the time! We will send you instructions."
     resend_pass: "Send me reset password instructions"
     know_pass: "You already know your password?"
+    hello: "Hello"
+    edit: "Edit your profile"
+    cancel: "Don't want to make changes? "
+    delete: " Don't want to use Car Diary anymore?"
+    bdel: "Cancel my account"
+    sure: "Are you sure?"
 
   login:
     login_intro: "Login to Car Diary"
@@ -58,11 +64,11 @@ en:
     add_car: "Add car"
     cars: "Cars"
     no_cars: "No cars added"
-    statistic: 'View statistic'
+    statistic: "View statistic"
     profile: "Your profile"
     out: "Sign out"
     edit: "Edit profile"
-  
+
   footer: "Our Github project "
 
   about:
@@ -75,14 +81,14 @@ en:
     stoyan_name: "Stoyan Stoyanov"
     welcome: "Welcome to Car Diary!"
     start: "Let's start!"
-    
+
   profile:
     new: "Create new account"
     user: "Username"
     email: "Email address"
     pass: "Password"
     confirm: "Confirm Password"
-    have: 'Already have an account? '
+    have: "Already have an account? "
     submit: "Submit"
     char: " characters minimum "
     new_pass: "New password"
@@ -120,8 +126,11 @@ en:
     up: "Upload picture"
     confirm: "Confirm"
     new: "Add new car"
+    tt: "Tax Type"
+    td: "Tax description"
+    tax: "Taxes"
+    at: "Add Tax"
 
-  
   helpers:
     page_entries_info:
       more_pages:
@@ -149,4 +158,9 @@ en:
     rep: "Repairs for"
     ch: "Chargings for"
     total: "Total money spent"
-    
+
+  alerts:
+    success: "Car was successfully created."
+    sup: "Car was successfully updated."
+    destroy: "Car was successfully destroyed."
+    delpic: "Car's picture was successfully deleted, default picture will be displayed instead."

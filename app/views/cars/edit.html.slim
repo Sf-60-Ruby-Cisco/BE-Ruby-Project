@@ -3,7 +3,7 @@
     - @car.errors.full_messages.each do |message|
         = message 
 div
-  = button_to "Back", cars_path, method: :get, class: "button-add"
+  = button_to t("car.back"), cars_path, method: :get, class: "button-add"
 div.editcar
   h1.login
     = t("car.edit")

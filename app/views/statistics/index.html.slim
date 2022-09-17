@@ -20,7 +20,7 @@
   
     - if @all_car_repairs.present?
       - @all_car_repairs.each do |key, value|         
-        = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "Repairs for #{key[2]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
+        = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.rep')} #{key[2]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
 
 - max_length_chargings = 0
 - if @total_chargings.length > 0
@@ -32,7 +32,7 @@
      
       - if @all_car_chargings.present?
         - @all_car_chargings.each do |key, value|         
-          = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "Chargings for #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
+          = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.ch')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
 
 - max_length_taxes = 0
 - if @total_taxes.length > 0
@@ -50,6 +50,6 @@
 - if @total.length > 0
   #contentwrapper1
     - @total.each do |key, value|
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Total money spent", prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + max_length_taxes.ceil + 500)      
-      == pie_chart ({"repairs" => max_length_repairs , "chargings" => max_length_chargings.to_f, "taxes" => max_length_taxes}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + max_length_taxes.ceil + 500)      
+      == pie_chart ({t("car.r") => max_length_repairs , t("car.c") => max_length_chargings.to_f, t("car.tax") => max_length_taxes}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
       
