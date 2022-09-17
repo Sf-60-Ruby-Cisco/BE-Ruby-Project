@@ -36,7 +36,7 @@ en:
     login_adv: "You are one step away from successful login"
     email_field: Enter your email
     forgot_pass: "Forgot password?"
-    dont_have_acc: "Don't have an account?"
+    dont_have_acc: "Don't have an account? "
     ref: "Register here"
     login: "Login"
     already_have: "You already have a confirmation email?"
@@ -55,7 +55,7 @@ en:
     adv: "You have to be login to use the full functionality"
     email_user: "Email or username"
     pass: "Password"
-    dont_recieve: "You didn't receive a confirmation email?"
+    dont_recieve: "You didn't receive a confirmation email? "
     click: "Click here"
 
   navbar:
@@ -150,7 +150,7 @@ en:
       truncate: "&hellip;"
 
   statistic:
-    descr: "Monthly statistic for all cars"
+    descr: "Monthly statistic for all cars."
     not: "you have no expenses this month!"
     no_cars: "you have no cars yet!"
     descr_repair: " Monthly repairs for all cars"
