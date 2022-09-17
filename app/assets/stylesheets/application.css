@@ -99,6 +99,16 @@ div.next {
   vertical-align: top;
 }
 
+#contentwrapper2 {
+  /* display:inline-block;
+  margin-left: 100px; */
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  border: 1px black solid;
+  background: rgb(219, 246, 215);
+  vertical-align: top;
+}
 
 div.stat {
   font-family: Simlifica;
