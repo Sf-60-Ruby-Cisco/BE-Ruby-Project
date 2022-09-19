@@ -20,6 +20,7 @@
  *= require confirmation
  *= require buttons_homepage
  *= car_views
+ *= about
  */
 
 @font-face {
@@ -34,11 +35,12 @@ body {
 }
 
 footer {
-  position: fixed; 
-  left: 0; 
-  bottom: 0; 
-  height: 3%; 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 3%;
   width: 100%;
+  background-color: #efefef;
 }
 
 /* Pagination */
@@ -47,10 +49,71 @@ div.next {
   position: relative;
   left: 30px;
   margin-top: 20px;
-  font-family: Simlifica;  
+  font-family: Simlifica;
 }
 
-.pagination a, .pagination span.current, .pagination span.gap {
+.pagination a,
+.pagination span.current,
+.pagination span.gap {
   color: black;
 }
 
+.circular {
+  margin-bottom: 30px;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+}
+
+/* Statistics */
+
+#leftcolumn {
+  display: inline-block;
+  border: 1px black solid;
+  width: 25%;
+  height: 100%;
+  background: beige;
+  vertical-align: top;
+}
+
+#contentwrapper {
+  /* display:inline-block;
+  margin-left: 100px; */
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  border: 1px black solid;
+  background: aliceblue;
+  vertical-align: top;
+}
+
+#contentwrapper1 {
+  /* display:inline-block;
+  margin-left: 100px; */
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  border: 1px black solid;
+  background: rgb(246, 225, 215);
+  vertical-align: top;
+}
+
+#contentwrapper2 {
+  /* display:inline-block;
+  margin-left: 100px; */
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  border: 1px black solid;
+  background: rgb(219, 246, 215);
+  vertical-align: top;
+}
+
+div.stat {
+  font-family: Simlifica;
+  position: relative;
+  font-size: 2vw;
+  margin-top: 10px;
+  margin-left: 300px;
+}

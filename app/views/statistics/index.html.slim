@@ -1,0 +1,54 @@
+- if @total.length > 0
+  div.stat
+    | Monthly statistic for all #{current_user.username.capitalize()}'s cars 
+- else 
+  - if user_cars.present?
+    div.stat
+      | #{current_user.username.capitalize()} you have no expenses this month!
+  - else 
+    div.stat
+      | #{current_user.username.capitalize()} you have no cars yet!
+
+- max_length_repairs = 0
+- if @total_repairs.length > 0
+  #leftcolumn
+    - @total_repairs.each do |key, value|
+      - max_length_repairs = value/100.to_f 
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly repairs for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_repairs.ceil + 500
+
+  
+    - if @all_car_repairs.present?
+      - @all_car_repairs.each do |key, value|         
+        = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "Repairs for #{key[1]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
+
+- max_length_chargings = 0
+- if @total_chargings.length > 0
+  #contentwrapper
+    - @total_chargings.each do |key, value|
+      - max_length_chargings = value/100.to_f
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly chargings for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_chargings.ceil + 500
+
+     
+      - if @all_car_chargings.present?
+        - @all_car_chargings.each do |key, value|         
+          = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "Chargings for #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
+
+- max_length_taxes = 0
+- if @total_taxes.length > 0
+  #contentwrapper2
+    - @total_taxes.each do |key, value|
+      - max_length_taxes = value/100.to_f
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Monthly taxes for all cars ", prefix: "$", colors: ["#1E90FF"], max: max_length_taxes.ceil + 500
+
+     
+      - if @all_car_taxes.present?
+        - @all_car_taxes.each do |key, value|         
+          = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: " Taxes for #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
+
+
+- if @total.length > 0
+  #contentwrapper1
+    - @total.each do |key, value|
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: "Total money spent", prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + max_length_taxes.ceil + 500)      
+      == pie_chart ({"repairs" => max_length_repairs , "chargings" => max_length_chargings.to_f, "taxes" => max_length_taxes}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
+      

@@ -1,3 +1,66 @@
-h1
-  | This is our About Page
+body#page-top
+ 
+  header.masthead.d-flex.align-items-center
+    .container.px-4.px-lg-5.text-center
+      h1.mb-1 Car Diary
+      h3.mb-5
+        em Free application made for educational purposes.
+      a.btn.btn-primary.btn-xl href="#about"  Find Out More
+  /! About
+  section#about.content-section.bg-light
+    .container.px-4.px-lg-5.text-center
+      .row.gx-4.gx-lg-5.justify-content-center
+        .col-lg-10
+          h2 What is Car Diary?
+          p.lead.mb-5
+            | This is a diary for your car. Here you can add, edit or delete all kind of taxes, repairs, fuel chargings for one or several cars. View statistics for all expenses. Get a reminder when final date for tax paying is coming.
+          a.btn.btn-dark.btn-xl href="#services"  Who are we
+  /! Services
+  section#services.content-section.bg-primary.text-white.text-center
+    .container.px-4.px-lg-5
+      .content-section-heading
+        h2.mb-5 Who are we
+      .row.gx-4.gx-lg-5
+        .col-lg-3.col-md-6.mb-5.mb-lg-0
+          span.service-icon.rounded-circle.mx-auto.mb-3
+            a.mine[href='https://github.com/Stoyan83']
+              = image_tag("stoyan_image.jpg", width: "120px", height: "120px", class: "circular" )
+         
+          h4
+            strong Stoyan Stoyanov
+          p.text-faded.mb-0 Love learning and challenging myself!
+        .col-lg-3.col-md-6.mb-5.mb-lg-0
+          span.service-icon.rounded-circle.mx-auto.mb-3
+           
+          h4
+            strong Student 1
+          p.text-faded.mb-1 Some Info for the student. 
+        .col-lg-3.col-md-6.mb-5.mb-md-0
+          span.service-icon.rounded-circle.mx-auto.mb-3
+            i.icon-like
+          h4
+            strong Student 2
+          p.text-faded.mb-2
+            | Some more info for the student
+         
+        .col-lg-3.col-md-6
+          span.service-icon.rounded-circle.mx-auto.mb-3
+            i.icon-mustache
+          h4
+            strong Student 3
+          p.text-faded.mb-0 Info for the student ...
 
+        .col-lg-3.col-md-6
+          span.service-icon.rounded-circle.mx-auto.mb-3
+            i.icon-mustache
+          h4
+            strong Student 4
+          p.text-faded.mb-0 Info for the student ...
+  /! Callout
+  section.callout
+    .container.px-4.px-lg-5.text-center
+      h2.mx-auto.mb-5
+        | Welcome to Car Diary!
+      a.btn.btn-primary.btn-xl href= root_path Let's Start!
+  / /
+  

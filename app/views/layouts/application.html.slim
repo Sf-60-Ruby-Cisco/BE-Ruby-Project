@@ -17,6 +17,7 @@ html
     == render "layouts/flash", flash: flash
     
   .container      
-    = yield
-  footer
-    == render 'shared/footer'
+    = yield  
+    - unless action_name == "show" && controller_name == "cars"  
+      footer      
+        == render 'shared/footer'

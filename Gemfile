@@ -23,6 +23,10 @@ gem 'kaminari'
 
 gem 'bootstrap5-kaminari-views'
 
+gem "chartkick"
+
+gem "groupdate"
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"
