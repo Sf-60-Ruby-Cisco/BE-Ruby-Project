@@ -158,7 +158,7 @@ en:
     rep: "Repairs for"
     ch: "Chargings for"
     total: "Total money spent"
-    descr_tax: "Monthly taxes for all cars "
+    mt: "Monthly taxes for all cars "
     tax: "Taxes for "
 
   alerts:
