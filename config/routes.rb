@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :repairs, except: :index
     resources :chargings, except: :index
     resources :taxes, except: :index    
+    resources :expenses, except: :index
   end
 
   devise_for :users, controllers: { registrations: 'users/registrations' } 

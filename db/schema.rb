@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_15_112820) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_19_154051) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_112820) do
     t.index ["car_id"], name: "index_chargings_on_car_id"
   end
 
+  create_table "expenses", force: :cascade do |t|
+    t.string "description"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
+    t.bigint "cars_id"
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_expenses_on_car_id"
+    t.index ["cars_id"], name: "index_expenses_on_cars_id"
+  end
+
   create_table "repairs", force: :cascade do |t|
     t.text "description"
     t.integer "amount_cents", default: 0, null: false
@@ -122,6 +135,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_112820) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "chargings", "cars"
+  add_foreign_key "expenses", "cars"
+  add_foreign_key "expenses", "cars", column: "cars_id"
   add_foreign_key "repairs", "cars"
   add_foreign_key "taxes", "cars"
 end

@@ -4,6 +4,7 @@ class Car < ApplicationRecord
   has_many :repairs, dependent: :delete_all
   has_many :chargings, dependent: :delete_all
   has_many :taxes, dependent: :delete_all
+  has_many :expenses, dependent: :delete_all
   has_one_attached :content do |attachable|
       attachable.variant :thumb, resize_to_limit: [300, 300]
   end

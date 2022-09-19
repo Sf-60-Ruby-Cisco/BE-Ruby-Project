@@ -8,6 +8,7 @@ div[class="navbar-cars-show"]
 
     = link_to "Add Tax", "", class: "button-add form_button", id: "taxForm"
 
+    = link_to "Add Expense", "", class: "button-add form_button", id: "expenseForm"
 br
 section.vh-100
   .container-flui3
@@ -26,6 +27,9 @@ section.vh-100
         div[id="taxForm", class="formContainer collapse"]
           == render 'taxes/form', car: @car, tax: @car.taxes.build
         
+        div[id="expenseForm", class="formContainer collapse"]
+          == render 'expenses/form', car: @car, expense: @car.expenses.build
+        
         div
           == render 'repairs/table'
 
@@ -38,6 +42,8 @@ section.vh-100
 
         div
           == render 'taxes/table'
+
+        br
 
         br
         
