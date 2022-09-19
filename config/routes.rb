@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
   resources :cars do   
     member do
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
     resources :chargings, except: :index
     resources :taxes, except: :index    
   end
-
+  mount Sidekiq::Web => '/sidekiq'
   devise_for :users, controllers: { registrations: 'users/registrations' } 
   devise_scope :user do
     get '/users' =>  'devise/registrations#new'
