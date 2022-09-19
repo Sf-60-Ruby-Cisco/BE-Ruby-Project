@@ -114,7 +114,7 @@ en:
     invoice: " Invoice "
     d: "Delete"
     station: "Station "
-    amopunt: "Amount "
+    amount: "Amount "
     date: "Date"
     action: "Actions"
     desc: "Description"
@@ -158,6 +158,8 @@ en:
     rep: "Repairs for"
     ch: "Chargings for"
     total: "Total money spent"
+    descr_tax: "Monthly taxes for all cars "
+    tax: "Taxes for "
 
   alerts:
     success: "Car was successfully created."
