@@ -1,0 +1,6 @@
+en:
+  alerts:
+    success: "Car was successfully created."
+    sup: "Car was successfully updated."
+    destroy: "Car was successfully destroyed."
+    delpic: "Car's picture was successfully deleted, default picture will be displayed instead."

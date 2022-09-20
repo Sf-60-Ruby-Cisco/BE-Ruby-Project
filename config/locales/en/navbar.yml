@@ -1,0 +1,13 @@
+  en:
+    navbar:
+      about: "About"
+      login: "Login"
+      add_car: "Add car"
+      cars: "Cars"
+      no_cars: "No cars added"
+      statistic: "View statistic"
+      profile: "Your profile"
+      out: "Sign out"
+      edit: "Edit profile"
+      
+    footer: "Our Github project "
