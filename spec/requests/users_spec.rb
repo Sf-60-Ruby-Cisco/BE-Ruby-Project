@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 RSpec.describe "Sessions" do 
-  new_user = FactoryBot.create :user
+  let(:new_user) { FactoryBot.create(:user)}
 
   it 'should respond with status 200 when sign in' do
     sign_in new_user
@@ -48,8 +48,7 @@ end
 
 
   describe 'POST /auth/confirmation (Confirmation process)' do
-    new_user = FactoryBot.create :user
-    new_user.created_at = nil
+    let(:user) { FactoryBot.create(:user, created_at: nil) }
     it 'Should respond with status 302(URL redirection)' do      
       get root_path
       expect(response).to be_redirect
