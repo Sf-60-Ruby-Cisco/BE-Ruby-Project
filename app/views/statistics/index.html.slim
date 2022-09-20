@@ -22,6 +22,7 @@
       - @all_car_repairs.each do |key, value|         
         = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.rep')} #{key[1]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
 
+
 - max_length_chargings = 0
 - if @total_chargings.length > 0
   #contentwrapper
