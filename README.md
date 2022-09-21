@@ -60,4 +60,25 @@ heroku config:set MAIL_USERNAME=value MAIL_PASSWORD=value --app test-car
 heroku run bundle exec sidekiq -C config/sidekiq.yml --app test-car
 ```
 
+Heroku runs the dynos we need. However, the problem is that If we're running on free dynos, then Heroku will put the web dyno to sleep automatically after 30 minutes of inactivity.
+
+To solve that, we'll need to use the Heroku Scheduler addon to run a command that will wake up the dyno shortly before our cron job is scheduled to run, the Heroku Scheduler runs on a one-off dyno so the execution of this command is not dependent on our web dyno.
+
+In the CLI
+```
+heroku addons:create scheduler:standard --app test-car
+```
+
+Once added, we'll open up the addon in the web browser.
+```
+heroku addons:open scheduler --app test-car
+```
+
+In the web browser, click 'Add Job' and then let the command 
+```
+curl https://test-car.herokuapp.com/
+```
+run everyday at 12:00 AM UTC.
+
+
 * ...
