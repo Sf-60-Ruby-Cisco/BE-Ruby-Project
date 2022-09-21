@@ -34,7 +34,7 @@ heroku addons:create heroku-redis:hobby-dev --app test-car
 After the Redis installation is finished
 Go to the app's settings on [Heroku](https://heroku.com/) -> Reveal Config Vars -> Copy the Redis URL Value
 
-In our .env file set
+In our .env file set (Used in config/initializers/sidekiq.rb)
 ```
 REDIS_URL=Redis_Url_Value/0
 ```
@@ -48,7 +48,7 @@ heroku config:set --app test-car SECRET_KEY_BASE=secret_key
 heroku run rake db:migrate --app test-car
 ```
 
-From the .env file copy the values of
+From the .env file copy the values of (Used in config/environments/production.rb, # Mailer Settings(line 97))
 ```
 MAIL_USERNAME=
 MAIL_PASSWORD=
