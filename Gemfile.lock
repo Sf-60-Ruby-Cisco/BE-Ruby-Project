@@ -121,7 +121,6 @@ GEM
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.5)
-    ffi (1.15.5-x64-mingw32)
     globalid (1.0.0)
       activesupport (>= 5.0)
     groupdate (6.1.0)
@@ -187,13 +186,10 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.6-x64-mingw32)
-      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.2)
-    pg (1.4.2-x64-mingw32)
     puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -258,6 +254,8 @@ GEM
     rspec-support (3.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
+    shoulda-matchers (5.2.0)
+      activesupport (>= 5.2.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -321,6 +319,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n (~> 7.0.0)
   rspec-rails
+  shoulda-matchers
   slim-rails
   sprockets-rails
   stimulus-rails

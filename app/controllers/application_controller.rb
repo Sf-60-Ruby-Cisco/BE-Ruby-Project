@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
 
+  before_action do |c|
+    User.current_user = User.find(c.session[:user]) unless c.session[:user].nil?  
+  end
+
   before_action :set_locale
   before_action :authenticate_user!, :except => [:about, :index]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_current_user
   
   protected
 
@@ -18,12 +23,16 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def set_current_user
+    Current.user = current_user
+  end
+
   def default_url_options
     {locale: I18n.locale}
   end
 
   def set_locale
-  I18n.locale = I18n.available_locales.include?(params[:locale].to_sym) && params[:locale] || I18n.default_locale
+    I18n.locale = I18n.available_locales.map(&:to_s).include?(params[:locale]) && params[:locale] || I18n.default_locale
   end
   
 end
