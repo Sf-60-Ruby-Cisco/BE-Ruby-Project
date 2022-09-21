@@ -32,7 +32,7 @@ heroku addons:create heroku-redis:hobby-dev --app test-car
 ```
 
 After the Redis installation is finished
-Go to the app's settings on [Heroku](https://heroku.com/) -> Reveal Config Vars -> Copy the Redis URL Value
+Go to the app's settings on [Heroku](https://heroku.com/) -> App -> Settings -> Reveal Config Vars -> Copy the Redis URL Value
 
 In our .env file set (Used in config/initializers/sidekiq.rb)
 ```
