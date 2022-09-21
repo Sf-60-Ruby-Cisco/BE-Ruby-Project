@@ -12,6 +12,6 @@ tr[id="#{dom_id(charging)}_item"]
         // here the Edit form for the selected elem. will be streamed 
         // from :edit with -> views/chargings/edit.html.slim <- onClick
         == turbo_frame_tag charging
-            == link_to t("car.e"), edit_car_charging_path(car_id: @car.id, id: charging.id)
-        == link_to t("car.d"), car_charging_path(car_id: @car.id, id: charging.id), data: { \
+            == link_to t("car.edit_descr"), edit_car_charging_path(car_id: @car.id, id: charging.id)
+        == link_to t("car.del"), car_charging_path(car_id: @car.id, id: charging.id), data: { \
             turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this charging ?" }

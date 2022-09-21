@@ -7,6 +7,6 @@ tr[id="#{dom_id(tax)}_item"]
   td.date = tax.date
   td.actions 
     == turbo_frame_tag tax
-      == link_to t("car.e"), edit_car_tax_path(car_id: @car.id, id: tax.id)
-    == link_to t("car.d"), car_tax_path(car_id: @car.id, id: tax.id), data: { \
+      == link_to t("car.edit_descr"), edit_car_tax_path(car_id: @car.id, id: tax.id)
+    == link_to t("car.del"), car_tax_path(car_id: @car.id, id: tax.id), data: { \
         turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this tax ?" }

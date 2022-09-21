@@ -22,7 +22,6 @@
       - @all_car_repairs.each do |key, value|         
         = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.rep')} #{key[1]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
 
-
 - max_length_chargings = 0
 - if @total_chargings.length > 0
   #contentwrapper
@@ -52,5 +51,5 @@
   #contentwrapper1
     - @total.each do |key, value|
       == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + max_length_taxes.ceil + 500)      
-      == pie_chart ({t("car.r") => max_length_repairs , t("car.c") => max_length_chargings.to_f, t("car.tax") => max_length_taxes}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
+      == pie_chart ({t("car.r_descr") => max_length_repairs , t("car.c_descr") => max_length_chargings.to_f, t("car.tax") => max_length_taxes}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
       
