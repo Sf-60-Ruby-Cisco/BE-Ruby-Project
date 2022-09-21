@@ -48,7 +48,7 @@ heroku config:set --app test-car SECRET_KEY_BASE=secret_key
 heroku run rake db:migrate --app test-car
 ```
 
-From the .env file copy the values of (Used in config/environments/production.rb, # Mailer Settings(line 97))
+From the .env file copy the values of (Also used in config/environments/production.rb, # Mailer Settings(line 97))
 ```
 MAIL_USERNAME=
 MAIL_PASSWORD=
