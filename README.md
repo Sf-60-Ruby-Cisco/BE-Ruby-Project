@@ -24,7 +24,7 @@ Things you may want to cover:
 ### How to Deploy This App to Heroku via Heroku CLI using Dockerfile.web, install Redis addon, config Mail ENV Variables and run Sidekiq
 Assuming Heroku Postgres addon is already installed and our config/database.yml is configured
 
-In the CLI
+Run
 ```
 heroku login
 heroku container:login
@@ -39,7 +39,7 @@ In our .env file set
 REDIS_URL=Redis_Url_Value/0
 ```
 
-In the CLI
+Run
 ```
 heroku container:push web --app test-car --recursive
 heroku container:release web --app test-car
@@ -54,7 +54,7 @@ MAIL_USERNAME=
 MAIL_PASSWORD=
 ```
 
-In the CLI
+Run
 ```
 heroku config:set MAIL_USERNAME=value MAIL_PASSWORD=value --app test-car
 heroku run bundle exec sidekiq -C config/sidekiq.yml --app test-car
@@ -64,7 +64,7 @@ Heroku runs the dynos we need. However, the problem is that If we're running on 
 
 To solve that, we'll need to use the Heroku Scheduler addon to run a command that will wake up the dyno shortly before our cron job is scheduled to run, the Heroku Scheduler runs on a one-off dyno so the execution of this command is not dependent on our web dyno.
 
-In the CLI
+Run
 ```
 heroku addons:create scheduler:standard --app test-car
 ```
