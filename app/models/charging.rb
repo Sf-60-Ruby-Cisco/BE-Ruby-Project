@@ -1,4 +1,4 @@
 class Charging < ApplicationRecord
   belongs_to :car
-  monetize :amount_cents, numericality: { greater_than: 0 }
+  monetize :amount_cents, numericality: { in: 0.01..4294967295 }
 end

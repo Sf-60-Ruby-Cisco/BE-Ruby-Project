@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   end
   root 'cars#index'  
   get '/about' => "about#index" 
+  get '/statistics' => 'statistics#index'
 end
 

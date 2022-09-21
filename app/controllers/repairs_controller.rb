@@ -79,8 +79,7 @@ class RepairsController < ApplicationController
       @car = Car.find(params[:car_id])
         unless current_user.id == @car.user_id
           redirect_to (request.referrer||root_path)
-        return
-      end
+        end
     end
   
     # Only allow a list of trusted parameters through.
