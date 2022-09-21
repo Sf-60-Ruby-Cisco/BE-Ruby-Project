@@ -1,0 +1,18 @@
+en:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Show %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b>"
+      one_page:
+        display_entries:
+          few: "Show <b>%{count}</b> %{entry_name}"
+          many: "Show <b>%{count}</b> %{entry_name}"
+          one: "Show <b>%{count}</b> %{entry_name}"
+          other: "Show<b>все %{count}</b> %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      next: "Next &rsaquo;"
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"

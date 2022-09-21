@@ -6,27 +6,27 @@ section.vh-100
         .px-5.ms-xl-4
         div.confirm
           h1.confirm
-            | Forgot your password?
+            = t("confirmation.forgot_pass")
           p.pass.link-info
-            | Happens all the time! We will send you instructions.
+            = t('confirmation.happens')
             = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post },  data: { turbo: false }) do |f|
               div.midl
               .field            
               = f.email_field :email, autofocus: true,
                 autocomplete: "on", 
-                :size=>"50", placeholder: "Enter your email", 
+                :size=>"50", placeholder: "#{t 'confirmation.email_field'}", 
                 class: "col-sm-7"
               .field
               div             
                 button.forgot[type="Submit"]                
-                  | Send me reset password instructions  
+                  = t('confirmation.resend_pass') 
               
         
               div.midl
-                | Don't have an account? 
+                = t('confirmation.dont_have_acc')
                 a.link-info[href= new_user_registration_path]
-                  | Register here
+                  = t('confirmation.ref')
               div.px
-                | You already know your password? 
+                = t("confirmation.know_pass")
                 a.link-info[href= new_user_session_path]
-                  | Login
+                  = t('confirmation.login') 

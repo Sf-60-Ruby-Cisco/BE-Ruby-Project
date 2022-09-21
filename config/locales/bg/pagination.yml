@@ -1,0 +1,18 @@
+bg:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Показана %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b>"
+      one_page:
+        display_entries:
+          few: "Показани <b>%{count}</b> %{entry_name}"
+          many: "Показани <b>%{count}</b> %{entry_name}"
+          one: "Показано <b>%{count}</b> %{entry_name}"
+          other: "Показани <b>все %{count}</b> %{entry_name}"
+  views:
+    pagination:
+      first: "&laquo; Първа"
+      last: "Последна &raquo;"
+      next: "Следваща &rsaquo;"
+      previous: "&lsaquo; Предишна"
+      truncate: "&hellip;"
