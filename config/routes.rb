@@ -13,14 +13,6 @@ Rails.application.routes.draw do
       resources :taxes, except: :index       
     end
 
-    if Rails.env.production?
-      authenticate :user, lambda { |u| u.admin? } do
-        mount Sidekiq::Web => '/sidekiq'
-      end
-    else
-      mount Sidekiq::Web => '/sidekiq'
-    end
-    
     devise_for :users, controllers: { registrations: 'users/registrations' } 
     devise_scope :user do
       get '/users' =>  'devise/registrations#new'
@@ -29,4 +21,13 @@ Rails.application.routes.draw do
     get '/about' => "about#index" 
     get '/statistics' => 'statistics#index'
   end
+
+  if Rails.env.production?
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+  else
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
 end
