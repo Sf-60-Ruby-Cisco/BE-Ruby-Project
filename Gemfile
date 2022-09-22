@@ -23,6 +23,14 @@ gem 'kaminari'
 
 gem 'bootstrap5-kaminari-views'
 
+gem "chartkick"
+
+gem "groupdate"
+
+gem 'rails-i18n', '~> 7.0.0'
+
+gem 'devise-i18n'
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"
@@ -43,6 +51,10 @@ gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end
 
 group :development do

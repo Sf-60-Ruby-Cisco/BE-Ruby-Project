@@ -9,32 +9,32 @@ section.vh-100
           = form_with(model: car, local: true) do |form|
             div
               label.btn.btn-info.btn-lg
-                |  Upload  picture
+                = t("car.up")
                 span[style="display:none;"]
                   = form.file_field :content
 
             div.f
-              = form.text_field :brand, autofocus: true, :size=>"50", placeholder: "Brand",autocomplete: "on", class: "col-sm-6 col-form-label"
+              = form.text_field :brand, autofocus: true, :size=>"50", placeholder: t("car.brand"),autocomplete: "on", class: "col-sm-6 col-form-label"
 
             div.f    
-              = form.text_field :model, autofocus: true, :size=>"50", placeholder: "Model",autocomplete: "on", class: "col-sm-6 col-form-label"
+              = form.text_field :model, autofocus: true, :size=>"50", placeholder: t("car.model"),autocomplete: "on", class: "col-sm-6 col-form-label"
 
             div.f
-              = form.text_field :engine, autofocus: true, :size=>"50", placeholder: "Engine",autocomplete: "on", class: "col-sm-6 col-form-label"
+              = form.text_field :engine, autofocus: true, :size=>"50", placeholder: t("car.engine"),autocomplete: "on", class: "col-sm-6 col-form-label"
 
             div.f  
-              = form.text_field :fuel_type, autofocus: true, :size=>"50", placeholder: "Fuel Type",autocomplete: "on", class: "col-sm-6 col-form-label"
+              = form.text_field :fuel_type, autofocus: true, :size=>"50", placeholder: t("car.fuel"),autocomplete: "on", class: "col-sm-6 col-form-label"
 
             div.f              
               = form.date_select :year,  {:start_year => 1990,:end_year => DateTime.now.year,
               :discard_day => true, :discard_month => true, include_blank: true, datetime_select: :start}, class: 'col-sm-6 col-form-label'
 
             div.f
-              = form.text_field :license_plate, autofocus: true, :size=>"50", placeholder: "License Plate", autocomplete: "on", class: "col-sm-6 col-form-label"
+              = form.text_field :license_plate, autofocus: true, :size=>"50", placeholder: t("car.license"), autocomplete: "on", class: "col-sm-6 col-form-label"
 
             div.l
               button.car[type="Submit"]                
-                | Confirm
+                = t("car.confirm")
                 
       .col-sm-6.px-8.d-none.d-sm-block    
         div.c         

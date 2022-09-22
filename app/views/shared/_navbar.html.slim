@@ -5,41 +5,51 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   .collapse.navbar-collapse#navbarSupportedContent
     ul.navbar-nav.mr-auto
       li.nav-item.dropdown
+        - if I18n.locale == I18n.default_locale    
+          li= link_to 'Български', url_for(locale: :bg), class:"nav-link", class:"nav-link"           
+        - else 
+          li= link_to 'English', url_for(locale: :en), class:"nav-link"
         li= link_to "Car Diary", root_path, class:"nav-link"
       
-        li= link_to 'About',about_path, class:"nav-link"
+        li= link_to t("navbar.about"),about_path, class:"nav-link"
       
-        li= link_to 'Add Car', new_car_path, class:"nav-link"  
+        li= link_to t("navbar.add_car"), new_car_path, class:"nav-link"              
+      
 
         - if user_cars.present?
           li.nav-item.dropdown            
             a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]          
-              | Cars
+              = t('navbar.cars')
             .dropdown-menu.dropdown-menu-dark.bg-dark[aria-labelledby="navbarDropdownMenuLink"]
               - @cars.each do |car|            
                 a.dropdown-item
                   a= link_to "#{car.brand} #{car.license_plate}", car_path(id: car.id), class:"dropdown-item"           
         - else 
-          li= link_to "No cars added", new_car_path, class:"nav-link"
+          li= link_to t('navbar.no_cars'), new_car_path, class:"nav-link"
           
-  .collapse.navbar-collapse#navbarSupportedContent
-    
-    ul.navbar-nav.nav
-      li.nav-item.dropdown
+        li= link_to t('navbar.statistic'), statistics_path, class:"nav-link"
         
-        a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]          
-          |  Your profile
-        .dropdown-menu.dropdown-menu-dark.bg-dark[aria-labelledby="navbarDropdownMenuLink"]
-          a.dropdown-item
-            a= link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item"
-          a.dropdown-item[href="#"]
-            a= button_to 'Sign out', destroy_user_session_path, method: :delete, class:"dropdown-item"
-    - if current_user.content.present?
-      a.navbar-brand[href= rails_blob_path(current_user.content)]
-        .logo-image
-          - if current_user.content.image?
-            = image_tag current_user.content.variant(:thumb)
+       
+
+
+    .collapse.navbar-collapse#navbarSupportedContent
+      
+      ul.navbar-nav.nav
+        li.nav-item.dropdown
           
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle[href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]          
+            = t('navbar.profile')
+          .dropdown-menu.dropdown-menu-dark.bg-dark[aria-labelledby="navbarDropdownMenuLink"]
+            a.dropdown-item
+              a= link_to t("navbar.edit"), edit_user_registration_path, class:"dropdown-item"
+            a.dropdown-item[href="#"]
+              a= button_to t("navbar.out"), destroy_user_session_path, method: :delete, class:"dropdown-item"
+      - if current_user.content.present?
+        a.navbar-brand[href= rails_blob_path(current_user.content)]
+          .logo-image
+            - if current_user.content.image?
+              = image_tag current_user.content.variant(:thumb)
             
-    
-    
+              
+      
+      

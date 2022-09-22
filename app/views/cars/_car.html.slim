@@ -3,38 +3,44 @@ div id="#{dom_id car}"
   .card[style="width:20vw;"]
       - if car.content.image?
           a.[href= rails_blob_path(car.content)]
-            = image_tag car.content.variant(resize_to_limit: [nil, 300]), class: "img-fluid"
-            = button_to "Delete picture", purge_content_car_path(car), method: :delete, class: "btn btn-danger btn-sm"
+            = image_tag car.content.variant(resize_to_limit: [nil, 240]), class: "img-fluid"
+            = button_to t("car.pic"), purge_content_car_path(car), method: :delete, class: "btn btn-danger btn-sm"
       - else 
         a.[href= asset_path("car.png")]
-          = image_tag("car.png", width: "100%", height: "330px")
+          = image_tag("car.png", width: "100%", height: "270px")
       .card-body          
         h2.cc
           a
-            == link_to "History for #{car.license_plate}", car_path(id: car.id)
+            == link_to "#{t 'car.history'} #{car.license_plate}", car_path(id: car.id)
 
       p.card-text
-        strong Brand:
+        strong 
+          = t("car.brand")
         =< car.brand
       p.card-text
-        strong Model:
+        strong 
+          = t("car.model")
         =< car.model
       p.card-text
-        strong Engine:
+        strong 
+          = t("car.engine")
         =< car.engine
       p.card-text
-        strong Fuel type:
+        strong 
+          = t("car.fuel")
         =< car.fuel_type
       p.card-text
-        strong Year:
+        strong 
+          = t("car.year")
         =< car.year.year
       p.card-text
-        strong License plate:
+        strong 
+          = t("car.license")
         =< car.license_plate
 
       a.btn.ed[href= edit_car_path(car)]
-        | Edit car          
-      = button_to "Delete car", car, method: :delete, class: "del"
+        = t("car.edit")          
+      = button_to t("car.delete"), car, method: :delete, class: "del"
 
 
 

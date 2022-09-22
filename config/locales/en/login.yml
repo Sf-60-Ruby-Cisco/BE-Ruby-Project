@@ -1,0 +1,8 @@
+en:
+  login:
+    login_intro: "Login to Car Diary"
+    adv: "You have to be login to use the full functionality"
+    email_user: "Email or username"
+    pass: "Password"
+    dont_recieve: "You didn't receive a confirmation email? "
+    click: "Click here"

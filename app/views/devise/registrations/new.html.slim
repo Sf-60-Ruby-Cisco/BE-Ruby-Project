@@ -6,7 +6,7 @@ section.vh-100
         .px-5.ms-xl-4
         div.register
           h1.register.link-info
-            | Create new account
+            = t("profile.new")
         .d-flex.align-items-center.h-custom-2.px-5.ms-xl-4.mt-5.pt-5.pt-xl-0.mt-xl-n5
           form
         = form_for(resource, as: resource_name,
@@ -15,39 +15,39 @@ section.vh-100
           div.register
             = f.text_field :username, autofocus: true, autocomplete: "on",
              :size=>"50",class: "col-sm-4 col-form-label",
-              placeholder: "Username"
+              placeholder: "#{t 'profile.user'}"
           .field
           div.register                           
             = f.email_field :email, autocomplete: "on",
              autofocus: true, :size=>"50",class: "col-sm-4 col-form-label",
-              placeholder: "Email address"
+              placeholder: "#{t 'profile.email'}"
           .field
           .field            
             - if @minimum_password_length
             div.register
               p.pass
                 = @minimum_password_length
-                |  characters minimum           
+                = t("profile.char")          
           div.m
             = f.password_field :password,
              :size=>"50",class: "col-sm-4 col-form-label", 
-             placeholder: "Password"
+             placeholder: "#{t 'profile.pass'}"
           - if devise_mapping.rememberable?
           .field
           div.register            
             = f.password_field :password_confirmation,
-             :size=>"50",class: "col-sm-4 col-form-label", placeholder: "Confirm password"
+             :size=>"50",class: "col-sm-4 col-form-label", placeholder: "#{t 'profile.confirm'}"
               
             - if devise_mapping.rememberable?
             .actions              
           div.register
             button.register[type="Submit"]               
-              | Submit
+              = t("profile.submit")
           div.reg
             p
-              | Already have an account? 
+              = t("profile.have")
               a.link-info[href= new_user_session_path]
-                | Login
+                = t('confirmation.login')
       .col-sm-6.px-4.d-none.d-sm-block              
         = image_tag("signup.jpg", class: "img-fluid", style: 'height:150%; width:1200px;')
 
