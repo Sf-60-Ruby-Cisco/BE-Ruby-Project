@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     resources :cars do   
@@ -18,5 +21,13 @@ Rails.application.routes.draw do
     get '/about' => "about#index" 
     get '/statistics' => 'statistics#index'
   end
-end
 
+  if Rails.env.production?
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+  else
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+end
