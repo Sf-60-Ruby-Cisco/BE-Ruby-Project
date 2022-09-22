@@ -60,7 +60,7 @@ Run
 heroku config:set MAIL_USERNAME=value MAIL_PASSWORD=value --app test-car
 heroku run bundle exec sidekiq -C config/sidekiq.yml --app test-car
 ```
-Login with the SIDEKIQ user and pw to access the /sidekiq Panel 
+Login with the SIDEKIQ user created by db/seeds.rb to access the /sidekiq Panel 
 
 <br>
 <br>
