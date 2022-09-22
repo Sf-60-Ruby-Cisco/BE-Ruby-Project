@@ -1,13 +1,9 @@
 class ApplicationController < ActionController::Base
 
-  before_action do |c|
-    User.current_user = User.find(c.session[:user]) unless c.session[:user].nil?  
-  end
-
   before_action :set_locale
   before_action :authenticate_user!, :except => [:about, :index]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_current_user
+
   
   protected
 
@@ -21,10 +17,6 @@ class ApplicationController < ActionController::Base
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path
-  end
-
-  def set_current_user
-    Current.user = current_user
   end
 
   def default_url_options

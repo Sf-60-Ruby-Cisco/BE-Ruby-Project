@@ -10,9 +10,9 @@ class Car < ApplicationRecord
 
 
 
-  scope :total_repairs, -> {joins(:repairs).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).where(user_id: Current.user).sum(:amount_cents)}
-  scope :total_chargings, -> {joins(:chargings).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).where(user_id:  Current.user).sum(:amount_cents)}
-  scope :total_taxes, -> {joins(:taxes).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).where(user_id:  Current.user).sum(:amount_cents)}
+  scope :total_repairs, -> {joins(:repairs).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
+  scope :total_chargings, -> {joins(:chargings).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
+  scope :total_taxes, -> {joins(:taxes).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
   scope :all_car_repairs, -> {joins(:repairs).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
   scope :all_car_chargings, -> {joins(:chargings).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
   scope :all_car_taxes, -> {joins(:taxes).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
