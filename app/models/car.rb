@@ -8,6 +8,8 @@ class Car < ApplicationRecord
       attachable.variant :thumb, resize_to_limit: [300, 300]
   end
 
+
+
   scope :total_repairs, -> {joins(:repairs).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
   scope :total_chargings, -> {joins(:chargings).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
   scope :total_taxes, -> {joins(:taxes).group_by_month(:date, format: "%B %Y", range: Time.now.beginning_of_month..Time.now).sum(:amount_cents)}
@@ -22,5 +24,6 @@ class Car < ApplicationRecord
   validate :content
   validates :engine, :year,:fuel_type,:brand, :model, presence: true, length: {maximum: 20}
   validates :license_plate, presence: true, length: { in: 6..8 }
-    
+
+
 end
