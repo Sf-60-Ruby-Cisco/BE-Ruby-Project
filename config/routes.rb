@@ -2,7 +2,7 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/, defaults: {locale: "en"} do
     resources :cars do   
       member do
         delete :purge_content
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get '/users' =>  'devise/registrations#new'
     end
     root 'cars#index'  
+    # get '/:locale' => 'cars#index'
     get '/about' => "about#index" 
     get '/statistics' => 'statistics#index'
   end

@@ -70,6 +70,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
+  config.before :all do
+    I18n.locale = I18n.default_locale
+  end
+
   config.after(:each) do
     DatabaseCleaner.clean
   end
@@ -80,5 +84,7 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+ 
   
 end
