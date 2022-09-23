@@ -75,11 +75,7 @@ class CarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
-      begin
-        @car = Car.find(params[:id]) 
-      rescue
-        redirect_to root_path, notice: t("alerts.cannot")
-      end
+        @car = Car.find(params[:id])       
     end
 
     # Only allow a list of trusted parameters through.
@@ -92,7 +88,7 @@ class CarsController < ApplicationController
     def check_user
       @car = Car.find(params[:id])
       unless current_user.id == @car.user_id 
-        redirect_to (request.referrer||root_path), notice: t("alerts.cannot")      
+        redirect_to (request.referrer||root_path), alert: t("alerts.cannot")      
       end
     end
 
