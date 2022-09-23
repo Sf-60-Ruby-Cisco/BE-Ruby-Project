@@ -15,7 +15,7 @@ en:
     repair: "Add repair"
     others: "Taxes and others"
     edit: "Edit your car"
-    edit_discr: "Edit "
+    edit_descr: "Edit "
     invoice: " Invoice "
     del: "Delete"
     station: "Station "

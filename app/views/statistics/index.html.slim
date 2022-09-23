@@ -1,4 +1,4 @@
-- if @total.length > 0
+- if @total[I18n.l(Time.now, format: "%B %Y")] > 0
   div.stat
     = t("statistic.descr")
 - else 
@@ -11,7 +11,7 @@
       | #{current_user.username.capitalize()} #{t("statistic.no_cars")}     
 
 - max_length_repairs = 0
-- if @total_repairs.length > 0
+- if @all_car_repairs.length > 0
   #leftcolumn
     - @total_repairs.each do |key, value|
       - max_length_repairs = value/100.to_f 
@@ -23,7 +23,7 @@
         = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.rep')} #{key[1]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
 
 - max_length_chargings = 0
-- if @total_chargings.length > 0
+- if @all_car_chargings.length > 0
   #contentwrapper
     - @total_chargings.each do |key, value|
       - max_length_chargings = value/100.to_f
@@ -35,7 +35,7 @@
         = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.ch')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
 
 - max_length_taxes = 0
-- if @total_taxes.length > 0
+- if @all_car_taxes.length > 0
   #contentwrapper2
     - @total_taxes.each do |key, value|
       - max_length_taxes = value/100.to_f
@@ -47,7 +47,7 @@
           = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.tax')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
 
 
-- if @total.length > 0
+- if @total[I18n.l(Time.now, format: "%B %Y")] > 0 
   #contentwrapper1
     - @total.each do |key, value|
       == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + max_length_taxes.ceil + 500)      
