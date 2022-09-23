@@ -1,0 +1,15 @@
+|
+   =========================================================================
+   Hello #{@user.username},
+   You have an upcoming tax payment of $#{@due_tax.amount} for car with license plate number: #{@due_tax.car.license_plate}
+
+   Last payment: #{@due_tax.date}
+
+   Deadline: #{14.days.from_now.to_date}
+   =========================================================================
+   
+== "\n\n"
+
+|
+   You can visit the following URL to view your taxes: 
+== car_url(@due_tax.car_id)

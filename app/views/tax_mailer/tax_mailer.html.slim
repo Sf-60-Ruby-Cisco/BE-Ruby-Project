@@ -1,0 +1,20 @@
+body
+  h1 Hello #{@user.username},
+  h3 You have an upcoming tax payment of $#{@due_tax.amount} for car with
+   license plate number: #{@due_tax.car.license_plate}
+  p 
+   | Last payment: 
+   strong
+     == @due_tax.date
+  p
+   | Deadline: 
+   strong 
+     == 14.days.from_now.to_date
+
+  br
+  br
+  br
+  hr
+
+  p
+    == link_to "View taxes", car_url(@due_tax.car_id)

@@ -1,0 +1,4 @@
+tax_mailer_job:
+  cron: "5 0 * * *"
+  class: "TaxMailerJob"
+  queue: default
