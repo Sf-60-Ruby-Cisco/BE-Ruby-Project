@@ -18,7 +18,6 @@ Rails.application.routes.draw do
       get '/users' =>  'devise/registrations#new'
     end
     root 'cars#index'  
-    # get '/:locale' => 'cars#index'
     get '/about' => "about#index" 
     get '/statistics' => 'statistics#index'
   end
