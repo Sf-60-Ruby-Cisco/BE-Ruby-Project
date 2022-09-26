@@ -24,9 +24,9 @@ section.vh-100
         
               div.midl
                 = t('confirmation.dont_have_acc')
-                a.link-info[href= new_user_registration_path]
+                a.link-info[href= new_user_registration_path(locale: I18n.locale)]
                   = t('confirmation.ref')
               div.px
                 = t("confirmation.know_pass")
-                a.link-info[href= new_user_session_path]
+                a.link-info[href= new_user_session_path(locale: I18n.locale)]
                   = t('confirmation.login') 

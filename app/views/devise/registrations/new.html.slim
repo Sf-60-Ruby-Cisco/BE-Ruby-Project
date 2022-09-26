@@ -46,7 +46,7 @@ section.vh-100
           div.reg
             p
               = t("profile.have")
-              a.link-info[href= new_user_session_path]
+              a.link-info[href= new_user_session_path(locale: I18n.locale)]
                 = t('confirmation.login')
       .col-sm-6.px-4.d-none.d-sm-block              
         = image_tag("signup.jpg", class: "img-fluid", style: 'height:150%; width:1200px;')
