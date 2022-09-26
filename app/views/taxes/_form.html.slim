@@ -5,13 +5,13 @@
         li 
           == error.full_message
   div.f
-    = form.text_field :tax_type, autofocus: true, :size=>"50", placeholder: "Tax Type",autocomplete: "off", class: "col-sm-6 col-form-label"
+    = form.text_field :tax_type, autofocus: true, :size=>"50", placeholder: t("car.tt"),autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f
-    = form.text_area :description, :size=>"50", autofocus: true, placeholder: "Tax description",autocomplete: "off", class: "col-sm-6 col-form-label"
+    = form.text_area :description, :size=>"50", autofocus: true, placeholder: t("car.td"),autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f    
-    = form.number_field :amount, step: :any, required: true, autofocus: true, placeholder: "Amount",autocomplete: "off", class: "col-sm-6 col-form-label"
+    = form.number_field :amount, step: :any, required: true, autofocus: true, placeholder: t("car.amount"),autocomplete: "off", class: "col-sm-6 col-form-label"
 
   div.f
     = form.date_field :date, required: true, autofocus: true, autocomplete: "off", class: "col-sm-6 col-form-label"

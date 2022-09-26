@@ -36,7 +36,7 @@ class CarsController < ApplicationController
     @car = current_user.cars.new(car_params)     
     respond_to do |format|
       if @car.save
-        format.html { redirect_to car_url(@car), status: :created, notice: "Car was successfully created." }
+        format.html { redirect_to car_url(@car), status: :created, notice: t("alerts.success") }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class CarsController < ApplicationController
   def update
     respond_to do |format|
       if @car.update(car_params)
-        format.html { redirect_to car_url(@car), notice: "Car was successfully updated." }
+        format.html { redirect_to car_url(@car), notice: t("alerts.sup")}
         format.json { render :show, status: :ok, location: @car }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class CarsController < ApplicationController
   def destroy
     @car.destroy
     respond_to do |format|
-      format.html { redirect_to cars_url, notice: "Car was successfully destroyed." }
+      format.html { redirect_to cars_url, notice: t("alerts.destroy") }
       format.json { head :no_content }
     end
   end
@@ -70,13 +70,13 @@ class CarsController < ApplicationController
   def purge_content
     @car = Car.find(params[:id])    
     @car.content.purge
-    redirect_to cars_url, notice: "Car's picture was successfully deleted, default picture will be displayed instead." 
+    redirect_to cars_url, notice: t("alerts.delpic") 
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
-      @car = Car.find(params[:id])
+      @car = Car.find(params[:id]) 
     end
 
     # Only allow a list of trusted parameters through.

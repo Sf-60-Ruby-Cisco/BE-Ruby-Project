@@ -17,7 +17,7 @@ class ChargingsController < ApplicationController
         # Send params &update=chargings to views/cars/show.turbo_stream
         # to update the Chargings Table and its Pagination (request is processed as Turbo_Stream)
         format.html { 
-          redirect_to car_url(@car, params: { update: "chargings" }), 
+          redirect_to car_url(@car, params: { update: "chargings", clear: "form" }), 
           status: :see_other, 
           notice: "Charging was successfully created."
         }

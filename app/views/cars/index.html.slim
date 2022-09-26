@@ -1,5 +1,5 @@
 div
-  = button_to "Add car", new_car_path, method: :get, class: "button-add"
+  = button_to t("car.add"), new_car_path, method: :get, class: "button-add"
 div.next
   = paginate @cars, theme: 'bootstrap-5',
   pagination_class: "pagination-sm flex-wrap justify-content-center"

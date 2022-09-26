@@ -1,4 +1,8 @@
-  == turbo_stream.update "taxesList"
-    == render taxes
-  == turbo_stream.update "taxesPagination"
-    == render "taxes/paginate", taxes: taxes
+== turbo_stream.update "taxesList"
+  == render taxes
+== turbo_stream.update "taxesPagination"
+  == render "taxes/paginate", taxes: taxes
+
+- if params["clear"] == "form"
+  == turbo_stream.update "taxForm"
+    == render 'taxes/form', car: @car, tax: @car.taxes.build

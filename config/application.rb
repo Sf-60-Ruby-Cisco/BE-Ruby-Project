@@ -24,8 +24,14 @@ module CarDiary
     config.load_defaults 7.0    
     config.active_storage.variant_processor = :mini_magick
     config.generators.system_tests = nil
+    config.active_job.queue_adapter = :sidekiq
+    config.time_zone = "UTC"
+    config.active_record.default_timezone = :utc
     config.generators do |g|
       g.template_engine :slim
     end
+    config.i18n.available_locales = [:en, :bg]
+    config.i18n.default_locale = :en
+    config.i18n.fallbacks = true
   end
 end

@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+user = User.create(
+  username: ENV['SIDEKIQ_USER'],
+  email: ENV['SIDEKIQ_EMAIL'], 
+  password: ENV['SIDEKIQ_PASSWORD'],
+  password_confirmation: ENV['SIDEKIQ_PASSWORD'],
+  admin: true
+)
+user.skip_confirmation!
+user.save!

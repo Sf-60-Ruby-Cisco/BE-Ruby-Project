@@ -1,0 +1,12 @@
+en:  
+  profile:
+    new: "Create new account"
+    user: "Username"
+    email: "Email address"
+    pass: "Password"
+    confirm: "Confirm Password"
+    have: "Already have an account? "
+    submit: "Submit"
+    char: " characters minimum "
+    new_pass: "New password"
+    change: "Enter password to confirm changes"

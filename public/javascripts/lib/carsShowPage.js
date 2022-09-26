@@ -29,14 +29,15 @@ tableHeadingsArr.forEach(heading => {
 formButtonsArr.forEach(button => {
     button.addEventListener("click", (event) => {
         event.preventDefault();
-        let buttonId = button.id;
-        let targetedFormContainer = document.querySelector(`div[id="${buttonId}"]`);
+        let buttonName = button.name;
+        let targetedFormContainer = document.querySelector(`div[id="${buttonName}"]`);
 
         if (targetedFormContainer.classList.contains("collapse")) {
             let formContainersArr = [...document.getElementsByClassName('formContainer')];
             formContainersArr.forEach(formContainer => {
-                if (formContainer.id == targetedFormContainer.id) { return };
-                if (formContainer.classList.contains("collapse")) { return };
+                if (formContainer.id == targetedFormContainer.id || 
+                    formContainer.classList.contains("collapse")) { return };
+                    
                 formContainer.classList.add("collapse");
             });
 
