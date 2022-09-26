@@ -2,3 +2,7 @@
   == render chargings
 == turbo_stream.update "chargingsPagination"
   == render "chargings/paginate", chargings: chargings
+  
+- if params["clear"] == "form"
+  == turbo_stream.update "chargingForm"
+    == render 'chargings/form', car: @car, charging: @car.chargings.build

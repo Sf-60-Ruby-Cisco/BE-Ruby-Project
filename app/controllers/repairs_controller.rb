@@ -13,7 +13,7 @@ class RepairsController < ApplicationController
     respond_to do |format|             
       if @repair.save
         format.html { 
-          redirect_to car_url(@car, params: { update: "repairs" }), 
+          redirect_to car_url(@car, params: { update: "repairs", clear: "form" }), 
           status: :see_other, 
           notice: "Repair was successfully created." 
         }

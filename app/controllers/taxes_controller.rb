@@ -15,7 +15,7 @@ class TaxesController < ApplicationController
     respond_to do |format|
       if @tax.save
         format.html { 
-          redirect_to car_url(@car, params: { update: "taxes" }), 
+          redirect_to car_url(@car, params: { update: "taxes", clear: "form" }), 
           status: :see_other, 
           notice: "Tax was successfully added."
         }

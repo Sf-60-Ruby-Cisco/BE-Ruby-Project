@@ -2,11 +2,11 @@ div[class="navbar-cars-show"]
   nav
     = link_to t("car.back") , cars_path, class: "button-add"
 
-    = link_to t('car.charg'), "", class: "button-add form_button", id: "chargingForm"
+    = link_to t('car.charg'), "", class: "button-add form_button", name: "chargingForm"
 
-    = link_to t('car.repair'), "", class: "button-add form_button", id: "repairForm"
+    = link_to t('car.repair'), "", class: "button-add form_button", name: "repairForm"
 
-    = link_to t('car.at'), "", class: "button-add form_button", id: "taxForm"
+    = link_to t('car.at'), "", class: "button-add form_button", name: "taxForm"
 
 br
 section.vh-100
