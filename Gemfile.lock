@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/hotwired/turbo-rails.git
-  revision: 717978b7bcc33a9566fc71d136858204ef3a3aeb
-  branch: turbo-7-2-0
+  revision: 454efaa27fc64789fca1ea584a0873c82855ba2c
   specs:
-    turbo-rails (1.2.0.beta2)
+    turbo-rails (1.3.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -84,8 +83,8 @@ GEM
       kaminari (>= 0.13)
       rails (>= 3.1)
     builder (3.2.4)
-    coderay (1.1.3)
     chartkick (4.2.1)
+    coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     debug (1.5.0)

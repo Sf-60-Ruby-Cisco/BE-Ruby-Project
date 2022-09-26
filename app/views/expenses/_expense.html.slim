@@ -1,10 +1,11 @@
-div id="#{dom_id expense}"
-  p
-    strong Description:
-    =< expense.description
-  p
-    strong Amount:
-    =< expense.price
-  p
-    strong Date:
-    =< expense.date
+tr[id="#{dom_id(expense)}_item"]
+  td.descriprion = expense.description
+  td.price
+    | $
+    = expense.price
+  td.date = expense.date
+  td.actions 
+    == turbo_frame_tag expense
+      == link_to "Edit ", edit_car_expense_path(car_id: @car.id, id: expense.id)
+    == link_to "Delete", car_expense_path(car_id: @car.id, id: expense.id), data: { \
+        turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this expense ?" }

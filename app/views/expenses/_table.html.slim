@@ -1,0 +1,15 @@
+p[class="h3"] 
+  a[href="" class="tableHeading"] Expenses
+  span &#8595;
+table[class="table table-striped table-dark"]
+  thead
+    tr
+      th[scope="col"] Price
+      th[scope="col"] Date
+      th[scope="col"] Actions
+  tbody[id="expensesList" class="collapse"]
+    == render @expenses
+
+// class="tablePagination collapse" is needed for carsShowPage.js
+div[id="expensesPagination" class="tablePagination collapse"]
+  == render "expenses/paginate", expenses: @expenses
