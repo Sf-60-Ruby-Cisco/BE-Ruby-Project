@@ -16,11 +16,11 @@ RSpec.describe "Cars", type: :request do
                   { controller: 'cars', action: 'edit', id: '1' })
   end
 
-  let!(:user) { FactoryBot.create(:user)}
+  let(:user) { FactoryBot.create(:user)}
   before(:each) { sign_in user }
 
   describe 'GET /cars' do
-    let!(:car) { create(:car) }
+    let(:car) { create(:car) }
     before(:each) { get cars_path }
     it 'should render the correct template' do
       expect(response).to have_http_status(200)
