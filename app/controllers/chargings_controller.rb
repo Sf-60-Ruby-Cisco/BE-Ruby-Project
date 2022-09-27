@@ -30,7 +30,8 @@ class ChargingsController < ApplicationController
               form_for= :charging,
               form= "chargings/form", 
               error_message= "There was an error when creating a charging, please try again."
-            )
+            ), 
+            status: :unprocessable_entity
         end
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }
@@ -54,7 +55,8 @@ class ChargingsController < ApplicationController
               form_for= :charging,
               form= "chargings/form", 
               error_message= "There was an error when updating a charging, please try again."
-            )
+            ), 
+            status: :unprocessable_entity
         end
         format.html { redirect_to car_url(@car), status: :unprocessable_entity }
         format.json { render json: @charging.errors, status: :unprocessable_entity }
