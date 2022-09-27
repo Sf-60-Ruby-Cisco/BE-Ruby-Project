@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "Cars", type: :request do  
+RSpec.describe "Repairs", type: :request do  
   it 'should generate correct routes' do
     assert_routing({ path: 'cars/1/repairs', method: :post },
                    { controller: 'repairs', action: 'create', car_id: '1' })
