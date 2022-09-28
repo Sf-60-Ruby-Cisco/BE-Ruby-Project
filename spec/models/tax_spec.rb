@@ -21,9 +21,9 @@ RSpec.describe Tax, type: :model do
   end
 
   context 'with no associations to car' do   
-      it 'should be invalid' do
-        expect(build(:tax, car_id: nil)).to_not be_valid
-      end
+    it 'should be invalid' do
+      expect(build(:tax, car_id: nil)).to_not be_valid
     end
+  end
     
 end
