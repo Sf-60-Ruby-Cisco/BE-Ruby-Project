@@ -22,13 +22,13 @@ section.vh-100
                   = t('confirmation.resend_confirm')
               
               div.midl
-                a.text-muted[href= new_user_password_path(locale: I18n.locale)]
+                a.text-muted[href= new_user_password_path]
                   = t("confirmation.forgot_pass")
               div.px
                 = t('confirmation.dont_have_acc')
-                a.link-info[href= new_user_registration_path(locale: I18n.locale)]
+                a.link-info[href= new_user_registration_path]
                   = t('confirmation.ref')
               div.px
                 = t('confirmation.already_have')
-                a.link-info[href= new_user_session_path(locale: I18n.locale)]
+                a.link-info[href= new_user_session_path]
                   = t('confirmation.login')
