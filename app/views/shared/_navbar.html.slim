@@ -9,11 +9,11 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           li= link_to 'Български', url_for(locale: :bg), class:"nav-link", class:"nav-link"           
         - else 
           li= link_to 'English', url_for(locale: :en), class:"nav-link"
-        li= link_to "Car Diary", root_path(locale: I18n.locale), class:"nav-link"
+        li= link_to "Car Diary", root_path, class:"nav-link"
       
-        li= link_to t("navbar.about"),about_path(locale: I18n.locale), class:"nav-link"
+        li= link_to t("navbar.about"),about_path, class:"nav-link"
       
-        li= link_to t("navbar.add_car"), new_car_path(locale: I18n.locale), class:"nav-link"              
+        li= link_to t("navbar.add_car"), new_car_path, class:"nav-link"              
       
 
         - if user_cars.present?
@@ -25,9 +25,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                 a.dropdown-item
                   a= link_to "#{car.brand} #{car.license_plate}", car_path(locale: I18n.locale, id: car.id), class:"dropdown-item"           
         - else 
-          li= link_to t('navbar.no_cars'), new_car_path(locale: I18n.locale), class:"nav-link"
+          li= link_to t('navbar.no_cars'), new_car_path, class:"nav-link"
           
-        li= link_to t('navbar.statistic'), statistics_path(locale: I18n.locale), class:"nav-link"
+        li= link_to t('navbar.statistic'), statistics_path, class:"nav-link"
         
        
 
@@ -41,9 +41,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             = t('navbar.profile')
           .dropdown-menu.dropdown-menu-dark.bg-dark[aria-labelledby="navbarDropdownMenuLink"]
             a.dropdown-item
-              a= link_to t("navbar.edit"), edit_user_registration_path(locale: I18n.locale), class:"dropdown-item"
+              a= link_to t("navbar.edit"), edit_user_registration_path, class:"dropdown-item"
             a.dropdown-item[href="#"]
-              a= button_to t("navbar.out"), destroy_user_session_path(locale: I18n.locale), method: :delete, class:"dropdown-item"
+              a= button_to t("navbar.out"), destroy_user_session_path, method: :delete, class:"dropdown-item"
       - if current_user.content.present?
         a.navbar-brand[href= rails_blob_path(current_user.content)]
           .logo-image

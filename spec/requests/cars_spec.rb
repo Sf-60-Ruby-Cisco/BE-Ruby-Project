@@ -48,7 +48,7 @@ RSpec.describe "Cars", type: :request do
     context 'with valid id' do
       let!(:car) { create(:car) }      
         it 'should delete car' do
-          expect { delete car_path(locale: :en, id: car.id) }.to change { Car.count }.by(-1)
+          expect { delete car_path(id: car.id) }.to change { Car.count }.by(-1)
         end
     end
   end
