@@ -23,7 +23,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             .dropdown-menu.dropdown-menu-dark.bg-dark[aria-labelledby="navbarDropdownMenuLink"]
               - @cars.each do |car|            
                 a.dropdown-item
-                  a= link_to "#{car.brand} #{car.license_plate}", car_path(locale: I18n.locale, id: car.id), class:"dropdown-item"           
+                  a= link_to "#{car.brand} #{car.license_plate}", car_path(id: car.id), class:"dropdown-item"           
         - else 
           li= link_to t('navbar.no_cars'), new_car_path, class:"nav-link"
           
