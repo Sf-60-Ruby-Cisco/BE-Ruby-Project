@@ -1,7 +1,7 @@
 class CarsController < ApplicationController  
+  load_and_authorize_resource
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :check_user, :only => [:edit, :show] 
   
   # GET /cars or /cars.json
   def index   
@@ -81,12 +81,6 @@ class CarsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def car_params
       params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :content)
-    end
-
-
-    # Deny url to be edited, and deny access to other users cars
-    def check_user
-      @car = current_user.cars.find(params[:id])
     end
 
 end

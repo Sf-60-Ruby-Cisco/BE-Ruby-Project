@@ -91,6 +91,7 @@ GEM
       kaminari (>= 0.13)
       rails (>= 3.1)
     builder (3.2.4)
+    cancancan (3.4.0)
     chartkick (4.2.1)
     concurrent-ruby (1.1.10)
     connection_pool (2.3.0)
@@ -124,7 +125,7 @@ GEM
       railties (>= 5.0.0)
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw32)
-    fugit (1.7.0)
+    fugit (1.7.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
     globalid (1.0.0)
@@ -203,7 +204,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.6.0)
-    rack (2.2.3.1)
+    rack (2.2.4)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.3)
@@ -267,12 +268,13 @@ GEM
       ffi (~> 1.12)
     shoulda-matchers (5.2.0)
       activesupport (>= 5.2.0)
-    sidekiq (6.5.6)
+    sidekiq (6.5.7)
       connection_pool (>= 2.2.5)
       rack (~> 2.0)
       redis (>= 4.5.0, < 5)
     sidekiq-cron (1.7.0)
       fugit (~> 1)
+      sidekiq (>= 4.2.1)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -294,7 +296,7 @@ GEM
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.1)
       tzinfo (>= 1.0.0)
@@ -317,6 +319,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap5-kaminari-views
+  cancancan
   chartkick
   database_cleaner
   debug

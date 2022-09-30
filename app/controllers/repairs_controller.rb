@@ -1,6 +1,7 @@
 class RepairsController < ApplicationController
   include ChargingsControllerConcern
 
+  load_and_authorize_resource
   before_action :get_car
   before_action :authenticate_user!
   before_action :set_repair, only: %i[edit update destroy ]  
@@ -77,9 +78,6 @@ class RepairsController < ApplicationController
 
     def get_car
       @car = Car.find(params[:car_id])
-        unless current_user.id == @car.user_id
-          redirect_to (request.referrer||root_path)
-        end
     end
   
     # Only allow a list of trusted parameters through.
