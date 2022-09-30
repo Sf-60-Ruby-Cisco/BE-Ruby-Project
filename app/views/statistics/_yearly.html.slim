@@ -1,0 +1,19 @@
+#leftcolumn
+  == render "statistic", total_items: @total_repairs_year, total_per_item: @all_car_repairs_year, \
+     max_length: @max_length_repairs_year, title: "rep_y", title_2: "rep"
+
+
+#contentwrapper
+  == render "statistic", total_items: @total_chargings_year, total_per_item: @all_car_chargings_year, \
+     max_length: @max_length_chargings_year, title: "ch_y", title_2: "ch"
+
+
+#contentwrapper2
+  == render "statistic", total_items: @total_taxes_year, total_per_item: @all_car_taxes_year, \
+     max_length: @max_length_taxes_year, title: "tax_y", title_2: "tax"
+
+
+#contentwrapper1
+  == bar_chart (@total_year), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (@max_length_chargings_year.ceil + @max_length_repairs_year.ceil + @max_length_taxes_year.ceil + 500)
+  - @total_year.each do |key, value|      
+    == pie_chart ({t("car.r_descr") => @max_length_repairs_year , t("car.c_descr") => @max_length_chargings_year.to_f, t("car.tax") => @max_length_taxes_year}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"

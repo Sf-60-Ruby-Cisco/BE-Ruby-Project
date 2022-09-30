@@ -1,55 +1,19 @@
-- if @total[l(Time.now, format: "%B %Y")] > 0
+- if user_cars.present?
   div.stat
     = t("statistic.descr")
-- else 
-  - if user_cars.present?
-    div.stat
-      | #{current_user.username.capitalize()} #{t("statistic.not")}
-     
-  - else 
-    div.stat
-      | #{current_user.username.capitalize()} #{t("statistic.no_cars")}     
+- else
+  div.stat
+    | #{current_user.username.capitalize()} #{t("statistic.no_cars")}  
 
-- max_length_repairs = 0
-- if @all_car_repairs.length > 0
-  #leftcolumn
-    - @total_repairs.each do |key, value|
-      - max_length_repairs = value/100.to_f 
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.descr_repair"), prefix: "$", colors: ["#1E90FF"], max: max_length_repairs.ceil + 500
+= tabs content_class: 'my-padding', nav_markup: true do |c|
+  - c.tab 'Monthly', anchor: 'monthly', active: true
+    div[id="monthlyStatistics" class="container"]
+      == render 'monthly'
 
-  
-    - if @all_car_repairs.present?
-      - @all_car_repairs.each do |key, value|         
-        = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.rep')} #{key[1]}", prefix: "$", colors: ["#B0E0E6"], max: max_length_repairs.ceil + 500
+  - c.tab 'Yearly', anchor: 'yearly'
+    div[id="yearlyStatistics" class="container"]
+      == render 'yearly'
 
-- max_length_chargings = 0
-- if @all_car_chargings.length > 0
-  #contentwrapper
-    - @total_chargings.each do |key, value|
-      - max_length_chargings = value/100.to_f
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.descr_ch"), prefix: "$", colors: ["#1E90FF"], max: max_length_chargings.ceil + 500
+  == render 'form'
+  br
 
-     
-    - if @all_car_chargings.present?
-      - @all_car_chargings.each do |key, value|         
-        = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.ch')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
-
-- max_length_taxes = 0
-- if @all_car_taxes.length > 0
-  #contentwrapper2
-    - @total_taxes.each do |key, value|
-      - max_length_taxes = value/100.to_f
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.mt"), prefix: "$", colors: ["#1E90FF"], max: max_length_taxes.ceil + 500
-
-     
-      - if @all_car_taxes.present?
-        - @all_car_taxes.each do |key, value|         
-          = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.tax')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
-
-
-- if @total[l(Time.now, format: "%B %Y")] > 0 
-  #contentwrapper1
-    - @total.each do |key, value|
-      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (max_length_chargings.ceil + max_length_repairs.ceil + max_length_taxes.ceil + 500)      
-      == pie_chart ({t("car.r_descr") => max_length_repairs , t("car.c_descr") => max_length_chargings.to_f, t("car.tax") => max_length_taxes}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
-      
