@@ -8,19 +8,11 @@ class Car < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [300, 300]
   end
 
-  scope :total_repairs,          lambda { | date_start=nil, date_end=nil | joins(:repairs).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :total_chargings,        lambda { | date_start=nil, date_end=nil | joins(:chargings).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :total_taxes,            lambda { | date_start=nil, date_end=nil | joins(:taxes).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :all_car_repairs,        lambda { | date_start=nil, date_end=nil | joins(:repairs).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :all_car_chargings,      lambda { | date_start=nil, date_end=nil | joins(:chargings).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :all_car_taxes,          lambda { | date_start=nil, date_end=nil | joins(:taxes).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
+  scope :total_items,        lambda { | date_start=nil, date_end=nil, items=nil | joins(items).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
+  scope :all_car_items,      lambda { | date_start=nil, date_end=nil, items=nil | joins(items).group(:created_at, :license_plate).group_by_month(:date, format: "%B %Y", range: date_start..date_end).sum('amount_cents/100')}
 
-  scope :total_repairs_year,     lambda { | date_start=nil, date_end=nil | joins(:repairs).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :total_chargings_year,   lambda { | date_start=nil, date_end=nil | joins(:chargings).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :total_taxes_year,       lambda { | date_start=nil, date_end=nil | joins(:taxes).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :all_car_repairs_year,   lambda { | date_start=nil, date_end=nil | joins(:repairs).group(:created_at, :license_plate).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :all_car_chargings_year, lambda { | date_start=nil, date_end=nil | joins(:chargings).group(:created_at, :license_plate).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
-  scope :all_car_taxes_year,     lambda { | date_start=nil, date_end=nil | joins(:taxes).group(:created_at, :license_plate).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
+  scope :total_items_year,   lambda { | date_start=nil, date_end=nil, items=nil | joins(items).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
+  scope :all_car_items_year, lambda { | date_start=nil, date_end=nil, items=nil | joins(items).group(:created_at, :license_plate).group_by_year(:date, format: "%Y", range: date_start..date_end).sum('amount_cents/100')}
 
   paginates_per 3
 
