@@ -21,6 +21,7 @@
  *= require buttons_homepage
  *= car_views
  *= about
+ *= admin
  */
 
 @font-face {
@@ -117,3 +118,4 @@ div.stat {
   margin-top: 10px;
   margin-left: 300px;
 }
+

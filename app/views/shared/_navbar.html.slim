@@ -28,6 +28,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           li= link_to t('navbar.no_cars'), new_car_path, class:"nav-link"
           
         li= link_to t('navbar.statistic'), statistics_path, class:"nav-link"
+
+        - if current_user.admin? 
+
+          li= link_to t("login.admin"), admin_path, class:"nav-link", id: "nav-admin"   
         
        
 

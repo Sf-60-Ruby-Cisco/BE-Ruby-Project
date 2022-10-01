@@ -1,0 +1,80 @@
+div.next
+  == paginate @users, theme: 'bootstrap-5',
+    pagination_class: "pagination-sm flex-wrap justify-content-center"
+
+  button#button
+    = t("login.descr")
+
+  - @users.each do |user|
+    - if user.username.present?
+      div.render
+       
+        .card[style="width:20vw;"]
+          p.id
+              strong 
+                = t("login.id")
+              =< user.id
+          p.username
+              strong 
+                = t("login.username")
+              =< user.username
+          p.picture
+            strong 
+            - if user.content.present?
+              a.[href= rails_blob_path(user.content)]
+                = image_tag user.content.variant(resize_to_limit: [100, 100])
+            - else 
+              a.[href= asset_path("car.png")]
+                = image_tag("nopic.jpg", width: "100px", height: "100px")
+
+          p.email
+            strong 
+              = t("login.email")
+            =< user.email
+          p.admin
+            strong 
+              = t("login.admin")
+            =< user.admin
+
+          p.created
+            strong 
+              = t("login.created")
+            =< user.created_at
+          - if user.admin?   
+            = button_to t("login.delete"),  user, form: {data: { turbo_confirm: "Are you sure?" }}, method: :delete, class: "deladmin", :disabled => true
+          - else 
+            = button_to t("login.delete"),  user, form: {data: { turbo_confirm: "Are you sure?" }}, method: :delete, class: "deladmin"    
+
+          = form_for(user) do |f|    
+            .adminf
+             
+              p.username
+              strong 
+                = t("login.username")
+              div.adm
+                = f.text_field :username
+              p.email
+              strong 
+                = t("login.email")
+              div.adm
+                = f.email_field :email
+              p.admin
+              strong 
+                = t("login.admin")
+              - if !user.admin?
+                div.adm
+                =f.select :admin
+                  option[value="true"]
+                    | true
+                  option[value="false"]
+                    | false  
+              - else 
+                div.admd    
+                  =f.select :admin, {:disabled => true}        
+              div.e
+                button.adadmin[type="Submit"]
+                  = t("car.confirm") 
+
+          
+
+

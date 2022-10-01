@@ -4,6 +4,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+
     if user.admin?
       can :manage, :all
     else
@@ -12,6 +14,6 @@ class Ability
       can :manage, Tax, user_id: user.id
       can :manage, Charging, user_id: user.id
     end
-    # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
   end
 end
+
