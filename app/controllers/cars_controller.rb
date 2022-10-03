@@ -5,15 +5,15 @@ class CarsController < ApplicationController
   
   # GET /cars or /cars.json
   def index   
-    @cars = current_user.cars.order(created_at: :asc).page(params[:page])
+    @cars = current_user.cars.includes(:content_attachment).order(created_at: :asc).page(params[:page])
     # Prevent pagination to show empty page 
-    @cars = current_user.cars.page(@cars.total_pages) if @cars.to_a.empty?    
+    @cars = current_user.cars.includes(:content_attachment).page(@cars.total_pages) if @cars.to_a.empty?    
   end
 
   # GET /cars/1 or /cars/1.json
   def show
     @chargings = @car.chargings.order(created_at: :desc).page(params[:chargings_page])
-    @repairs = @car.repairs.order(created_at: :desc).page(params[:repairs_page])
+    @repairs = @car.repairs.includes(:content_attachment).order(created_at: :desc).page(params[:repairs_page])
     @taxes = @car.taxes.order(created_at: :desc).page(params[:taxes_page])
     @expenses = @car.expenses.order(created_at: :desc).page(params[:expenses_page])
     respond_to do |format|
@@ -22,7 +22,7 @@ class CarsController < ApplicationController
     end
   end
 
-
+ 
   # GET /cars/new
   def new
     @car = Car.new
