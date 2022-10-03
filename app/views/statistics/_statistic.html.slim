@@ -2,5 +2,5 @@
    title: t("statistic.descr_#{title}"), prefix: "$", colors: ["#1E90FF"], max: max_length.ceil + 500
 
 - total_per_item.each do |key, value|    
-    = bar_chart ({key[2] => value}), height: "100px", width: "300px", title: "#{t("statistic.#{title_2}")} #{key[1]}", \
+    = bar_chart ({key[2] => value}), height: "100px", width: "300px", title: "#{t("statistic.#{title}")} #{key[1]}", \
       prefix: "$", colors: ["#B0E0E6"], max: max_length.ceil + 500
