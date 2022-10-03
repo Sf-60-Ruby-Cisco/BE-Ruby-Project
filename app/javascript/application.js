@@ -26,10 +26,10 @@ document.addEventListener("turbo:load", function() {
     $('#deactiv').click(function () {
         if ($('.deactivated').is(':hidden')) {
             $('.deactivated').show();
-            $('#deactiv').text('Hide deactive users').button("refresh");
+            $('#deactiv').text('Hide deactivated users').button("refresh");
         } else {
             $('.deactivated').hide();
-            $('#deactiv').text('Show deactive users').button("refresh");
+            $('#deactiv').text('Show deactivated users').button("refresh");
         }
       }); 
     });

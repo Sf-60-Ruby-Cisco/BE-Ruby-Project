@@ -15,4 +15,4 @@ en:
     id: "Id: "
     descr: "Show edit forms"
     deactive: "deactivated: "
-    deact_descr: "Show deactive users"
+    deact_descr: "Show deactivate users"
