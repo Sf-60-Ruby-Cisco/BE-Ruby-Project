@@ -2,6 +2,10 @@
   display: none; 
 }
 
+div.deactivated{
+  display: none;
+}
+
 #nav-admin{
   color: #FF0800;
 }
@@ -13,7 +17,7 @@
 #button{
   font-family: Simlifica;
   font-size: 0.5;
-  display: block;
+  display: inline;
   margin-left: 450px;
   margin-top: 15px;
   width: 15%;
@@ -23,6 +27,23 @@
 }
 
 #button:hover {
+  background-color: #0d6684;
+  color: white;
+}
+
+#deactiv{
+  font-family: Simlifica;
+  font-size: 0.5;
+  display: block;
+  margin-left: 480px;
+  margin-top: 15px;
+  width: 15%;
+  background-color: #bfeaf8;
+  color: black;
+  border-radius: 12px;
+}
+
+#deactiv:hover {
   background-color: #0d6684;
   color: white;
 }

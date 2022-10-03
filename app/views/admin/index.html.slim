@@ -4,11 +4,13 @@ div.next
 
   button#button
     = t("login.descr")
+div  
+  button#deactiv
+    = t("login.deact_descr")
 
   - @users.each do |user|
     - if user.username.present?
-      div.render
-       
+      div.render       
         .card[style="width:20vw;"]
           p.id
               strong 
@@ -24,9 +26,9 @@ div.next
               a.[href= rails_blob_path(user.content)]
                 = image_tag user.content.variant(resize_to_limit: [100, 100])
             - else 
-              a.[href= asset_path("car.png")]
+              a.[href= asset_path("nopic.jpg")]
                 = image_tag("nopic.jpg", width: "100px", height: "100px")
-
+    
           p.email
             strong 
               = t("login.email")
@@ -78,3 +80,5 @@ div.next
           
 
 
+div.deactivated
+  == render "deactive_users"

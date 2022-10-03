@@ -22,4 +22,18 @@ document.addEventListener("turbo:load", function() {
   });
   
 
+  document.addEventListener("turbo:load", function() {
+    $('#deactiv').click(function () {
+        if ($('.deactivated').is(':hidden')) {
+            $('.deactivated').show();
+            $('#deactiv').text('Hide deactive users').button("refresh");
+        } else {
+            $('.deactivated').hide();
+            $('#deactiv').text('Show deactive users').button("refresh");
+        }
+      }); 
+    });
+    
+  
+
  

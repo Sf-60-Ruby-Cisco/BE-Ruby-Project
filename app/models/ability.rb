@@ -10,9 +10,9 @@ class Ability
       can :manage, :all
     else
       can :manage, Car, user_id: user.id
-      can :manage, Repair, user_id: user.id
-      can :manage, Tax, user_id: user.id
-      can :manage, Charging, user_id: user.id
+      can :manage, Repair
+      can :manage, Tax
+      can :manage, Charging
     end
   end
 end

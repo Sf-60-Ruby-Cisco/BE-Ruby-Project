@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-# Seed the db and use credentials from .env to log in as an admin or create another admin in console.
+# # Seed the db and use credentials from .env to log in as an admin or create another admin in console.
 user = User.create(
   username: ENV['SIDEKIQ_USER'],
   email: ENV['SIDEKIQ_EMAIL'], 
@@ -23,7 +23,7 @@ user.save!
 10.times do
   User.create!(
     email: Faker::Internet.email,
-    username: Faker::Internet.username(specifier: 5..10), 
+    username: Faker::Name.first_name, 
     password: '123456',
     password_confirmation: '123456',
     confirmed_at: Time.now       

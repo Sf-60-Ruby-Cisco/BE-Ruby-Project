@@ -24,7 +24,7 @@ module CarDiary
     config.load_defaults 7.0    
     config.active_storage.variant_processor = :mini_magick
     config.generators.system_tests = nil
-    config.active_job.queue_adapter = :sidekiq
+    # config.active_job.queue_adapter = :sidekiq
     config.time_zone = "UTC"
     config.active_record.default_timezone = :utc
     config.generators do |g|
