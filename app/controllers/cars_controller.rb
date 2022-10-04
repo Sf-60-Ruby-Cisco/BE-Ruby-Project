@@ -21,7 +21,7 @@ class CarsController < ApplicationController
       format.turbo_stream # views/cars/ -> show.turbo_stream.slim
     end
   end
-
+ 
  
   # GET /cars/new
   def new

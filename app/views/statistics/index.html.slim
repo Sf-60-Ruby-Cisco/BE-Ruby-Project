@@ -46,7 +46,17 @@
         - @all_car_taxes.each do |key, value|         
           = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.tax')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
 
+- max_length_taxes = 0
+- if @total_taxes.length > 0
+  #contentwrapper2
+    - @total_taxes.each do |key, value|
+      - max_length_taxes = value/100.to_f
+      == bar_chart ({key => value/100.to_f}), height: "100px", width: "300px", title: t("statistic.mt"), prefix: "$", colors: ["#1E90FF"], max: max_length_taxes.ceil + 500
 
+     
+      - if @all_car_taxes.present?
+        - @all_car_taxes.each do |key, value|         
+          = bar_chart ({key[2] => value/100.to_f}), height: "100px", width: "300px", title: "#{t('statistic.tax')} #{key[1]}",colors: ["#B0E0E6"], prefix: "$", max: max_length_chargings.ceil + 500
 - if @total.length > 0
   #contentwrapper1
     - @total.each do |key, value|
