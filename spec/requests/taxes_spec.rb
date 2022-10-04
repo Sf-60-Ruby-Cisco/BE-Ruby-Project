@@ -41,7 +41,6 @@ RSpec.describe "Taxes", type: :request do
     context 'with invalid parameters' do
       context 'no tax type' do
         it 'should not save the tax' do
-          # ArgumentError: string contains null byte, when tax_type: nil
           expect { post car_taxes_path(car_id: car.id), params: { tax: attributes_for(:tax, tax_type: nil) }}.to change { Tax.count }.by(0)
           end
         end
