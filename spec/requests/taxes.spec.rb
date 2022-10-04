@@ -21,7 +21,9 @@ RSpec.describe "Taxes", type: :request do
 
   describe 'This test should fail' do
     context 'fail' do
-      expect("123").to eq("12")
+      it 'should cancel deploy' do
+        expect("123").to eq("12")
+      end
     end
   end
   
