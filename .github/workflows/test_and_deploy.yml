@@ -13,7 +13,7 @@ jobs:
     services:
       db:
         image: postgres:latest
-        environment:
+        env:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER_DEV }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PW_DEV }}
         ports: ['5432:5432']
