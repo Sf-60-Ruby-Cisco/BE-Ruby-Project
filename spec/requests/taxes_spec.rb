@@ -20,7 +20,7 @@ RSpec.describe "Taxes", type: :request do
   let(:user) { create(:user)}  
 
   describe 'This test should fail' do
-    it 'should cancel deploy' do
+    it 'and should cancel deploy' do
       1.should eq(2)
     end
   end
