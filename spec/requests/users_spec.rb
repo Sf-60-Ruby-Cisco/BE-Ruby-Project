@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-
 RSpec.describe "Sessions" do 
-  let(:new_user) { FactoryBot.create(:user)}
+  let(:new_user) { create(:user)}
 
   it 'should respond with status 200 when sign in' do
     sign_in new_user

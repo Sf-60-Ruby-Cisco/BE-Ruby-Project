@@ -21,5 +21,6 @@ class Car < ApplicationRecord
   validate :content
   validates :engine, :year,:fuel_type,:brand, :model, presence: true, length: {maximum: 20}
   validates :license_plate, presence: true, length: { in: 6..8 }
-    
+
+
 end

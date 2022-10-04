@@ -1,6 +1,24 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
+
 RSpec.describe User, type: :model do
+  describe 'associations' do
+    it { should have_one_attached(:content) }
+    it { should have_many(:cars) }
+  end
+
+  describe 'validations' do
+    it { should validate_presence_of(:username) }  
+    it { should validate_length_of(:username).is_at_most(40) }
+    it { should validate_length_of(:username).is_at_least(3) }
+    it { should validate_length_of(:password).is_at_most(20) }
+    it { should validate_length_of(:password).is_at_least(6) }    
+    it { should validate_uniqueness_of(:username) }    
+  end    
+
+
   context 'with valid attribues' do
     it 'is valid with valid atributes' do
       expect(create(:user)).to be_valid 
