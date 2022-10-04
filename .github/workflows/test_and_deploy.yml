@@ -35,7 +35,7 @@ jobs:
           bundler-cache: true
       - name: Build and run tests
         env:
-          DATABASE_URL: postgresql://${{ secrets.POSTGRES_USER_DEV }}:@localhost:5432/car_diary_test
+          DATABASE_URL_TEST: postgresql://${{ secrets.POSTGRES_USER_DEV }}:@localhost:5432/car_diary_test
           RAILS_ENV: test
           POSTGRES_USER_DEV: ${{ secrets.POSTGRES_USER_DEV }}
           POSTGRES_PW_DEV: ${{ secrets.POSTGRES_PW_DEV }}
@@ -55,7 +55,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: cd_action
-### ⬇ IMPORTANT PART ⬇ ###
       - name: Build, Push and Release a Docker container to Heroku.
         uses: gonuit/heroku-docker-deploy@v1.3.3
         with:
