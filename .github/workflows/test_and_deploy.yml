@@ -1,5 +1,5 @@
 # Your workflow name.
-name: Deploy to heroku.
+name: Test and Deploy to heroku.
 
 # Run workflow on every push to master branch.
 on:
@@ -28,7 +28,7 @@ jobs:
         with:
           ref: cd_action
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.3
       - name: Build and run tests

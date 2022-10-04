@@ -18,6 +18,10 @@ RSpec.describe "Taxes", type: :request do
 
   let(:car) { create(:car, user_id: user.id) }
   let(:user) { create(:user)}  
+
+  describe 'This test should fail' do
+    raise "failure message"
+  end
   
   describe 'POST ../taxes' do
     before(:each) do      
