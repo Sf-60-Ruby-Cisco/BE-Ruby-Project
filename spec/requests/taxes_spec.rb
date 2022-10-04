@@ -19,11 +19,11 @@ RSpec.describe "Taxes", type: :request do
   let(:car) { create(:car, user_id: user.id) }
   let(:user) { create(:user)}  
 
-  # describe 'This test should fail' do
-  #   it 'and should cancel deploy' do
-  #     1.should eq(2)
-  #   end
-  # end
+  describe 'This test should fail' do
+    it 'and should cancel deploy' do
+      expect(1).to eq(2)
+    end
+  end
   
   describe 'POST ../taxes' do
     before(:each) do      
@@ -41,7 +41,7 @@ RSpec.describe "Taxes", type: :request do
     context 'with invalid parameters' do
       context 'no tax type' do
         it 'should not save the tax' do
-          # ArgumentError: string contains null byte
+          # ArgumentError: string contains null byte, when tax_type: nil
           expect { post car_taxes_path(car_id: car.id), params: { tax: attributes_for(:tax, tax_type: '') }}.to change { Tax.count }.by(0)
           end
         end
