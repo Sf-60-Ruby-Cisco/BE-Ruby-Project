@@ -20,7 +20,9 @@ RSpec.describe "Taxes", type: :request do
   let(:user) { create(:user)}  
 
   describe 'This test should fail' do
-    raise "failure message"
+    context 'fail' do
+      expect("123").to eq("12")
+    end
   end
   
   describe 'POST ../taxes' do
