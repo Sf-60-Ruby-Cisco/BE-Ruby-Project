@@ -1,0 +1,66 @@
+# Your workflow name.
+name: Deploy to heroku.
+
+# Run workflow on every push to master branch.
+on:
+  push:
+    branches: [cd_action]
+
+# Your workflows jobs.
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:latest
+        environment:
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER_DEV }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PW_DEV }}
+        ports: ['5432:5432']
+        options:
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: cd_action
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
+      - name: Build and run tests
+        env:
+          DATABASE_URL: postgresql://db:5432/car_diary_test
+          RAILS_ENV: test
+          POSTGRES_USER_DEV: ${{ secrets.POSTGRES_USER_DEV }}
+          POSTGRES_PW_DEV: ${{ secrets.POSTGRES_PW_DEV }}
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+          RAILS_ENV=test bundle exec rspec 
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Check-out your repository.
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: cd_action
+### ⬇ IMPORTANT PART ⬇ ###
+      - name: Build, Push and Release a Docker container to Heroku.
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          email: ${{ secrets.HEROKU_EMAIL_TEST }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY_TEST }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_TEST }}
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile.web
+          docker_options: "--no-cache"
+          process_type: web
