@@ -34,7 +34,7 @@ jobs:
           bundler-cache: true
       - name: Build and run tests
         env:
-          DATABASE_URL_TEST: postgres://postgres:@localhost:5432/car_diary_test
+          DATABASE_URL_TEST: postgres://postgres:@0.0.0.0:5432/car_diary_test
           RAILS_ENV: test
           POSTGRES_USER_DEV: ${{ secrets.POSTGRES_USER_DEV }}
           POSTGRES_PW_DEV: ${{ secrets.POSTGRES_PW_DEV }}
