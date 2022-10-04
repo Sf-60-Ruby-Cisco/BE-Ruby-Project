@@ -19,11 +19,11 @@ RSpec.describe "Taxes", type: :request do
   let(:car) { create(:car, user_id: user.id) }
   let(:user) { create(:user)}  
 
-  describe 'This test should fail' do
-    it 'and should cancel deploy' do
-      1.should eq(2)
-    end
-  end
+  # describe 'This test should fail' do
+  #   it 'and should cancel deploy' do
+  #     1.should eq(2)
+  #   end
+  # end
   
   describe 'POST ../taxes' do
     before(:each) do      
