@@ -1,12 +1,10 @@
-# Your workflow name.
-name: Test and Deploy to heroku.
+name: Continous Integration.
 
-# Run workflow on every push to master branch.
 on:
-  push:
-    branches: [cd_action]
+  pull_request:
+    types: [opened, review_requested]
+    branches: [main]
 
-# Your workflows jobs.
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -35,7 +33,7 @@ jobs:
           bundler-cache: true
       - name: Build and run tests
         env:
-          DATABASE_URL_TEST: postgresql://${{ secrets.POSTGRES_USER_DEV }}:@localhost:5432/car_diary_test
+          DATABASE_URL_DEV: postgresql://${{ secrets.POSTGRES_USER_DEV }}:@localhost:5432/car_diary_test
           RAILS_ENV: test
           POSTGRES_USER_DEV: ${{ secrets.POSTGRES_USER_DEV }}
           POSTGRES_PW_DEV: ${{ secrets.POSTGRES_PW_DEV }}
@@ -45,23 +43,3 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:migrate
           RAILS_ENV=test bundle exec rspec 
-
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      # Check-out your repository.
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: cd_action
-      - name: Build, Push and Release a Docker container to Heroku.
-        uses: gonuit/heroku-docker-deploy@v1.3.3
-        with:
-          email: ${{ secrets.HEROKU_EMAIL_TEST }}
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY_TEST }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME_TEST }}
-          dockerfile_directory: ./
-          dockerfile_name: Dockerfile.web
-          docker_options: "--no-cache"
-          process_type: web
