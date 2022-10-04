@@ -42,7 +42,6 @@ jobs:
         run: |
           sudo apt-get -yqq install libpq-dev
           bundle install --jobs 4 --retry 3
-          bundle exec rake db:reset
           bundle exec rake db:create
           bundle exec rake db:migrate
           RAILS_ENV=test bundle exec rspec 
