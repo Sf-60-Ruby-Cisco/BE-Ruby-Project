@@ -13,6 +13,7 @@ development:
 
 test:
   <<: *default
+  host: postgres
   database: car_diary_test
   username: <%= ENV['POSTGRES_USER_DEV'] %>
   password: <%= ENV['POSTGRES_PW_DEV'] %>
