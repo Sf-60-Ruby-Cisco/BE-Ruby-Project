@@ -43,6 +43,8 @@ gem 'sidekiq-cron'
 
 gem "stimulus-rails"
 
+gem 'rails-bootstrap-tabs', '~> 0.3.2'
+
 gem "jbuilder"
 
 gem "tzinfo-data"
@@ -67,5 +69,6 @@ end
 
 group :development do
   gem "web-console"
+  gem 'bullet'
 end
 

@@ -1,24 +1,27 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe "Cars", type: :request do  
+  
   it 'should generate correct routes' do
     assert_routing({ path: 'cars', method: :post },
-                   { controller: 'cars', action: 'create' })
+                   { controller: 'cars', action: 'create'})
     assert_routing({ path: 'cars/1', method: :get },
-                   { controller: 'cars', action: 'show', id: '1' })
+                   { controller: 'cars', action: 'show', id: '1'})
     assert_routing({ path: 'cars/3', method: :delete},
-                   { controller: 'cars', action: 'destroy', id: '3' })
+                   { controller: 'cars', action: 'destroy', id: '3'})
     assert_routing({ path: 'cars/1', method: :put},
                    { controller: 'cars', action: 'update', id: '1' })
     assert_routing({ path: 'cars/1/edit', method: :get},
                   { controller: 'cars', action: 'edit', id: '1' })
   end
 
-  let!(:user) { FactoryBot.create(:user)}
+  let(:user) { FactoryBot.create(:user)}
   before(:each) { sign_in user }
 
   describe 'GET /cars' do
-    let!(:car) { create(:car) }
+    let(:car) { create(:car) }
     before(:each) { get cars_path }
     it 'should render the correct template' do
       expect(response).to have_http_status(200)
@@ -47,7 +50,7 @@ RSpec.describe "Cars", type: :request do
     context 'with valid id' do
       let!(:car) { create(:car) }      
         it 'should delete car' do
-          expect { delete car_path(locale: :en, id: car.id) }.to change { Car.count }.by(-1)
+          expect { delete car_path(id: car.id) }.to change { Car.count }.by(-1)
         end
     end
   end
