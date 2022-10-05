@@ -12,8 +12,12 @@
   == render "statistic", total_items: @total_taxes_year, total_per_item: @all_car_taxes_year, \
      max_length: @max_length_taxes_year, title: "tax"
 
+#contentwrapper3
+  == render "statistic", total_items: @total_expenses, total_per_item: @all_car_expenses, \
+     max_length: @max_length_expenses, title: "expen"
+
 
 #contentwrapper1
-  == bar_chart (@total_year), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (@max_length_chargings_year.ceil + @max_length_repairs_year.ceil + @max_length_taxes_year.ceil + 500)
-  - @total_year.each do |key, value|      
-    == pie_chart ({t("car.r_descr") => @max_length_repairs_year , t("car.c_descr") => @max_length_chargings_year.to_f, t("car.tax") => @max_length_taxes_year}), colors: ['#1E90FF', '#B0E0E6', "#90EE90"], prefix: "$"
+  == bar_chart (@total), height: "100px", width: "300px", title: t("statistic.total"), prefix: "$", colors: ["DarkBlue"], max: (@max_length_chargings.ceil + @max_length_repairs.ceil + @max_length_taxes.ceil + @max_length_expenses.ceil + 500)
+  - @total.each do |key, value|      
+    == pie_chart ({t("car.r_descr") => @max_length_repairs , t("car.c_descr") => @max_length_chargings.to_f, t("car.tax") => @max_length_taxes, t("car.expense") => @max_length_expenses}), colors: ['#1E90FF', '#B0E0E6', "#90EE90", "#00FFFF"], prefix: "$"

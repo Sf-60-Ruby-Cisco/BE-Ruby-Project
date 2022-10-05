@@ -25,6 +25,7 @@ en:
     desc: "Description"
     r_descr: "Repairs"
     c_descr: "Chargings"
+    expense: "Expenses"
     bs: "Brand station"
     rd: "Repair description"
     upload: " Upload your invoice"

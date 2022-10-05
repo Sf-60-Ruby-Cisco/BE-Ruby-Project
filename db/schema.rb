@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2022_09_21_210805) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_110419) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,10 +81,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_21_210805) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price_cents", default: 0, null: false
-    t.string "price_currency", default: "USD", null: false
     t.bigint "cars_id"
     t.bigint "car_id"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "USD", null: false
     t.index ["car_id"], name: "index_expenses_on_car_id"
     t.index ["cars_id"], name: "index_expenses_on_cars_id"
   end

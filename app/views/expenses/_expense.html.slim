@@ -1,8 +1,8 @@
 tr[id="#{dom_id(expense)}_item"]
   td.descriprion = expense.description
-  td.price
+  td.amount
     | $
-    = expense.price
+    = expense.amount
   td.date = expense.date
   td.actions 
     == turbo_frame_tag expense
