@@ -1,0 +1,4 @@
+= form_with(url: "/statistics", method: "get", data: { turbo_stream: true }) do |form|
+  div.f
+    = form.date_select :date,  {:start_year => 2020, :end_year => DateTime.now.year, \
+      :discard_day => true, datetime_select: :start}, :onchange => 'this.form.requestSubmit();'
