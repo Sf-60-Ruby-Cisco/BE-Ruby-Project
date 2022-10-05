@@ -1,6 +1,7 @@
 class TaxesController < ApplicationController
   include ChargingsControllerConcern
   
+  load_and_authorize_resource
   before_action :get_car
   before_action :authenticate_user!
   before_action :set_tax, only: %i[ edit update destroy ]
@@ -80,7 +81,7 @@ class TaxesController < ApplicationController
     end
 
     def get_car
-      @car = current_user.cars.find(params[:car_id])
+      @car = Car.find(params[:car_id])
     end
 
     # Only allow a list of trusted parameters through.

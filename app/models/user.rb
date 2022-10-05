@@ -6,12 +6,14 @@ class User < ApplicationRecord
    
   attr_writer :login       
   has_many :cars  
-  validate :validate_username, :content
+  validate :validate_username, :content, on: :create
   validates_uniqueness_of :username, :email
   has_one_attached :content do |attachable|
     attachable.variant :thumb, resize_to_limit: [46, 46]
   end
   
+  paginates_per 3
+
   validates_with TypeValidator
   validates :password, length: { minimum: 6, maximum: 20 }, on: :create
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: {maximum: 320} 
@@ -40,7 +42,7 @@ class User < ApplicationRecord
   end  
 
   def validate_username
-    if User.where(email: username).exists?
+    if User.where(username: username).exists?
       errors.add(:username, :invalid)
     end
   end  

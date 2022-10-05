@@ -6,3 +6,34 @@ import "@rails/actiontext"
 import "chartkick"
 import "Chart.bundle"
 
+
+
+// Showing and hiding edit forms in admin panel 
+document.addEventListener("turbo:load", function() {
+  $('#button').click(function () {
+      if ($('.adminf').is(':hidden')) {
+          $('.adminf').show();
+          $('#button').text('Hide edit forms').button("refresh");
+      } else {
+          $('.adminf').hide();
+          $('#button').text('Show edit forms').button("refresh");
+      }
+    }); 
+  });
+  
+
+  document.addEventListener("turbo:load", function() {
+    $('#deactiv').click(function () {
+        if ($('.deactivated').is(':hidden')) {
+            $('.deactivated').show();
+            $('#deactiv').text('Hide deactivated users').button("refresh");
+        } else {
+            $('.deactivated').hide();
+            $('#deactiv').text('Show deactivated users').button("refresh");
+        }
+      }); 
+    });
+    
+  
+
+ 
