@@ -1,7 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 # Heroku, allowing host
-Rails.application.config.hosts << "test-car.herokuapp.com"
+# Rails.application.config.hosts << "test-car.herokuapp.com"
+Rails.application.config.hosts << "cardiaryapp.herokuapp.com"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -95,7 +96,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # Mailer Settings
-  config.action_mailer.default_url_options = { host: 'test-car.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'cardiaryapp.herokuapp.com' }
   config.action_mailer.smtp_settings = {
     port: 587,
     address: 'smtp.gmail.com',
