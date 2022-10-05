@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def destroy    
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to (request.referrer||admin_path),status: 302, notice: 'User was successfully deleted.' }   
+      format.html { redirect_to (request.referrer||admin_path),status: :see_other, notice: 'User was successfully deleted.' }   
       format.json { head :no_content } 
     end
   end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user.update_column(:email, params[:user].delete(:email))
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to (request.referrer||admin_path),status: 302, notice: "User successfully updated"}
+        format.html { redirect_to (request.referrer||admin_path),status: :see_other, notice: "User successfully updated"}
         format.json { render :show, status: 302, location: @user }
       else
         format.html { redirect_to (request.referrer||admin_path), status: :unprocessable_entity, alert: "Something is missing" }
