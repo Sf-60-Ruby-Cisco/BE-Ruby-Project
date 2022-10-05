@@ -31,6 +31,8 @@ gem 'rails-i18n', '~> 7.0.0'
 
 gem 'devise-i18n'
 
+gem 'cancancan'
+
 gem "puma", "~> 5.0"
 
 gem "importmap-rails"
@@ -42,6 +44,8 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 
 gem "stimulus-rails"
+
+gem 'rails-bootstrap-tabs', '~> 0.3.2'
 
 gem "jbuilder"
 
@@ -55,10 +59,11 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
-  gem 'shoulda-matchers', '~> 5.1'
+  gem 'shoulda-matchers'
 end
 
 group :development do
   gem "web-console"
+  gem 'bullet'
 end
 

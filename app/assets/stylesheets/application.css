@@ -21,6 +21,7 @@
  *= require buttons_homepage
  *= car_views
  *= about
+ *= admin
  */
 
 @font-face {
@@ -71,7 +72,6 @@ div.next {
 #leftcolumn {
   display: inline-block;
   border: 1px black solid;
-  width: 25%;
   height: 100%;
   background: beige;
   vertical-align: top;
@@ -81,7 +81,6 @@ div.next {
   /* display:inline-block;
   margin-left: 100px; */
   display: inline-block;
-  width: 25%;
   height: 100%;
   border: 1px black solid;
   background: aliceblue;
@@ -92,7 +91,6 @@ div.next {
   /* display:inline-block;
   margin-left: 100px; */
   display: inline-block;
-  width: 25%;
   height: 100%;
   border: 1px black solid;
   background: rgb(246, 225, 215);
@@ -103,7 +101,6 @@ div.next {
   /* display:inline-block;
   margin-left: 100px; */
   display: inline-block;
-  width: 25%;
   height: 100%;
   border: 1px black solid;
   background: rgb(219, 246, 215);
@@ -115,5 +112,6 @@ div.stat {
   position: relative;
   font-size: 2vw;
   margin-top: 10px;
-  margin-left: 300px;
+  margin-left: 30%;
 }
+

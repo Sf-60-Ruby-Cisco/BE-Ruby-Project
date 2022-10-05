@@ -1,0 +1,25 @@
+div.next
+  - @deactiv.each do |d|
+      div.render       
+        .card[style="width:20vw;"]
+          p.id
+              strong 
+                = t("login.id")
+              =< d.id
+          - if d.content.present?
+            a.[href= rails_blob_path(d.content)]
+              = image_tag d.content.variant(resize_to_limit: [100, 100])
+          p.username
+              strong 
+                = t("login.username")
+              =< d.username
+          p.username
+            strong 
+              = t("login.deactive")
+            =< d.deactivated
+          p.email
+            strong 
+              = t("login.email")
+            =< d.email
+         
+         

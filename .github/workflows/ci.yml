@@ -1,0 +1,43 @@
+name: Continous Integration.
+
+on:
+  pull_request:
+    types: [opened, review_requested]
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: car_diary_test
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER_DEV }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PW_DEV }}
+        ports: ['5432:5432']
+        options:
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.3
+          bundler-cache: true
+      - name: Build and run tests
+        env:
+          DATABASE_URL_DEV: postgresql://${{ secrets.POSTGRES_USER_DEV }}:@localhost:5432/car_diary_test
+          RAILS_ENV: test
+          POSTGRES_USER_DEV: ${{ secrets.POSTGRES_USER_DEV }}
+          POSTGRES_PW_DEV: ${{ secrets.POSTGRES_PW_DEV }}
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          bundle install --jobs 4 --retry 3
+          bundle exec rake db:create
+          bundle exec rake db:migrate
+          RAILS_ENV=test bundle exec rspec 

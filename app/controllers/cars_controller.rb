@@ -1,7 +1,8 @@
 class CarsController < ApplicationController  
+  load_and_authorize_resource
   before_action :set_car, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :check_user, :only => [:edit, :show] 
+  # before_action :check_user, :only => [:edit, :show]
   
   # GET /cars or /cars.json
   def index   
@@ -75,7 +76,7 @@ class CarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_car
-      @car = Car.find(params[:id])
+      @car = Car.find(params[:id])       
     end
 
     # Only allow a list of trusted parameters through.
@@ -83,13 +84,8 @@ class CarsController < ApplicationController
       params.require(:car).permit(:brand, :model, :engine, :fuel_type, :year, :license_plate, :content)
     end
 
-
     # Deny url to be edited, and deny access to other users cars
-    def check_user
-      @car = Car.find(params[:id])
-      unless current_user.id == @car.user_id
-        redirect_to (request.referrer||root_path)      
-      end
-    end
-
+    # def check_user
+    #   @car = current_user.cars.find(params[:id])
+    # end
 end

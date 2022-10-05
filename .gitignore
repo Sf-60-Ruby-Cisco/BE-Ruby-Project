@@ -1,6 +1,7 @@
 # New
 .env
 .ruby-version
+.gitconfig
 
 # Ignore bundler config.
 /.bundle

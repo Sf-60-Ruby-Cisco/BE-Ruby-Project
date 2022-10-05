@@ -3,6 +3,12 @@ require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    authenticate :user, lambda { |user| user.admin?} do
+      get 'admin' => 'admin#index'
+      resources :admin, only: :index do
+        get 'page/:page', action: :index, on: :collection
+      end
+    end
     resources :cars do   
       member do
         delete :purge_content
@@ -14,6 +20,7 @@ Rails.application.routes.draw do
     end
 
     devise_for :users, controllers: { registrations: 'users/registrations' } 
+    resources :users, only: [:destroy, :update]     
     devise_scope :user do
       get '/users' =>  'devise/registrations#new'
     end
