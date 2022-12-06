@@ -1,0 +1,11 @@
+tr[id="#{dom_id(expense)}_item"]
+  td.descriprion = expense.description
+  td.amount
+    | $
+    = expense.amount
+  td.date = expense.date
+  td.actions 
+    == turbo_frame_tag expense
+      == link_to "Edit ", edit_car_expense_path(car_id: @car.id, id: expense.id)
+    == link_to "Delete", car_expense_path(car_id: @car.id, id: expense.id), data: { \
+        turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this expense ?" }

@@ -6,6 +6,8 @@
     == render "repairs/update", repairs: @repairs
   - elsif params["update"] == "taxes"
     == render "taxes/update", taxes: @taxes
+  - elsif params["update"] == "expenses"
+    == render "expenses/update", expenses: @expenses
 
 - if flash.any?
   == turbo_stream.replace "messagesContainer"

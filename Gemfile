@@ -53,13 +53,20 @@ gem "tzinfo-data"
 
 gem "bootsnap", require: false
 
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+	
+	gem 'bullet'	
+	
+  gem "pry"
+
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+
 end
 
 group :development do
